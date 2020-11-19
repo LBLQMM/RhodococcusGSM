@@ -12,5 +12,6 @@ For Diamond installing instructions look into the following: http://www.diamonds
 After installing all dependencies, initiate carveme with the following command: "carveme_init"
 To create R.opacus model, the following genome data was used: https://www.ncbi.nlm.nih.gov/assembly/GCF_000234335.1
 The following command creates R.opacus GEM: "carve --refseq GCF_000234335.1 -o Ropacus_carveme.xml"
+
 After the model is created, perform gapfilling for the model using the following command: "gapfill Ropacus_carveme.xml -m M9,LB -o new_model.xml"
 The model should be ready and was curated using the notebook given in this repo.
