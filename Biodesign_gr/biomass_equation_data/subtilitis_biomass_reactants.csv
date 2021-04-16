@@ -1,4 +1,4 @@
-﻿coefficient,name,abbreviation,category,molecular_weight
+﻿﻿coefficient,name,abbreviation,category,molecular_weight
 0.000216,10-Formyltetrahydrofolate,10fthf_c,carbon carrier,471.43
 0.498716,L-Alanine,ala__L_c,protein,89.094
 0.000216,S-Adenosyl-L-methionine,amet_c,carbon carrier,399.446
@@ -13,10 +13,10 @@
 0.129616,CTP,ctp_c,energy molecule,479.124
 0.000688,Cu2+,cu2_c,salt,63.546
 0.088911,L-Cysteine,cys__L_c,protein,121.154
-0.025403,DATP,datp_c,nucleic,487.151
-0.026229,DCTP,dctp_c,nucleic,463.125
-0.026229,DGTP,dgtp_c,nucleic,503.15
-0.025403,DTTP,dttp_c,nucleic,478.136
+0.025403,DATP,datp_c,nucleic acid,487.151
+0.026229,DCTP,dctp_c,nucleic acid,463.125
+0.026229,DGTP,dgtp_c,nucleic acid,503.15
+0.025403,DTTP,dttp_c,nucleic acid,478.136
 0.000216,Flavinadeninedinucleotideoxidized,fad_c,energy molecule,783.541
 0.006519,Fe2+,fe2_c,salt,55.845
 0.00758,Fe3+,fe3_c,salt,55.845
@@ -59,8 +59,3 @@
 0.139904,UTP,utp_c,energy molecule,480.108
 0.410827,L-Valine,val__L_c,protein,117.148
 0.000331,Zinc,zn2_c,salt,65.38
-52.37741576,ADP,adp_c,energy molecule,427.201
-52.37741576,H+,h_c,water,1.008
-52.37320421,Phosphate,pi_c,energy molecule,94.971
-0.751344563,Diphosphate,ppi_c,energy molecule,173.945
-,,,,

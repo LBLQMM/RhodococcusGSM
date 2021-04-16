@@ -1,0 +1,5 @@
+coefficient,name,abbreviation,category,molecular_weight
+52.37741576,ADP,adp_c,energy molecule,427.201
+52.37741576,H+,h_c,water,1.008
+52.37320421,Phosphate,pi_c,energy molecule,94.971
+0.751344563,Diphosphate,ppi_c,energy molecule,173.945
