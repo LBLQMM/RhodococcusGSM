@@ -1,0 +1,61 @@
+﻿﻿coefficient,name,abbreviation,category,molecular_weight
+0.000216,10-Formyltetrahydrofolate,10fthf_c,carbon carrier,471.43
+0.498716,L-Alanine,ala__L_c,protein,89.094
+0.000216,S-Adenosyl-L-methionine,amet_c,carbon carrier,399.446
+0.28717,L-Arginine,arg__L_c,protein,175.212
+0.234029,L-Asparagine,asn__L_c,protein,132.119
+0.234029,L-Aspartate,asp__L_c,protein,132.095
+52.547151,ATP,atp_c,energy molecule,503.15
+0.005053,Calcium,ca2_c,salt,40.078
+0.005053,Chloride,cl_c,salt,35.45
+0.000559,CoenzymeA,coa_c,carbon carrier,763.502
+0.000097,Co2+,cobalt2_c,salt,58.933
+0.129616,CTP,ctp_c,energy molecule,479.124
+0.000688,Cu2+,cu2_c,salt,63.546
+0.088911,L-Cysteine,cys__L_c,protein,121.154
+0.025403,DATP,datp_c,nucleic acid,487.151
+0.026229,DCTP,dctp_c,nucleic acid,463.125
+0.026229,DGTP,dgtp_c,nucleic acid,503.15
+0.025403,DTTP,dttp_c,nucleic acid,478.136
+0.000216,Flavinadeninedinucleotideoxidized,fad_c,energy molecule,783.541
+0.006519,Fe2+,fe2_c,salt,55.845
+0.00758,Fe3+,fe3_c,salt,55.845
+0.255489,L-Glutamine,gln__L_c,protein,146.146
+0.255489,L-Glutamate,glu__L_c,protein,146.122
+0.59478,Glycine,gly_c,protein,75.067
+0.000971,Glycerolteichoicacidn45unlinkedunsubstitutedC151H297N2O238P46,gtca1_45_BS_c,lipid,7373.617
+0.000971,Glycerolteichoicacidn45unlinkedDalasubstitutedC286H612N47O328P46,gtca2_45_BS_c,lipid,11382.847
+0.000971,Glycerolteichoicacidn45unlinkedglucosesubstitutedC421H749N2O464P46,gtca3_45_BS_c,lipid,14687.977
+0.208826,GTP,gtp_c,energy molecule,519.149
+47.184845,H2O,h2o_c,water,18.015
+0.091976,L-Histidine,his__L_c,protein,155.157
+0.28206,L-Isoleucine,ile__L_c,protein,131.175
+0.189503,Potassium,k_c,salt,39.098
+0.437399,L-Leucine,leu__L_c,protein,131.175
+0.000049,Lipoteichoicacidn24linkedglucosesubstitutedC26236H47072O25500P2400,lipo1_24_BS_c,lipid,844881.272
+0.000049,Lipoteichoicacidn24linkedNacetylDglucosamineC31036H54272N2400O25500P2400,lipo2_24_BS_c,lipid,943408.472
+0.000049,Lipoteichoicacidn24linkedDalaninesubstitutedC19036H39872N2400O18300P2400,lipo3_24_BS_c,lipid,669568.472
+0.000049,Lipoteichoicacidn24linkedunsubstitutedC11836H23072O13500P2400,lipo4_24_BS_c,lipid,455742.872
+0.333158,L-Lysine,lys__L_c,protein,147.198
+0.149206,L-Methionine,met__L_c,protein,149.208
+0.008422,Magnesium,mg2_c,salt,24.305
+0.000216,510-Methylenetetrahydrofolate,mlthf_c,carbon carrier,455.431
+0.000671,Mn2+,mn2_c,salt,54.938
+0.000097,Menaquinol8,mql8_c,energy molecule,719.151
+0.001778,Nicotinamideadeninedinucleotide,nad_c,energy molecule,662.422
+0.000434,Nicotinamideadeninedinucleotidephosphate,nadp_c,energy molecule,740.385
+0.009709,PeptidoglycansubunitofBacillussubtilisC40H62N8O21,peptido_BS_c,carbohydrate,990.971
+0.179865,L-Phenylalanine,phe__L_c,protein,165.192
+0.214611,L-Proline,pro__L_c,protein,115.132
+0.000216,Pyridoxal5-phosphate,pydx5p_c,energy molecule,245.127
+0.000216,Riboflavin,ribflv_c,energy molecule,376.369
+0.209502,L-Serine,ser__L_c,protein,105.093
+0.004212,Sulfate,so4_c,salt,96.056
+0.000216,5678-Tetrahydrofolate,thf_c,carbon carrier,443.42
+0.000216,Thiaminediphosphate,thmpp_c,energy molecule,422.289
+0.246292,L-Threonine,thr__L_c,protein,119.12
+0.055186,L-Tryptophan,trp__L_c,protein,204.229
+0.133876,L-Tyrosine,tyr__L_c,protein,181.191
+0.139904,UTP,utp_c,energy molecule,480.108
+0.410827,L-Valine,val__L_c,protein,117.148
+0.000331,Zinc,zn2_c,salt,65.38
