@@ -1,12 +1,12 @@
 ﻿Pathway,Forward Reactions,Reverse Reactions,Reversed?,Reaction,Flux,90% Confidence Lower Bound,90% Confidence Upper Bound
-Glucose Uptake,EX_glc__D_e,EX_glc__D_e_reverse_af641,,Gluc.ext + ATP -> G6P,100,100,100
-Glycolysis,HEX1,PPGKr or HEX1_reverse_25efa,FALSE,G6P <-> F6P,-1.61,-2.09,1.42
-Glycolysis,FBP,FBP_reverse_bf2c9 or PFK,,F6P + ATP -> FBP,0,0,1.91
-Glycolysis,FBA,FBA_reverse_84806,FALSE,FBP <-> DHAP + GAP,0,0,1.91
+Glucose Uptake,GLCpts,EX_glc__D_e_reverse_af641,,Gluc.ext + ATP -> G6P,100,100,100
+Glycolysis,PGI,PPGKr or HEX1_reverse_25efa,FALSE,G6P <-> F6P,-1.61,-2.09,1.42
+Glycolysis,F6PA and DHAK ,FBP_reverse_bf2c9 or PFK,,F6P + ATP -> FBP,0,0,1.91
+Glycolysis,F6PA and DHAK ,FBA_reverse_84806,FALSE,FBP <-> DHAP + GAP,0,0,1.91
 Glycolysis,TPI,TPI_reverse_c2c3b,FALSE,DHAP <-> GAP,0,0,1.91
-Glycolysis,GAPD,GAPD_reverse_459c1 and PGK,,GAP <-> 3PG + ATP + NADH,86.56,82.61,88.84
-Glycolysis,( PGM_1 or PGM_reverse_fc9af ) and ENO,( PGM or PGM_1_reverse_02963 ) and ENO_reverse_40eea,,3PG <-> PEP,78.52,71.65,81.26
-Glycolysis,FRUpts2pp or SBTpts or MNLpts or ACGApts or FRUpts2 or MANpts or FRUpts or ARBTpts or PYK or GALTpts or SUCpts or TREptspp or TREpts or GLCptspp or PPS_reverse_1c319 or ACGAptspp or SALCptspp or MALTptspp or FRUptspp or SUCptspp or DHAPT or MALTpts or ACMANApts or GAMpts or SALCpts or GLCpts,FRUpts2pp_reverse_55dac or SBTpts_reverse_74edb or MNLpts_reverse_1cd47 or ACGApts_reverse_c8fb6 or FRUpts2_reverse_58d3a or MANpts_reverse_f6e00 or FRUpts_reverse_441fc or ARBTpts_reverse_887d9 or PYK_reverse_bc8ff or GALTpts_reverse_540c5 or SUCpts_reverse_375e3 or TREptspp_reverse_dc50f or TREpts_reverse_98caf or GLCptspp_reverse_9cf76 or PPS or ACGAptspp_reverse_e1a6e or SALCptspp_reverse_64f58 or MALTptspp_reverse_1cf27 or FRUptspp_reverse_8cdda or SUCptspp_reverse_66a2f or DHAPT_reverse_62f68 or MALTpts_reverse_de29b or ACMANApts_reverse_65de8 or GAMpts_reverse_5ce6d or SALCpts_reverse_5f119 or GLCpts_reverse_a52ae,,PEP <-> Pyr + ATP,19.02,-10.89,75.15
+Glycolysis,GAPD and -1*PGK,GAPD_reverse_459c1 and PGK,,GAP <-> 3PG + ATP + NADH,86.56,82.61,88.84
+Glycolysis,( -1*PGM or PGM_1 ) and ENO,( PGM or PGM_1_reverse_02963 ) and ENO_reverse_40eea,,3PG <-> PEP,78.52,71.65,81.26
+Glycolysis,-1*PPS or FRUpts2pp or SBTpts or MNLpts or ACGApts or FRUpts2 or MANpts or FRUpts or ARBTpts or PYK or GALTpts or SUCpts or TREptspp or TREpts or GLCptspp or ACGAptspp or SALCptspp or MALTptspp or FRUptspp or SUCptspp or DHAPT or MALTpts or ACMANApts or GAMpts or SALCpts or GLCpts,FRUpts2pp_reverse_55dac or SBTpts_reverse_74edb or MNLpts_reverse_1cd47 or ACGApts_reverse_c8fb6 or FRUpts2_reverse_58d3a or MANpts_reverse_f6e00 or FRUpts_reverse_441fc or ARBTpts_reverse_887d9 or PYK_reverse_bc8ff or GALTpts_reverse_540c5 or SUCpts_reverse_375e3 or TREptspp_reverse_dc50f or TREpts_reverse_98caf or GLCptspp_reverse_9cf76 or PPS or ACGAptspp_reverse_e1a6e or SALCptspp_reverse_64f58 or MALTptspp_reverse_1cf27 or FRUptspp_reverse_8cdda or SUCptspp_reverse_66a2f or DHAPT_reverse_62f68 or MALTpts_reverse_de29b or ACMANApts_reverse_65de8 or GAMpts_reverse_5ce6d or SALCpts_reverse_5f119 or GLCpts_reverse_a52ae,,PEP <-> Pyr + ATP,19.02,-10.89,75.15
 Pentose Phosphate Pathway,,,,G6P <-> 6PG + NADPH,100,96.96,100
 Pentose Phosphate Pathway,,,,6PG <-> Ru5P + CO2 + NADPH,6.62,2.07,10.92
 Pentose Phosphate Pathway,,,,Ru5P <-> X5P,2.12,-0.89,4.37
