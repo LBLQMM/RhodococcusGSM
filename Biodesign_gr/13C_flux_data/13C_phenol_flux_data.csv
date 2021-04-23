@@ -1,98 +1,71 @@
-Pathway,Reaction,Flux,90% Confidence Lower Bound,90% Confidence Upper Bound
-Phenol Consumption,Phenol.ext -> AcCoA + SucCoA,100,100,100
-TCA Cycle,Pyr <-> AcCoA + CO2 + NADH,59.2327,56.6826,62.0459
-,OAC + AcCoA -> Cit,114.4391,110.2766,118.48
-,Cit -> ICit,114.4391,110.2766,118.48
-,ICit -> AKG + CO2 + NADPH,113.4677,106.8011,118.48
-,AKG -> SucCoA + CO2 + NADH,108.6053,101.7297,113.8305
-,SucCoA -> Suc + ATP,207.4789,200.562,212.7536
-,Suc -> Fum + FADH2,208.5767,203.2666,212.8305
-,Fum -> Mal,209.6703,204.3514,213.8762
-,Mal -> OAC + NADH,171.0231,129.2999,174.5648
-Anaplerotic Reactions,OAC + ATP -> PEP + CO2,97.7718,12.9269,100
-,PEP + CO2 -> OAC,48.9039,0,59.1635
-,Pyr + CO2 + ATP -> OAC,0.0000001,0,44.8577
-,Mal <-> Pyr + CO2 + NADH,39.6187,37.0434,100
-Glyoxylate Shunt,ICit -> Glyox + Suc,0.9714,7.1054E-15,4.5567
-,Glyox + AcCoA -> Mal,0.9714,0,4.5567
-ED Pathway,Pyr + GAP <-> KDPG,1.0413,0.2447,2.5243
-,KDPG <-> 6PG,1.0413,0.2447,2.5243
-EMP Pathway,PEP <-> Pyr + ATP,29.9999,0,30
-,PEP <-> 3PG,16.2538,13.6034,16.9556
-,3PG + ATP + NADH <-> GAP,10.7907,9.104,11.2235
-,GAP <-> DHAP,2,0.7683,2
-,DHAP + GAP <-> FBP,2,0.7683,2
-,FBP <-> F6P,2,0.7683,2
-,F6P <-> G6P,0.4793,-0.9306,1.4219
-Pentose Phosphate Pathway,G6P <-> 6PG + NADPH,-0.5767,-2.0181,0.3824
-,6PG <-> Ru5P + CO2 + NADPH,0.4646,-1.6599,1.8755
-,Ru5P <-> X5P,-1.1874,-2.6115,-0.2468
-,Ru5P <-> R5P,1.6521,0.9081,2.1385
-,X5P <-> TKC2 + GAP,-1.1874,-2.6115,-0.2468
-,F6P <-> TKC2 + E4P,1.1874,0.7099,1.909
-,S7P <-> TKC2 + R5P,-2.1316E-14,-0.4698,0.7076
-,F6P <-> TAC3 + GAP,-7.1054E-15,-0.4698,0.7076
-,S7P <-> TAC3 + E4P,8.5265E-14,-0.7076,0.4698
-Acetate Formation,AcCoA <-> Ac + ATP,-1.2344,-1.2951,-1.1565
-Biomass Formation,AKG + NADPH + NH3 -> Glu,23.3497,21.876,24.6312
-,Glu + ATP + NH3 -> Gln,2.7926,2.6163,2.9301
-,Glu + ATP + 2*NADPH -> Pro,0.6899,0.6464,0.7239
-,Glu + CO2 + Gln + Asp + AcCoA + 5*ATP + NADPH -> Arg + AKG + Fum + Ac,0.8167,0.7651,0.8569
-,OAC + Glu -> Asp + AKG,6.6694,6.2483,8.6931
-,Asp + 2*ATP + NH3 -> Asn,0.7181,0.6728,0.7534
-,Pyr + Glu -> Ala + AKG,2.4171,2.2646,2.5361
-,3PG + Glu -> Ser + AKG + NADH,3.4449,2.3762,3.6145
-,Ser <-> Gly + MEETHF,1.9759,0.9249,2.0739
-,Gly <-> CO2 + MEETHF + NADH + NH3,0.1033,0.0613,1.1342
-,Thr <-> Gly + AcCoA + NADH,0.000058092,NaN,2.0636
-,Ser + AcCoA + 3*ATP + 4*NADPH + SO4 -> Cys + Ac,0.4177,0.3913,0.4383
-,Asp + Pyr + Glu + SucCoA + ATP + 2*NADPH -> LLDAP + AKG + Suc,0.8495,0.7959,0.8913
-,LLDAP -> Lys + CO2,0.8495,0.7959,0.8913
-,Asp + 2*ATP + 2*NADPH -> Thr,1.6709,1.5474,3.7216
-,Asp + METHF + Cys + SucCoA + ATP + 2*NADPH -> Met + Pyr + Suc + NH3,0.2769,0.2594,0.2905
-,Pyr + Pyr + Glu + NADPH -> Val + CO2 + AKG,1.3142,1.2312,1.3789
-,AcCoA + Pyr + Pyr + Glu + NADPH -> Leu + CO2 + CO2 + AKG + NADH,1.4174,1.328,1.4872
-,Thr + Pyr + Glu + NADPH -> Ile + CO2 + AKG + NH3,0.7275,0.6816,0.7633
-,PEP + PEP + E4P + Glu + ATP + NADPH -> Phe + CO2 + AKG,0.6477,0.6068,0.6796
-,PEP + PEP + E4P + Glu + ATP + NADPH -> Tyr + CO2 + AKG + NADH,0.3145,0.2946,0.3299
-,Ser + R5P + PEP + E4P + PEP + Gln + 3*ATP + NADPH -> Trp + CO2 + GAP + Pyr + Glu,0.2253,0.2111,0.2364
-,R5P + FTHF + Gln + Asp + 5*ATP -> His + AKG + Fum + 2*NADH,0.2769,0.2594,0.2905
-1-Carbon metabolism,MEETHF + NADH -> METHF,0.2769,0.2594,0.2905
-,MEETHF -> FTHF + NADPH,0.2769,0.2594,0.2905
-Oxidative Phosphorylation,NADH + 0.5*O2 -> 2*ATP,258.8145,237.3232,279.3663
-,FADH2 + 0.5*O2 -> ATP,208.5767,203.2666,212.8305
-Transhydrogenation,NADH <-> NADPH,14.4316,1.1087,27.2447
-Transport,ATP -> ATP.ext,680.0864,613.1475,787.5166
-,CO2 -> CO2.ext,376.457,365.0427,386.6854
-,Suc -> Suc.ext,1,1,3
-,O2.ext -> O2,433.6956,420.7564,445.9396
-,NH3.ext -> NH3,25.7527,24.1274,27.0206
-,SO4.ext -> SO4,0.4177,0.3913,0.4383
-Biomass Equation,0.515*Ala + 0.174*Arg + 0.153*Asn + 0.439*Asp + 0.03*Cys + 0.314*Glu + 0.314*Gln + 0.399*Gly + 0.059*His + 0.155*Ile + 0.302*Leu + 0.181*Lys + 0.059*Met + 0.138*Phe + 0.147*Pro + 0.176*Ser + 0.201*Thr + 0.067*Tyr + 0.28*Val + 0.048*Trp + 9.035*AcCoA + 0.245*R5P + 0.325*MEETHF + 0.225*G6P + 0.071*F6P + 1.02*GAP + 0.43*3PG + 0.083*Pyr + 0.051*PEP + 0.087*AKG + 0.223*OAC + 33.25*ATP + 19.3*NADPH -> 39.68*Biomass + 1.455*NADH,4.6934,4.3972,4.9245
-,,,,
-,,,,
-Exchange Fluxes,Pyr <-> AcCoA + CO2 + NADH,0.0000001,0,1.5959
-,Mal <-> Pyr + CO2 + NADH,59.9276,0,62.7292
-,Pyr + GAP <-> KDPG,7.8716,0,9.7553
-,KDPG <-> 6PG,7.8716,0,9.7554
-,PEP <-> Pyr + ATP,0.0000001,0,30
-,PEP <-> 3PG,0.0014,0,5.5231
-,3PG + ATP + NADH <-> GAP,0.000037467,0,20.6712
-,GAP <-> DHAP,29.0828,0,29.2093
-,DHAP + GAP <-> FBP,29.0828,0,29.0784
-,FBP <-> F6P,1.0828,0,1.2316
-,F6P <-> G6P,0.000047717,0,29.8807
-,G6P <-> 6PG + NADPH,0.1684,0,30
-,6PG <-> Ru5P + CO2 + NADPH,0.0000001,0,30
-,Ru5P <-> X5P,0.000045505,0,29.7532
-,Ru5P <-> R5P,8.3004,0,29.0918
-,X5P <-> TKC2 + GAP,0.000045505,0,29.7532
-,F6P <-> TKC2 + E4P,28.8109,0,29.2479
-,S7P <-> TKC2 + R5P,7.5215,0,30
-,F6P <-> TAC3 + GAP,7.5224,0,30
-,S7P <-> TAC3 + E4P,0.0000001,0,30
-,AcCoA <-> Ac + ATP,0.5813,0,0.7447
-,Ser <-> Gly + MEETHF,1.2505,0.7042,1.9126
-,Gly <-> CO2 + MEETHF + NADH + NH3,0.209,0,0.4541
-,Thr <-> Gly + AcCoA + NADH,0.0000001,0,0.0925
-,NADH <-> NADPH,0.0000001,0,12.6927
+Pathway,Forward Reactions,Reaction,Flux,90% Confidence Lower Bound,90% Confidence Upper Bound
+Phenol Uptake,PHEMOX,Phenol.ext -> AcCoA + SucCoA,100,100,100
+TCA Cycle,PDH,Pyr <-> AcCoA + CO2 + NADH,59.2327,56.6826,62.0459
+TCA Cycle,CS or -1*CITL,OAC + AcCoA -> Cit,114.4391,110.2766,118.48
+TCA Cycle,ACONT or ( ACONTa and ACONTb),Cit -> ICit,114.4391,110.2766,118.48
+TCA Cycle,ICDHx or ICDHyr,ICit -> AKG + CO2 + NADPH,113.4677,106.8011,118.48
+TCA Cycle,AKGDH or OOR3r,AKG -> SucCoA + CO2 + NADH,108.6053,101.7297,113.8305
+TCA Cycle,3OADPCOAT or OCOAT3r or SUCBZT1 or SUCBZT2 or OCOAT2r or OCOAT1 or -1*SUCOAS,SucCoA -> Suc + ATP,207.4789,200.562,212.7536
+TCA Cycle,SUCDi or -1*FRD2 or -1*FRD3 or -1*FRD5 or -1*SUCD1 or -1*FRD or -1*ASPO5,Suc -> Fum + FADH2,208.5767,203.2666,212.8305
+TCA Cycle,FUM,Fum -> Mal,209.6703,204.3514,213.8762
+TCA Cycle,MDH or MDH3 or MDH2 or DMALRED,Mal -> OAC + NADH,171.0231,129.2999,174.5648
+Anaplerotic Reactions,PEPCK_re or PPCK,OAC + ATP -> PEP + CO2,97.7718,12.9269,100
+Anaplerotic Reactions,PPC,PEP + CO2 -> OAC,48.9039,0,59.1635
+Anaplerotic Reactions,PC,Pyr + CO2 + ATP -> OAC,0.0000001,0,44.8577
+Anaplerotic Reactions,ME1 or ME2,Mal <-> Pyr + CO2 + NADH,39.6187,37.0434,100
+Glyoxylate Shunt,ICL,ICit -> Glyox + Suc,0.9714,7.11E-15,4.5567
+Glyoxylate Shunt,MALS,Glyox + AcCoA -> Mal,0.9714,0,4.5567
+ED Pathway,-1*EDD,Pyr + GAP <-> KDPG,1.0413,0.2447,2.5243
+ED Pathway,-1*EDA,KDPG <-> 6PG,1.0413,0.2447,2.5243
+EMP Pathway,PPS or -1*FRUpts2pp or -1*SBTpts or -1*MNLpts or -1*ACGApts or -1*FRUpts2 or -1*MANpts or -1*FRUpts or -1*ARBTpts or -1*PYK or -1*GALTpts or -1*SUCpts or -1*TREptspp or -1*TREpts or -1*GLCptspp or -1*ACGAptspp or -1*SALCptspp or -1*MALTptspp or -1*FRUptspp or -1*SUCptspp or -1*DHAPT or -1*MALTpts or -1*ACMANApts or -1*GAMpts or -1*SALCpts or -1*GLCpts,PEP <-> Pyr + ATP,29.9999,0,30
+EMP Pathway,,PEP <-> 3PG,16.2538,13.6034,16.9556
+EMP Pathway,,3PG + ATP + NADH <-> GAP,10.7907,9.104,11.2235
+EMP Pathway,,GAP <-> DHAP,2,0.7683,2
+EMP Pathway,,DHAP + GAP <-> FBP,2,0.7683,2
+EMP Pathway,,FBP <-> F6P,2,0.7683,2
+EMP Pathway,,F6P <-> G6P,0.4793,-0.9306,1.4219
+Pentose Phosphate Pathway,,G6P <-> 6PG + NADPH,-0.5767,-2.0181,0.3824
+Pentose Phosphate Pathway,,6PG <-> Ru5P + CO2 + NADPH,0.4646,-1.6599,1.8755
+Pentose Phosphate Pathway,,Ru5P <-> X5P,-1.1874,-2.6115,-0.2468
+Pentose Phosphate Pathway,,Ru5P <-> R5P,1.6521,0.9081,2.1385
+Pentose Phosphate Pathway,,X5P <-> TKC2 + GAP,-1.1874,-2.6115,-0.2468
+Pentose Phosphate Pathway,,F6P <-> TKC2 + E4P,1.1874,0.7099,1.909
+Pentose Phosphate Pathway,,S7P <-> TKC2 + R5P,-2.13E-14,-0.4698,0.7076
+Pentose Phosphate Pathway,,F6P <-> TAC3 + GAP,-7.11E-15,-0.4698,0.7076
+Pentose Phosphate Pathway,,S7P <-> TAC3 + E4P,8.53E-14,-0.7076,0.4698
+Acetate Formation,,AcCoA <-> Ac + ATP,-1.2344,-1.2951,-1.1565
+Biomass Formation,,AKG + NADPH + NH3 -> Glu,23.3497,21.876,24.6312
+Biomass Formation,,Glu + ATP + NH3 -> Gln,2.7926,2.6163,2.9301
+Biomass Formation,,Glu + ATP + 2*NADPH -> Pro,0.6899,0.6464,0.7239
+Biomass Formation,,Glu + CO2 + Gln + Asp + AcCoA + 5*ATP + NADPH -> Arg + AKG + Fum + Ac,0.8167,0.7651,0.8569
+Biomass Formation,,OAC + Glu -> Asp + AKG,6.6694,6.2483,8.6931
+Biomass Formation,,Asp + 2*ATP + NH3 -> Asn,0.7181,0.6728,0.7534
+Biomass Formation,,Pyr + Glu -> Ala + AKG,2.4171,2.2646,2.5361
+Biomass Formation,,3PG + Glu -> Ser + AKG + NADH,3.4449,2.3762,3.6145
+Biomass Formation,,Ser <-> Gly + MEETHF,1.9759,0.9249,2.0739
+Biomass Formation,,Gly <-> CO2 + MEETHF + NADH + NH3,0.1033,0.0613,1.1342
+Biomass Formation,,Thr <-> Gly + AcCoA + NADH,0.000058092,NaN,2.0636
+Biomass Formation,,Ser + AcCoA + 3*ATP + 4*NADPH + SO4 -> Cys + Ac,0.4177,0.3913,0.4383
+Biomass Formation,,Asp + Pyr + Glu + SucCoA + ATP + 2*NADPH -> LLDAP + AKG + Suc,0.8495,0.7959,0.8913
+Biomass Formation,,LLDAP -> Lys + CO2,0.8495,0.7959,0.8913
+Biomass Formation,,Asp + 2*ATP + 2*NADPH -> Thr,1.6709,1.5474,3.7216
+Biomass Formation,,Asp + METHF + Cys + SucCoA + ATP + 2*NADPH -> Met + Pyr + Suc + NH3,0.2769,0.2594,0.2905
+Biomass Formation,,Pyr + Pyr + Glu + NADPH -> Val + CO2 + AKG,1.3142,1.2312,1.3789
+Biomass Formation,,AcCoA + Pyr + Pyr + Glu + NADPH -> Leu + CO2 + CO2 + AKG + NADH,1.4174,1.328,1.4872
+Biomass Formation,,Thr + Pyr + Glu + NADPH -> Ile + CO2 + AKG + NH3,0.7275,0.6816,0.7633
+Biomass Formation,,PEP + PEP + E4P + Glu + ATP + NADPH -> Phe + CO2 + AKG,0.6477,0.6068,0.6796
+Biomass Formation,,PEP + PEP + E4P + Glu + ATP + NADPH -> Tyr + CO2 + AKG + NADH,0.3145,0.2946,0.3299
+Biomass Formation,,Ser + R5P + PEP + E4P + PEP + Gln + 3*ATP + NADPH -> Trp + CO2 + GAP + Pyr + Glu,0.2253,0.2111,0.2364
+Biomass Formation,,R5P + FTHF + Gln + Asp + 5*ATP -> His + AKG + Fum + 2*NADH,0.2769,0.2594,0.2905
+1-Carbon metabolism,,MEETHF + NADH -> METHF,0.2769,0.2594,0.2905
+1-Carbon metabolism,,MEETHF -> FTHF + NADPH,0.2769,0.2594,0.2905
+Oxidative Phosphorylation,,NADH + 0.5*O2 -> 2*ATP,258.8145,237.3232,279.3663
+Oxidative Phosphorylation,,FADH2 + 0.5*O2 -> ATP,208.5767,203.2666,212.8305
+Transhydrogenation,#NAME?,NADH <-> NADPH,14.4316,1.1087,27.2447
+Transport,ATPM,ATP -> ATP.ext,680.0864,613.1475,787.5166
+Transport,#NAME?,CO2 -> CO2.ext,376.457,365.0427,386.6854
+Transport,O2t,Suc -> Suc.ext,1,1,3
+Transport,NH4t,O2.ext -> O2,433.6956,420.7564,445.9396
+Transport,SO4t2,NH3.ext -> NH3,25.7527,24.1274,27.0206
+Transport,Growth or Growth_Phenol or Growth_Glucose,SO4.ext -> SO4,0.4177,0.3913,0.4383
+Biomass Equation,,0.515*Ala + 0.174*Arg + 0.153*Asn + 0.439*Asp + 0.03*Cys + 0.314*Glu + 0.314*Gln + 0.399*Gly + 0.059*His + 0.155*Ile + 0.302*Leu + 0.181*Lys + 0.059*Met + 0.138*Phe + 0.147*Pro + 0.176*Ser + 0.201*Thr + 0.067*Tyr + 0.28*Val + 0.048*Trp + 9.035*AcCoA + 0.245*R5P + 0.325*MEETHF + 0.225*G6P + 0.071*F6P + 1.02*GAP + 0.43*3PG + 0.083*Pyr + 0.051*PEP + 0.087*AKG + 0.223*OAC + 33.25*ATP + 19.3*NADPH -> 39.68*Biomass + 1.455*NADH,4.6934,4.3972,4.9245

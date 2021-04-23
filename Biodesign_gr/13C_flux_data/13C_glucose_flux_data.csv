@@ -6,11 +6,11 @@ Glycolysis,F6PA and DHAK ,FBP <-> DHAP + GAP,0,0,1.91
 Glycolysis,TPI,DHAP <-> GAP,0,0,1.91
 Glycolysis,GAPD and -1*PGK,GAP <-> 3PG + ATP + NADH,86.56,82.61,88.84
 Glycolysis,( -1*PGM or PGM_1 ) and ENO,3PG <-> PEP,78.52,71.65,81.26
-Glycolysis,-1*PPS or FRUpts2pp or SBTpts or MNLpts or ACGApts or FRUpts2 or MANpts or FRUpts or ARBTpts or PYK or GALTpts or SUCpts or TREptspp or TREpts or GLCptspp or ACGAptspp or SALCptspp or MALTptspp or FRUptspp or SUCptspp or DHAPT or MALTpts or ACMANApts or GAMpts or SALCpts or GLCpts,PEP <-> Pyr + ATP,19.02,-10.89,75.15
+Glycolysis,FRUpts2pp or -1*PPS or SBTpts or MNLpts or ACGApts or FRUpts2 or MANpts or FRUpts or ARBTpts or PYK or GALTpts or SUCpts or TREptspp or TREpts or GLCptspp or ACGAptspp or SALCptspp or MALTptspp or FRUptspp or SUCptspp or DHAPT or MALTpts or ACMANApts or GAMpts or SALCpts or GLCpts,PEP <-> Pyr + ATP,19.02,-10.89,75.15
 Pentose Phosphate Pathway,G6PDH2r and PGL,G6P <-> 6PG + NADPH,100,96.96,100
 Pentose Phosphate Pathway,GND,6PG <-> Ru5P + CO2 + NADPH,6.62,2.07,10.92
 Pentose Phosphate Pathway,RPE,Ru5P <-> X5P,2.12,-0.89,4.37
-Pentose Phosphate Pathway,-1*RPI,Ru5P <-> R5P,4.5,2.95,6.55
+Pentose Phosphate Pathway,#NAME?,Ru5P <-> R5P,4.5,2.95,6.55
 Pentose Phosphate Pathway,,X5P <-> TKC2 + GAP,2.12,-0.89,4.37
 Pentose Phosphate Pathway,,F6P <-> TKC2 + E4P,-0.15,-1.11,1.36
 Pentose Phosphate Pathway,,S7P <-> TKC2 + R5P,-1.97,-3.34,-0.46
@@ -61,9 +61,9 @@ Biomass Formation,,R5P + FTHF + Gln + Asp + 5*ATP -> His + AKG + Fum + 2*NADH,0.
 1-Carbon metabolism,,MEETHF -> FTHF + NADPH,0.42,0.38,0.55
 Oxidative Phosphorylation,,NADH + 0.5*O2 -> 2*ATP,334.67,138.58,403.86
 Oxidative Phosphorylation,,FADH2 + 0.5*O2 -> ATP,61.6,50.51,75.99
-Transhydrogenation,-1*NADTRHD,NADH <-> NADPH,21.31,-12.18,134.28
+Transhydrogenation,#NAME?,NADH <-> NADPH,21.31,-12.18,134.28
 ATP Maintenance,ATPM,ATP -> ATP.ext,527.47,0,737.68
-Transport,-1*CO2t,CO2 -> CO2.ext,264.28,165.71,299.18
+Transport,#NAME?,CO2 -> CO2.ext,264.28,165.71,299.18
 Transport,O2t,O2.ext -> O2,198.14,80.16,239.92
 Transport,NH4t,NH3.ext -> NH3,39.38,35.29,50.94
 Transport,SO4t2,SO4.ext -> SO4,0.64,0.57,0.83
