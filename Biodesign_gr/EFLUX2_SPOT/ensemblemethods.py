@@ -153,21 +153,20 @@ def SPOT(model, Transcriptomics):
     nrow = len(mets)
     ncol = len(rxns)
 
-    rev_rxns = ['rev_'+rxn.id for r in model.reactions if rxn.reversibility]
+    rev_rxns = ['rev_'+rxn.id for rxn in model.reactions if rxn.reversibility]
     rev_ncol = len(rev_rxns)
+    
+    """Parse GPR into a dict containing isozymes (separated by 'or')
+    # Each isozyme has a set of subunits (separated by 'and')
+    #'and' and 'or' can occur at the same time, or can occur by itself."""
+    #gpr_dict = create_gprdict(model)
 
-    gpr_dict = dict()
-    for r in model.reactions:
-        """Parse GPR into a dict containing isozymes (separated by 'or')
-        # Each isozyme has a set of subunits (separated by 'and')
-        #'and' and 'or' can occur at the same time, or can occur by itself."""
-
-    lb = [0.0 if r.reversibility else r.lower_bound for r in model.reactions] + [0.0 for r in model.reactions if r.reversibility]
-    ub = [r.upper_bound for r in model.reactions] + [-r.lower_bound for r in model.reactions if r.reversibility]
+    lb = [0.0 if rxn.reversibility else rxn.lower_bound for rxn in model.reactions] + [0.0 for rxn in model.reactions if rxn.reversibility]
+    ub = [rxn.upper_bound for rxn in model.reactions] + [-rxn.lower_bound for rxn in model.reactions if rxn.reversibility]
         
     c = []
-    for r in model.reactions:
-        if r.gene_reaction_rule:
+    for rxn in model.reactions:
+        if rxn.gene_reaction_rule:
         #If a reaction R1 has the GPR of 'A and B', it would be parsed to { {A, B} } in gpr_dict['R1']. Then t for R1 would be sum( [ min(A, B) ] ) = min(A, B).
         #If a reaction R1 has the GPR of 'A or B', it would be parsed to { {A}, {B} } in gpr_dict['R1']. Then t for R1 would be sum( [ min(A), min(B) ] ) = sum( [A, B] ).
         #If a reaction R1 has the GPR of '(A and B) or (C and D)', it would be parsed to { {A, B}, {C, D} } in gpr_dict['R1']. Then t for R1 would be sum( [ min(A, B), min(C, D) ] ).
@@ -181,9 +180,9 @@ def SPOT(model, Transcriptomics):
             c.append(transboundval)
         else:
             c.append(0.0)
-    for r in model.reactions:
-        if r.reversibility:
-            if r.gene_reaction_rule:
+    for rxn in model.reactions:
+        if rxn.reversibility:
+            if rxn.gene_reaction_rule:
                 transboundval = findtransboundval_forgprrxns(model, Transcriptomics,rxn)
                 if transboundval == np.Inf:
                     transboundval = 0
@@ -198,16 +197,17 @@ def SPOT(model, Transcriptomics):
 
     SPOT.linear_constraints.add(rhs=[0]*nrow, senses='E'*nrow, names=mets)
     SPOT.variables.add(obj=c, lb=lb, ub=ub, names=rxns+rev_rxns)
-    for r in model.reactions:
-        for m, v in r.metabolites.items():
-            SPOT.linear_constraints.set_coefficients(m.id, r.id, v)
-    for r in model.reactions:
-        if r.reversibility:
-            for m, v in r.metabolites.items():
-                SPOT.linear_constraints.set_coefficients(m.id, 'rev_'+r.id, -v)
+    for rxn in model.reactions:
+        for m, v in rxn.metabolites.items():
+            SPOT.linear_constraints.set_coefficients(m.id, rxn.id, v)
+    for rxn in model.reactions:
+        if rxn.reversibility:
+            for m, v in rxn.metabolites.items():
+                SPOT.linear_constraints.set_coefficients(m.id, 'rev_'+rxn.id, -v)
     SPOT.quadratic_constraints.add(quad_expr=[rxns+rev_rxns, rxns+rev_rxns, [1]*len(c)],
                                    sense='L', rhs=1.0, name='L2norm')#L indicating <=
     SPOT.objective.set_sense(SPOT.objective.sense.maximize)
+    display(SPOT)
     SPOT.solve()
     SPOT_sol = SPOT.solution.get_objective_value()
 
@@ -215,11 +215,12 @@ def SPOT(model, Transcriptomics):
     temp = pd.Series(data=SPOT.solution.get_values(), index=rxns+rev_rxns)
     flux = temp.loc[rxns]
     flux_rev = temp.loc[rev_rxns]
-    for r in model.reactions:
-        if r.reversibility:
-            flux.loc[r.id] = flux.loc[r.id] - flux_rev.loc['rev_'+r.id]
+    for rxn in model.reactions:
+        if rxn.reversibility:
+            flux.loc[rxn.id] = flux.loc[rxn.id] - flux_rev.loc['rev_'+rxn.id]
     sol = flux
     sol.objective_value = SPOT.solution.get_objective_value()
     sol.status = SPOT.solution.get_status_string()
+    display(model.medium)
     
     return(sol)
