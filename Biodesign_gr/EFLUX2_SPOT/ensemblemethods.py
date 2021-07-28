@@ -157,9 +157,9 @@ def EFlux2(model, Transcriptomics):
                     """When there is no GPR, the arbitrary bounds are removed. 
                     Common arbitrary bound value of 1000 for E.coli, might be different depending on the model, e.g., 99999.0 for iMM904 yeast model in BiGG"""
                     if rxn.lower_bound <= -1000:
-                        rxn.lower_bound = -np.Inf
+                        rxn.lower_bound = -1e6
                     if rxn.upper_bound >= 1000:
-                        rxn.upper_bound = np.Inf 
+                        rxn.upper_bound = 1e6 
         eflux2_model.tolerance = 1e-9
         fba_sol = eflux2_model.optimize()
         print('FBA status', fba_sol.status)
