@@ -1,5 +1,5 @@
 Pathway,Forward Reactions,Reaction,Location on map,Flux,90% Confidence Lower Bound,90% Confidence Upper Bound
-Glucose Uptake,reverse_EX_glc__D_e,Gluc.ext + ATP -> G6P,"( 80, -450)",100,100,100
+Glucose Uptake,reverse_EX_glc__D_e,Gluc.ext + ATP -> G6P,"(50, 460)",100,100,100
 EMP Pathway,PGI,G6P <-> F6P,"(-150, 430)",-1.61,-2.09,1.42
 EMP Pathway,PFK or reverse_FBP,F6P + ATP -> FBP,"(-220, 195)",0,0,1.91
 EMP Pathway,FBA,FBP <-> DHAP + GAP,"(-140, 115)",0,0,1.91
