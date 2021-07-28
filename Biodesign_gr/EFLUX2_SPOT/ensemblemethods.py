@@ -136,7 +136,7 @@ def EFlux2(model, Transcriptomics):
 
     except:
         #eflux2_model.optimize().status=='infeasible' or  eflux2_model.optimize().status=='unbounded':
-        newinfbound=1e7
+        newinfbound = 1e6
         #warn("solver status is '{}'".format(status), UserWarning)
         print('Problem infeasible or unbounded: to be added value for transbound will be set to ', newinfbound, ' instead of np.inf')
     
