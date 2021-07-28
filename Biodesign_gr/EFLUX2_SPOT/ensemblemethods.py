@@ -53,17 +53,23 @@ def create_gprdict(model):
         transscript bound value: float.
 """
 
-def findtransboundval_forgprrxns(model, Transcriptomics,rxn):
+def findtransboundval_forgprrxns(model, Transcriptomics,rxn, newinf=np.inf):
     finaltransval = 0
+    listids = []
     for parallel_gene in create_gprdict(model)[rxn.id]:
         transvals = []
         for gene in parallel_gene:
             if gene in Transcriptomics.index:
                 transvals.append(Transcriptomics.loc[gene].values)
             else:
-                transvals.append(np.Inf)
+                transvals.append(np.inf)
             mintransval=np.min(transvals)
+            if mintransval == np.inf:
+                mintransval= newinf
         finaltransval = finaltransval + mintransval
+#         if finaltransval==newinfbound:
+#             display(rxn.id)
+#             listids.append(rxn.id)
     return finaltransval
 
 #############################################
@@ -85,47 +91,99 @@ def findtransboundval_forgprrxns(model, Transcriptomics,rxn):
 def EFlux2(model, Transcriptomics):
     eflux2_model = model.copy()
     
-    # Set the bounds using the transcriptomics data    
-    for rxn in eflux2_model.reactions:
-        if rxn.gene_reaction_rule:
-                
-            if rxn.lower_bound < 0.0:
-                rxn.lower_bound = -findtransboundval_forgprrxns(model, Transcriptomics,rxn)
-            else:
-                pass
-            if rxn.upper_bound > 0.0:
-                rxn.upper_bound = findtransboundval_forgprrxns(model, Transcriptomics,rxn)
-            else:
-                pass
-        else:
-            """When there is no GPR, the arbitrary bounds are removed. 
-            Common arbitrary bound value of 1000 for E.coli, might be different depending on the model, e.g., 99999.0 for iMM904 yeast model in BiGG"""
-            if rxn.lower_bound <= -1000:
-                rxn.lower_bound = -np.Inf
-            if rxn.upper_bound >= 1000:
-                rxn.upper_bound = np.Inf 
+        # Solve FBA to calculate the maximum biomass
+    try:
+        # Set the bounds using the transcriptomics data    
+        for rxn in eflux2_model.reactions:
+            if 'EX_' not in str(rxn):
+                if rxn.gene_reaction_rule:
+
+                    if rxn.lower_bound < 0.0:
+                        rxn.lower_bound = -findtransboundval_forgprrxns(model, Transcriptomics,rxn)
+                    else:
+                        pass
+                    if rxn.upper_bound > 0.0:
+                        rxn.upper_bound = findtransboundval_forgprrxns(model, Transcriptomics,rxn)
+                    else:
+                        pass
+                else:
+                    """When there is no GPR, the arbitrary bounds are removed. 
+                    Common arbitrary bound value of 1000 for E.coli, might be different depending on the model, e.g., 99999.0 for iMM904 yeast model in BiGG"""
+                    if rxn.lower_bound <= -1000:
+                        rxn.lower_bound = -np.Inf
+                    if rxn.upper_bound >= 1000:
+                        rxn.upper_bound = np.Inf 
+        eflux2_model.tolerance = 1e-9
+        fba_sol = eflux2_model.optimize()
+        print('FBA status', fba_sol.status)
+        print('FBA solution', fba_sol.objective_value)
+        display(eflux2_model.objective)
+
+        # Constrain the biomass to the optimal value
+        for r in eflux2_model.reactions:
+            if r.objective_coefficient:
+                r.lower_bound = fba_sol.objective_value
+
+        # Minimize the sum of squared flux values
+        """Note: Because of quadratic objective still have to use cplex objective formulation.
+        Optlang does not support quadratic type of constraints and objectives yet."""
+        fva_result = cobra.flux_analysis.flux_variability_analysis(eflux2_model, eflux2_model.reactions)
+        display(pd.DataFrame.from_dict(fva_result).T.round(5))
+        eflux2_model.objective = eflux2_model.problem.Objective(add([rxn.flux_expression**2 for rxn in eflux2_model.reactions]), direction='min')
+        eflux2_sol = eflux2_model.optimize()
+        print('EFlux2 status', eflux2_sol.status)
+        print('EFlux2 solution', eflux2_sol.objective_value)
+
+    except:
+        #eflux2_model.optimize().status=='infeasible' or  eflux2_model.optimize().status=='unbounded':
+        newinfbound=1e7
+        #warn("solver status is '{}'".format(status), UserWarning)
+        print('Problem infeasible or unbounded: to be added value for transbound will be set to ', newinfbound, ' instead of np.inf')
     
-    # Solve FBA to calculate the maximum biomass
-    eflux2_model.tolerance = 1e-9
-    fba_sol = eflux2_model.optimize()
-    print('FBA status', fba_sol.status)
-    print('FBA solution', fba_sol.objective_value)
-    display(eflux2_model.objective)
-    
-    # Constrain the biomass to the optimal value
-    for r in eflux2_model.reactions:
-        if r.objective_coefficient:
-            r.lower_bound = fba_sol.objective_value
-            
-    # Minimize the sum of squared flux values
-    """Note: Because of quadratic objective still have to use cplex objective formulation.
-    Optlang does not support quadratic type of constraints and objectives yet."""
-    eflux2_model.objective = eflux2_model.problem.Objective(add([rxn.flux_expression**2 for rxn in eflux2_model.reactions]), direction='min')
-    eflux2_sol = eflux2_model.optimize()
-    print('EFlux2 status', eflux2_sol.status)
-    print('EFlux2 solution', eflux2_sol.objective_value)
-    
+        # Set the bounds using the transcriptomics data    
+        for rxn in eflux2_model.reactions:
+            if 'EX_' not in str(rxn):
+                if rxn.gene_reaction_rule:
+
+                    if rxn.lower_bound < 0.0:
+                        rxn.lower_bound = -findtransboundval_forgprrxns(model, Transcriptomics,rxn, newinfbound)
+                    else:
+                        pass
+                    if rxn.upper_bound > 0.0:
+                        rxn.upper_bound = findtransboundval_forgprrxns(model, Transcriptomics,rxn, newinfbound)
+                    else:
+                        pass
+                else:
+                    """When there is no GPR, the arbitrary bounds are removed. 
+                    Common arbitrary bound value of 1000 for E.coli, might be different depending on the model, e.g., 99999.0 for iMM904 yeast model in BiGG"""
+                    if rxn.lower_bound <= -1000:
+                        rxn.lower_bound = -np.Inf
+                    if rxn.upper_bound >= 1000:
+                        rxn.upper_bound = np.Inf 
+        eflux2_model.tolerance = 1e-9
+        fba_sol = eflux2_model.optimize()
+        print('FBA status', fba_sol.status)
+        print('FBA solution', fba_sol.objective_value)
+        display(eflux2_model.objective)
+
+        # Constrain the biomass to the optimal value
+        for r in eflux2_model.reactions:
+            if r.objective_coefficient:
+                r.lower_bound = fba_sol.objective_value
+
+        # Minimize the sum of squared flux values
+        """Note: Because of quadratic objective still have to use cplex objective formulation.
+        Optlang does not support quadratic type of constraints and objectives yet."""
+        #fva_result = cobra.flux_analysis.flux_variability_analysis(eflux2_model, eflux2_model.reactions)
+        #display(pd.DataFrame.from_dict(fva_result).T.round(5))
+        eflux2_model.objective = eflux2_model.problem.Objective(add([rxn.flux_expression**2 for rxn in eflux2_model.reactions]), direction='min')
+        eflux2_sol = eflux2_model.optimize()
+        print('EFlux2 status', eflux2_sol.status)
+        print('EFlux2 solution', eflux2_sol.objective_value)
+
+        
     return eflux2_sol
+
 
 
 #############################################
