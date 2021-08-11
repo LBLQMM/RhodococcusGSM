@@ -127,8 +127,8 @@ def EFlux2(model, Transcriptomics):
         # Minimize the sum of squared flux values
         """Note: Because of quadratic objective still have to use cplex objective formulation.
         Optlang does not support quadratic type of constraints and objectives yet."""
-        fva_result = cobra.flux_analysis.flux_variability_analysis(eflux2_model, eflux2_model.reactions)
-        display(pd.DataFrame.from_dict(fva_result).T.round(5))
+#         fva_result = cobra.flux_analysis.flux_variability_analysis(eflux2_model, eflux2_model.reactions)
+#         display(pd.DataFrame.from_dict(fva_result).T.round(5))
         eflux2_model.objective = eflux2_model.problem.Objective(add([rxn.flux_expression**2 for rxn in eflux2_model.reactions]), direction='min')
         eflux2_sol = eflux2_model.optimize()
         print('EFlux2 status', eflux2_sol.status)
@@ -224,29 +224,30 @@ def SPOT(model, Transcriptomics):
         
     c = []
     for rxn in model.reactions:
-        if rxn.gene_reaction_rule:
-        #If a reaction R1 has the GPR of 'A and B', it would be parsed to { {A, B} } in gpr_dict['R1']. Then t for R1 would be sum( [ min(A, B) ] ) = min(A, B).
-        #If a reaction R1 has the GPR of 'A or B', it would be parsed to { {A}, {B} } in gpr_dict['R1']. Then t for R1 would be sum( [ min(A), min(B) ] ) = sum( [A, B] ).
-        #If a reaction R1 has the GPR of '(A and B) or (C and D)', it would be parsed to { {A, B}, {C, D} } in gpr_dict['R1']. Then t for R1 would be sum( [ min(A, B), min(C, D) ] ).
-        
-#             t = np.sum([np.min([Transcriptomics.loc[g] if g in Transcriptomics.index 
-#                                 else np.array([np.Inf]) for g in p])
-#                         for p in create_gprdict(model)[r.id]])
-            transboundval = findtransboundval_forgprrxns(model, Transcriptomics,rxn)
-            if transboundval == np.Inf:
-                transboundval = 0
-            c.append(transboundval)
-        else:
-            c.append(0.0)
-    for rxn in model.reactions:
-        if rxn.reversibility:
+        if 'EX_' not in str(rxn):
             if rxn.gene_reaction_rule:
+            #If a reaction R1 has the GPR of 'A and B', it would be parsed to { {A, B} } in gpr_dict['R1']. Then t for R1 would be sum( [ min(A, B) ] ) = min(A, B).
+            #If a reaction R1 has the GPR of 'A or B', it would be parsed to { {A}, {B} } in gpr_dict['R1']. Then t for R1 would be sum( [ min(A), min(B) ] ) = sum( [A, B] ).
+            #If a reaction R1 has the GPR of '(A and B) or (C and D)', it would be parsed to { {A, B}, {C, D} } in gpr_dict['R1']. Then t for R1 would be sum( [ min(A, B), min(C, D) ] ).
+
+    #             t = np.sum([np.min([Transcriptomics.loc[g] if g in Transcriptomics.index 
+    #                                 else np.array([np.Inf]) for g in p])
+    #                         for p in create_gprdict(model)[r.id]])
                 transboundval = findtransboundval_forgprrxns(model, Transcriptomics,rxn)
                 if transboundval == np.Inf:
                     transboundval = 0
                 c.append(transboundval)
             else:
                 c.append(0.0)
+        for rxn in model.reactions:
+            if rxn.reversibility:
+                if rxn.gene_reaction_rule:
+                    transboundval = findtransboundval_forgprrxns(model, Transcriptomics,rxn)
+                    if transboundval == np.Inf:
+                        transboundval = 0
+                    c.append(transboundval)
+                else:
+                    c.append(0.0)
 
     SPOT = cplex.Cplex()
     SPOT.set_results_stream(None)
