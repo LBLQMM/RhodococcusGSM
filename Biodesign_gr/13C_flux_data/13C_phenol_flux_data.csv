@@ -8,7 +8,7 @@ EMP Pathway,GAPD,"GAP <-> G1,3P","(-220, 30)",-10.7907,-11.2235,-9.104
 EMP Pathway,reverse_PGK,"G1,3P <-> 3PG + ATP + NADH","(-220, -55)",-10.7907,-11.2235,-9.104
 EMP Pathway,PGM_1 or reverse_PGM,3PG <-> 2PG,"(-220, -135)",-16.2538,-16.9556,-13.6034
 EMP Pathway,ENO,2PG <-> PEP,"(-220, -215)",-16.2538,-16.9556,-13.6034
-EMP Pathway,PPS or reverse_FRUpts2pp or reverse_SBTpts or reverse_MNLpts or reverse_ACGApts or reverse_FRUpts2 or reverse_MANpts or reverse_FRUpts or reverse_ARBTpts or reverse_PYK or reverse_GALTpts or reverse_SUCpts or reverse_TREptspp or reverse_TREpts or reverse_GLCptspp or reverse_ACGAptspp or reverse_SALCptspp or reverse_MALTptspp or reverse_FRUptspp or reverse_SUCptspp or reverse_DHAPT or reverse_MALTpts or reverse_ACMANApts or reverse_GAMpts or reverse_SALCpts or reverse_GLCpts,PEP <-> Pyr + ATP,"(-220, -295)",29.9999,0,30
+EMP Pathway,reverse_PPS or FRUpts2pp or SBTpts or MNLpts or ACGApts or FRUpts2 or MANpts or FRUpts or ARBTpts or PYK or GALTpts or SUCpts or TREptspp or TREpts or GLCptspp or ACGAptspp or SALCptspp or reverse_MALTptspp or reverse_FRUptspp or reverse_SUCptspp or reverse_DHAPT or reverse_MALTpts or reverse_ACMANApts or reverse_GAMpts or reverse_SALCpts or reverse_GLCpts,PEP <-> Pyr + ATP,"(-220, -295)",29.9999,0,30
 Pentose Phosphate Pathway,G6PDH2r and PGL,G6P <-> 6PG + NADPH,"(50, 380)",-0.5767,-2.0181,0.3824
 Pentose Phosphate Pathway,GND,6PG <-> Ru5P + CO2 + NADPH,"(275, 350)",0.4646,-1.6599,1.8755
 Pentose Phosphate Pathway,RPE,Ru5P <-> X5P,"(380, 190)",-1.1874,-2.6115,-0.2468
