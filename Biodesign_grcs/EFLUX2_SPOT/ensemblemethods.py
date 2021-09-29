@@ -160,6 +160,30 @@ def SPOT(model, Transcriptomics):
     rxns = [rxn.id for rxn in model.reactions]
     nrow = len(mets)
     ncol = len(rxns)
+    
+        #"However, if any of the flux bounds does not include zero, the origin in the graph, the maximum correlation 
+    #is no longer independent of the length of the fluxvector. Thus, it is a prerequisite 
+    #for using SPOT method to make sure that the allowable solution space includes
+    #the origin."(Supplementary file S1 to EFLUX2 SPOT Paper)
+    for r in model.reactions:
+        if r.lower_bound < 0.0 and r.lower_bound > -1000.0:
+            print(r.id, r.lower_bound, r.upper_bound)
+            r.lower_bound = -1000.0
+        elif r.lower_bound > 0.0:
+            print(r.id, r.lower_bound, r.upper_bound)
+            r.lower_bound = 0.0
+        elif r.upper_bound > 0.0 and r.upper_bound < 1000.0:
+            print(r.id, r.lower_bound, r.upper_bound)
+            r.upper_bound = 1000.0
+        elif r.upper_bound < 0.0:
+            print(r.id, r.lower_bound, r.upper_bound)
+            r.upper_bound = 0.0
+
+    for r in model.reactions:
+        if r.lower_bound == -1000.0:
+            r.lower_bound = -np.Inf
+        if r.upper_bound == 1000.0:
+            r.upper_bound = np.Inf
 
     rev_rxns = ['rev_'+rxn.id for rxn in model.reactions if rxn.reversibility]
     rev_ncol = len(rev_rxns)
@@ -203,6 +227,7 @@ def SPOT(model, Transcriptomics):
     SPOT.set_results_stream(None)
     SPOT.parameters.simplex.tolerances.optimality.set(1e-9)
     SPOT.parameters.simplex.tolerances.feasibility.set(1e-9)
+    
 
     SPOT.linear_constraints.add(rhs=[0]*nrow, senses='E'*nrow, names=mets)
     SPOT.variables.add(obj=c, lb=lb, ub=ub, names=rxns+rev_rxns)
