@@ -227,6 +227,7 @@ def SPOT(model, Transcriptomics):
     SPOT.set_results_stream(None)
     SPOT.parameters.simplex.tolerances.optimality.set(1e-9)
     SPOT.parameters.simplex.tolerances.feasibility.set(1e-9)
+    SPOT.parameters.barrier.qcpconvergetol.set(1e-12)
     
 
     SPOT.linear_constraints.add(rhs=[0]*nrow, senses='E'*nrow, names=mets)
@@ -241,7 +242,6 @@ def SPOT(model, Transcriptomics):
     SPOT.quadratic_constraints.add(quad_expr=[rxns+rev_rxns, rxns+rev_rxns, [1]*len(c)],
                                    sense='L', rhs=1.0, name='L2norm')#L indicating <=
     SPOT.objective.set_sense(SPOT.objective.sense.maximize)
-    display(SPOT)
     SPOT.solve()
     SPOT_sol = SPOT.solution.get_objective_value()
 
