@@ -14277,6 +14277,7 @@
       <species id="M_vanlt_e" name="Vanillate" compartment="C_e" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C8H7O4"/>
       <species id="M_guaiacol_e" name="guaiacol" compartment="C_e" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C7H8O2"/>
       <species id="M_guaiacol_c" name="guaiacol" compartment="C_c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C7H8O2"/>
+      <species id="M_tag_c" name="triacylglycerol (16:0/16:0/16.0)" compartment="C_c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:chemicalFormula="C51H98O6"/>
     </listOfSpecies>
     <listOfParameters>
       <parameter sboTerm="SBO:0000626" id="cobra_default_lb" value="-1000" constant="true"/>
@@ -53368,6 +53369,21 @@
           <speciesReference species="M_nadp_c" stoichiometry="1" constant="true"/>
           <speciesReference species="M_h2o_c" stoichiometry="1" constant="true"/>
         </listOfProducts>
+      </reaction>
+      <reaction id="R_tag_production" name="triacylglycerol production" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_12dgr160_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_pmtcoa_c" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_tag_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_coa_c" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_EX_tag" name="triacylglycerol transport" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_tag_c" stoichiometry="1" constant="true"/>
+        </listOfReactants>
       </reaction>
     </listOfReactions>
     <fbc:listOfObjectives fbc:activeObjective="obj">
