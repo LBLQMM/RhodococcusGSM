@@ -9,7 +9,6 @@ EMP Pathway,reverse_PGK,"G1,3P <-> 3PG + ATP + NADH","(-220, -55)",-10.7907,-11.
 EMP Pathway,PGM_1 or reverse_PGM,3PG <-> 2PG,"(-220, -135)",-16.2538,-16.9556,-13.6034
 EMP Pathway,ENO,2PG <-> PEP,"(-220, -215)",-16.2538,-16.9556,-13.6034
 EMP Pathway,reverse_PPS or FRUpts2pp or SBTpts or MNLpts or ACGApts or FRUpts2 or MANpts or FRUpts or ARBTpts or PYK or GALTpts or SUCpts or TREptspp or TREpts or GLCptspp or ACGAptspp or SALCptspp or reverse_MALTptspp or reverse_FRUptspp or reverse_SUCptspp or reverse_DHAPT or reverse_MALTpts or reverse_ACMANApts or reverse_GAMpts or reverse_SALCpts or reverse_GLCpts,PEP <-> Pyr + ATP,"(-220, -295)",29.9999,0,30
-Pentose Phosphate Pathway,G6PDH2r and PGL,G6P <-> 6PG + NADPH,"(50, 380)",-0.5767,-2.0181,0.3824
 Pentose Phosphate Pathway,GND,6PG <-> Ru5P + CO2 + NADPH,"(275, 350)",0.4646,-1.6599,1.8755
 Pentose Phosphate Pathway,RPE,Ru5P <-> X5P,"(380, 190)",-1.1874,-2.6115,-0.2468
 Pentose Phosphate Pathway,reverse_RPI,Ru5P <-> R5P,"(270, 230)",1.6521,0.9081,2.1385
@@ -18,8 +17,9 @@ Pentose Phosphate Pathway,TKT2,TKC2 + E4P <-> F6P,"(10, 280)",-1.1874,-1.909,-0.
 Pentose Phosphate Pathway,TKT1,TKC2 + R5P <-> S7P,"(120, 230)",2.13E-14,-0.7076,0.4698
 Pentose Phosphate Pathway,TALA,TAC3 + GAP <-> F6P,"(-70, 190)",7.11E-15,-0.7076,0.4698
 Pentose Phosphate Pathway,reverse_TALA,S7P <-> TAC3 + E4P,"(50, 230)",8.53E-14,-0.7076,0.4698
-ED Pathway,EDA,6PG <-> KDPG,"(-300, 350)",-1.0413,-2.5243,0.2447
-ED Pathway,EDD,KDPG <-> Pyr + GAP,"(-300, 50)",-1.0413,-2.5243,0.2447
+ED Pathway,G6PDH2r and PGL,G6P <-> 6PG + NADPH,"(50, 380)",-0.5767,-2.0181,0.3824
+ED Pathway,EDD,6PG <-> KDPG,"(-300, 350)",-1.0413,-2.5243,0.2447
+ED Pathway,EDA,KDPG <-> Pyr + GAP,"(-300, 50)",-1.0413,-2.5243,0.2447
 TCA Cycle,PDH,Pyr <-> AcCoA + CO2 + NADH,"(-220, -370)",59.2327,56.6826,62.0459
 TCA Cycle,CS or reverse_CITL,OAC + AcCoA -> Cit,"(-55, -340)",114.4391,110.2766,118.48
 TCA Cycle,ACONT or ( ACONTa and ACONTb),Cit -> ICit,"(145, -310)",114.4391,110.2766,118.48
