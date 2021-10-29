@@ -60,7 +60,7 @@ def findtransboundval_forgprrxns(model, Transcriptomics, rxn):
         transvals = []
         for gene in parallel_gene:
             if gene in Transcriptomics.index:
-                transvals.append(Transcriptomics.loc[gene].values)
+                transvals.append(Transcriptomics.loc[gene].to_numpy()[0])
             else:
                 transvals.append(np.inf)
             mintransval=np.min(transvals)
@@ -204,12 +204,9 @@ def SPOT(model, Transcriptomics):
         #If a reaction R1 has the GPR of 'A or B', it would be parsed to { {A}, {B} } in gpr_dict['R1']. Then t for R1 would be sum( [ min(A), min(B) ] ) = sum( [A, B] ).
         #If a reaction R1 has the GPR of '(A and B) or (C and D)', it would be parsed to { {A, B}, {C, D} } in gpr_dict['R1']. Then t for R1 would be sum( [ min(A, B), min(C, D) ] ).
 
-#             t = np.sum([np.min([Transcriptomics.loc[g] if g in Transcriptomics.index 
-#                                 else np.array([np.Inf]) for g in p])
-#                         for p in create_gprdict(model)[r.id]])
             transboundval = findtransboundval_forgprrxns(model, Transcriptomics,rxn)
             if transboundval == np.Inf:
-                transboundval = 0
+                transboundval = 0.0
             c.append(transboundval)
         else:
             c.append(0.0)
@@ -218,7 +215,7 @@ def SPOT(model, Transcriptomics):
             if rxn.gene_reaction_rule:
                 transboundval = findtransboundval_forgprrxns(model, Transcriptomics,rxn)
                 if transboundval == np.Inf:
-                    transboundval = 0
+                    transboundval = 0.0
                 c.append(transboundval)
             else:
                 c.append(0.0)
