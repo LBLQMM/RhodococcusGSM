@@ -1,3 +1,4 @@
+#Import python packages:
 from utils import mae_func
 import sys
 import pandas as pd
@@ -14,6 +15,26 @@ import matplotlib.cm as cm
 from sklearn.metrics import r2_score
 from scipy.stats import linregress
 import math
+
+#################################################################
+########Plot functions for presenting results##############
+#################################################################
+""" Scatter plot for comparison of growth rates.
+    
+        Parameters
+        ----------
+        observed: measurements.
+        predicted: predictions.
+        labels: list of labels for plot. 
+        method: strin of prediction method chosen.
+        output_dir: string of directory where plot should be saved.
+        
+        
+        Returns
+        -------
+        Scatter plot of growth rates.
+        
+"""
 
 #define function to compare growth rates in scatter plot
 def scatter_plot_compare(observed, predicted, labels, method, output_dir='./'):
@@ -48,20 +69,23 @@ def scatter_plot_compare(observed, predicted, labels, method, output_dir='./'):
     plt.savefig(str(output_dir)+'Plot_growthrates_'+ str(method) + '.png')
     plt.savefig(str(output_dir)+'Plot_growthrates_'+ str(method) + '.svg')
     plt.show()
-
-# def mae_func(observed, predicted):
-#     """Mean Absolute Error.
-#     Multioutput case included."""
-
-#     if observed.ndim == 1:
-#         return np.mean(np.abs([y_o - y_p for y_o, y_p in zip(observed, predicted)]))
-#     else:
-#         return [
-#             np.mean(
-#                 np.abs([y_o - y_p for y_o, y_p in zip(observed[:, i], predicted[:, i])])
-#             )
-#             for i in range(observed.shape[1])
-#         ]
+    
+""" Scatter plot for comparison of flux predictions with 13C data.
+    
+        Parameters
+        ----------
+        obspred_fluxes: data frame with observed and predicted fluxes.
+        substrate: string of carbon source input.
+        method: string of prediction method chosen.
+        strain: string of strain.
+        output_dir: string of directory where plot should be saved.
+        
+        
+        Returns
+        -------
+        Scatter plot of fluxes.
+        
+"""
 
 def scatterplotcomp_obs_vs_pred(obspred_fluxes, substrate, method, strain, output_dir='./'):
     fig, ax = plt.subplots(figsize=(8, 8))
@@ -113,6 +137,24 @@ def scatterplotcomp_obs_vs_pred(obspred_fluxes, substrate, method, strain, outpu
     plt.savefig(str(output_dir)+'Plot_13c_'+str(method)+'_'+str(substrate)+'_'+str(strain)+'.svg')
     plt.savefig(str(output_dir)+'Plot_13c_'+str(method)+'_'+str(substrate)+'_'+str(strain)+'.png')
     plt.show()
+    
+""" Scatter plot for comparison of flux predictions with 13C data with plotting standard deviations.
+    
+        Parameters
+        ----------
+        obspred_fluxes: data frame with observed and predicted fluxes including standard deviations.
+        substrate: string of carbon source input.
+        method: string of prediction method chosen.
+        strain: string of strain.
+        output_dir: string of directory where plot should be saved.
+        
+        
+        Returns
+        -------
+        Scatter plot of fluxes.
+        
+"""
+
     
 def scatterplotcomp_obs_vs_pred_withstd(obspred_fluxes, substrate, method, strain, output_dir='./'):
     fig, ax = plt.subplots(figsize=(8, 8))
@@ -174,6 +216,20 @@ def scatterplotcomp_obs_vs_pred_withstd(obspred_fluxes, substrate, method, strai
     plt.savefig(str(output_dir)+'Plot_13cwithstd_'+str(method)+'_'+str(substrate)+'_'+str(strain)+'.png')
     plt.show()
     
+""" Plot metabolic map of fluxes.
+    
+        Parameters
+        ----------
+        data_df: data frame with observed/predicted fluxes.
+        flux_column: String of method chosen + Strain + Value.
+        
+        
+        Returns
+        -------
+        Metabolic map of fluxes.
+        
+"""
+
     
 def map_flux_results(data_df, flux_column, output_dir='./'):
     fig, ax = plt.subplots(figsize=(15, 20), dpi=50)
@@ -207,6 +263,27 @@ def map_flux_results(data_df, flux_column, output_dir='./'):
     plt.savefig(str(output_dir)+'Plot_fluxmap'+str(flux_column)+'s'+'CPM.svg')
     plt.savefig(str(output_dir)+'Plot_fluxmap'+str(flux_column)+'s'+'CPM.png')
     plt.show()
+
+""" Calculates parameters and plots data and fit lines for a single trial.
+    
+        Parameters
+        ----------
+        growth_data: data frame with growth data.
+        substrate_data: data frame with substrate data.
+        molar_mass: molar mass of carbon source in g/mol
+        display: boolean, prints growth rate, yield coefficient and substrate consumption rate.
+        max_time: maximum time point considered.
+        substrate: string of carbon source input.
+        
+        
+        Returns
+        -------
+        growth_rate
+        yield_coeff
+        substrate_consumption_rate
+        plot of biomass growth and substrate consumption
+        
+"""
     
 def stats_for_trial(growth_data, substrate_data, molar_mass, display=False, max_time=0, substrate=''):
     
@@ -259,7 +336,31 @@ def stats_for_trial(growth_data, substrate_data, molar_mass, display=False, max_
         return growth_rate, yield_coeff, substrate_consumption_rate
     else:
         return growth_rate, yield_coeff, substrate_consumption_rate
+
+""" Calculates growth rate, substrate consumption rate and yield coefficient and their associated standard deviations for three replicates.
+stats_for_condition: Takes in three trial names and calls stats_for_trial for each one..
     
+        Parameters
+        ----------
+        od_df: data frame with OD data.
+        sub_df: data frame with substrate data.
+        trial_1: string of trial/rep 1.
+        trial_2: string of trial/rep 2.
+        trial_3: string of trial/rep 3.
+        molar_mass: molar mass of carbon source in g/mol
+        max_time: maximum time point considered.
+        substrate: string of carbon source input.
+        
+        
+        Returns
+        -------
+        growth_rate
+        yield_coeff
+        substrate_consumption_rate
+        growth_rate_std
+        yield_coeff_std
+        substrate_consumption_rate_std
+"""      
     
     
 def stats_for_condtion(od_df, sub_df, trial_1, trial_2, trial_3, molar_mass, substrate='', max_time=0):
