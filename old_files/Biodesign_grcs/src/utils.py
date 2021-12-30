@@ -1,7 +1,7 @@
 #Import python packages:
 import pandas as pd
 import numpy as np
-from ensemblemethods import SPOT
+from ensemblemethods import SPOT,EFlux2
 import cobra
 
 #################################################################
@@ -229,6 +229,78 @@ def spot_pred(model, transcriptdf, linename, substrate, sub_uptake_rate=100):
         model.medium = medium
         spotsol = SPOT(model, transcriptdf)
     return spotsol
+
+"""
+    Make E-Flux2 predictons.
+    
+        Parameters
+        ----------
+        model: cobrapy model.
+        transcriptdf: data frame with transcript data.
+        linename: linename in EDD used, WT or mutation. 
+        substrate: carbon source used.
+        sub_uptake_rate: uptake rate for carbon source used.
+        
+        Returns
+        -------
+        eflux2sol: SPOT prediction solution.
+        
+"""
+
+#Function for EFLUX2 Predictions, calls Eflux2:
+def eflux2_pred(model, transcriptdf, linename, substrate, sub_uptake_rate=100):    
+    with model:
+        medium = model.medium
+        if substrate=='phenol':
+            model.objective = 'Growth_Phenol'
+            medium = {key:1000 for (key,value) in model.medium.items()}
+            model.reactions.get_by_id('Growth_Glucose').upper_bound = 0
+            model.reactions.get_by_id('Growth_Glucose').lower_bound = 0
+            model.reactions.get_by_id('Growth').upper_bound = 0
+            model.reactions.get_by_id('Growth').lower_bound = 0
+            medium["EX_glc__D_e"] = 0
+            medium['EX_guaiacol_e'] = 0
+            medium['EX_vanlt_e'] = 0
+            medium['EX_tag'] = 0
+            #medium["EX_phenol_e"] = sub_uptake_rate
+            #model.reactions.get_by_id('EX_phenol_e').upper_bound = -sub_uptake_rate
+            #model.reactions.get_by_id('EX_phenol_e').lower_bound = -sub_uptake_rate
+            model.reactions.get_by_id('EX_glc__D_e').upper_bound = 0
+            model.reactions.get_by_id('EX_glc__D_e').lower_bound = 0
+            model.reactions.get_by_id('EX_guaiacol_e').upper_bound = 0
+            model.reactions.get_by_id('EX_guaiacol_e').lower_bound = 0
+            model.reactions.get_by_id('EX_vanlt_e').upper_bound = 0
+            model.reactions.get_by_id('EX_vanlt_e').lower_bound = 0
+            model.reactions.get_by_id('EX_tag').upper_bound = 0
+            model.reactions.get_by_id('EX_tag').lower_bound = 0
+            #medium["EX_phenol_e"] = sub_uptake_rate
+        elif substrate=='glucose':
+            model.objective = 'Growth_Glucose'
+            medium = {key:1000 for (key,value) in model.medium.items()}
+            model.reactions.get_by_id('Growth_Phenol').upper_bound = 0
+            model.reactions.get_by_id('Growth_Phenol').lower_bound = 0
+            model.reactions.get_by_id('Growth').upper_bound = 0
+            model.reactions.get_by_id('Growth').lower_bound = 0
+            #medium["EX_glc__D_e"] = sub_uptake_rate
+            medium["EX_phenol_e"] = 0
+            medium['EX_guaiacol_e'] = 0
+            medium['EX_vanlt_e'] = 0
+            medium['EX_tag'] = 0
+            #model.reactions.get_by_id('EX_glc__D_e').upper_bound = -sub_uptake_rate
+            #model.reactions.get_by_id('EX_glc__D_e').lower_bound = -sub_uptake_rate
+            model.reactions.get_by_id('EX_phenol_e').upper_bound = 0
+            model.reactions.get_by_id('EX_phenol_e').lower_bound = 0
+            model.reactions.get_by_id('EX_guaiacol_e').upper_bound = 0
+            model.reactions.get_by_id('EX_guaiacol_e').lower_bound = 0
+            model.reactions.get_by_id('EX_vanlt_e').upper_bound = 0
+            model.reactions.get_by_id('EX_vanlt_e').lower_bound = 0
+            model.reactions.get_by_id('EX_tag').upper_bound = 0
+            model.reactions.get_by_id('EX_tag').lower_bound = 0
+        else:
+            print('Unknown substrate: Please choose among phenol and glucose')
+        model.medium = medium
+        eflux2sol = EFlux2(model, transcriptdf)
+    return eflux2sol
 
 """
     Make SPOT predictons for three replicates, average the solutions and calculate standard deviations.
