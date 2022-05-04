@@ -176,7 +176,7 @@ def obs_vs_pred_scatter_plot_with_std(obspred_fluxes, substrate, method, strain,
     plt.show()
     
     
-def generate_flux_map(data_df, flux_column, substrate='', method='', output_dir='./'):
+def generate_flux_map(data_df, flux_column, substrate='', method='', strain='', output_dir='./'):
     fig, ax = plt.subplots(figsize=(15, 20), dpi=50)
     xy = (0.5, 0.5)
     arr_img = plt.imread('../src/unlabeled_flux_map.png')
@@ -205,6 +205,6 @@ def generate_flux_map(data_df, flux_column, substrate='', method='', output_dir=
     ax.set_xticks([])
     ax.set_yticks([])
     ax.axis("off")
-    plt.savefig(str(output_dir)+str(substrate)+'_'+str(method)+'_flux_map.png')
+    plt.savefig(str(output_dir)+str(substrate)+'_'+str(method)+'_'+str(strain)+'_flux_map.png')
 #     plt.savefig(str(output_dir)+'Plot_fluxmap'+str(flux_column)+'s'+'CPM.png')
     plt.show()

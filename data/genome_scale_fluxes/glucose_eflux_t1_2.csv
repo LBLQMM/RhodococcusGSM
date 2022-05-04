@@ -57,7 +57,7 @@ reaction_id,reaction_name,reaction_reaction,flux
 3HBCOAHL,3-hydroxyisobutyryl-CoA hydrolase,3hibutcoa_c + h2o_c --> 3hmp_c + coa_c + h_c,0.0
 3HCINNMH,3-hydroxycinnamate hydroxylase,3hcinnm_c + h_c + nadh_c + o2_c --> dhcinnm_c + h2o_c + nad_c,0.0
 3HPPPNH,3-(3-hydroxy-phenyl)propionate hydroxylase,3hpppn_c + h_c + nadh_c + o2_c --> dhpppn_c + h2o_c + nad_c,0.0
-3HPTNCOAR,3R 3 Hydroxypentanoyl CoA reductase,3hptcoa_c + nadp_c --> 3oxptcoa_c + h_c + nadph_c,17.887432191788708
+3HPTNCOAR,3R 3 Hydroxypentanoyl CoA reductase,3hptcoa_c + nadp_c --> 3oxptcoa_c + h_c + nadph_c,17.887432191665233
 3HSA,MNXR19078,9ohadd_c --> 3hsa_c,0.0
 3M2OPLOXRD,3-Methyl-2-oxopentanoate:lipoamide oxidoreductase(decarboxylating and acceptor-2-methylpropanoylating),3mop_c + h_c + lpam_c --> 2mbdhl_c + co2_c,0.0
 3MBt2pp,H+/Isovalerate symport (periplasm),3mb_p + h_p --> 3mb_c + h_c,0.0
@@ -139,7 +139,7 @@ ABUTD,Aminobutyraldehyde dehydrogenase,4abutn_c + h2o_c + nad_c --> 4abut_c + 2.
 ABUTt2pp,4-aminobutyrate transport in via proton symport (periplasm),4abut_p + h_p --> 4abut_c + h_c,0.0
 ABUTt2r,4 aminobutyrate reversible transport in via proton symport,4abut_e + h_e --> 4abut_c + h_c,0.0
 ACACCT,Acetyl-CoA:acetoacetyl-CoA transferase,acac_c + accoa_c --> aacoa_c + ac_c,0.0
-ACACT1r,Acetyl-CoA C-acetyltransferase,2.0 accoa_c <=> aacoa_c + coa_c,7.79519861944268
+ACACT1r,Acetyl-CoA C-acetyltransferase,2.0 accoa_c <=> aacoa_c + coa_c,7.795198619306663
 ACACT2r,Acetyl-CoA C-acyltransferase (butanoyl-CoA) (r),accoa_c + btcoa_c <=> 3ohcoa_c + coa_c,0.08155643622759289
 ACACT3r,Acetyl-CoA C-acyltransferase (hexanoyl-CoA) (r),accoa_c + hxcoa_c <=> 3oocoa_c + coa_c,0.08155643622759289
 ACACT4r,Acetyl-CoA C-acyltransferase (octanoyl-CoA) (r),accoa_c + occoa_c <=> 3odcoa_c + coa_c,0.08155643622759289
@@ -147,7 +147,7 @@ ACACT5r,Acetyl-CoA C-acyltransferase (decanoyl-CoA) (r),accoa_c + dcacoa_c <=> 3
 ACACT6r,Acetyl-CoA C-acyltransferase (dodecanoyl-CoA) (r),accoa_c + ddcacoa_c <=> 3otdcoa_c + coa_c,0.08155643622759289
 ACACT7r,Acetyl-CoA C-acyltransferase (tetradecanoyl-CoA) (r),accoa_c + tdcoa_c <=> 3ohdcoa_c + coa_c,13.908534487771773
 ACACT8r,"Acetyl-CoA acyltransferase (hexadecanoyl-CoA), (r)",3ohodcoa_c + coa_c <=> accoa_c + pmtcoa_c,-0.015291831792682615
-ACAC_Et,Acetoacetate transport (transport mechanism unknown - evidence from biolog data),acac_e <=> acac_c,-7.7136421832151205
+ACAC_Et,Acetoacetate transport (transport mechanism unknown - evidence from biolog data),acac_e <=> acac_c,-7.713642183079102
 ACACt2pp,Acetoacetate transport via proton symport  (periplasm),acac_p + h_p --> acac_c + h_c,0.0
 ACACtex,Acetoacetate transport via diffusion (extracellular to periplasm),acac_e <=> acac_p,0.0
 ACALD,Acetaldehyde dehydrogenase (acetylating),acald_c + coa_c + nad_c <=> accoa_c + h_c + nadh_c,0.0
@@ -213,7 +213,7 @@ ACODA,Acetylornithine deacetylase,acorn_c + h2o_c --> ac_c + orn_c,0.0
 ACONCt4pp,Citrate transport via sodium symport  periplasm ,acon_C_p + na1_p --> acon_C_c + na1_c,0.0
 ACONCtex,Cisaconitat transport via diffusion extracellular to periplasm ,acon_C_e <=> acon_C_p,0.0
 ACONCtupp,Cisaconitate transport periplasm ,acon_C_p --> acon_C_c,0.0
-ACONT,Aconitate hydratase,cit_c <=> icit_c,236.22890881476687
+ACONT,Aconitate hydratase,cit_c <=> icit_c,236.22890881499163
 ACONTa,"Aconitase (half-reaction A, Citrate hydro-lyase)",cit_c <=> acon_C_c + h2o_c,19.4074064742016
 ACONTb,"Aconitase (half-reaction B, Isocitrate hydro-lyase)",acon_C_c + h2o_c <=> icit_c,19.4074064742016
 ACOTA,Acetylornithine transaminase,acorn_c + akg_c <=> acg5sa_c + glu__L_c,0.0
@@ -285,7 +285,7 @@ ADNK4,Adenosine kinase,adn_c + dgtp_c --> amp_c + dgdp_c + h_c,0.0
 ADNUC,Adenosine hydrolase,adn_c + h2o_c --> ade_c + rib__D_c,0.0
 ADNt2,Adenosine transport in via proton symport,adn_e + h_e --> adn_c + h_c,0.0
 ADOCBIAH,MNXR85327,adocbi_c + h2o_c <=> adcobhex_c + appl_c,0.0
-ADOCBIK,Adenosyl cobinamide kinase,adocbi_c + atp_c --> adocbip_c + adp_c + h_c,0.8338161485869285
+ADOCBIK,Adenosyl cobinamide kinase,adocbi_c + atp_c --> adocbip_c + adp_c + h_c,0.8338161486692467
 ADPGLC,ADPglucose diphosphatase,adpglc_c + h2o_c --> amp_c + g1p_c + 2.0 h_c,0.0
 ADPRDP,ADPribose diphosphatase,adprib_c + h2o_c --> amp_c + 2.0 h_c + r5p_c,0.0
 ADPRDP_1,ADPribose diphosphatase,adprib_c + h2o_c --> amp_c + 2.0 h_c + r5p_c,0.0
@@ -293,9 +293,9 @@ ADPT,Adenine phosphoribosyltransferase,ade_c + prpp_c --> amp_c + ppi_c,0.0
 ADSELK,Adenylyl-selenate kinase,adsel_c + atp_c --> 3padsel_c + adp_c + h_c,0.0
 ADSELR,Phosphoadenylyl selenate reductase  thioredoxin ,3padsel_c + trdrd_c --> 2.0 h_c + pap_c + slnt_c + trdox_c,0.0
 ADSK,Adenylyl-sulfate kinase,aps_c + atp_c --> adp_c + h_c + paps_c,0.0
-ADSL1r,Adenylsuccinate lyase,dcamp_c <=> amp_c + fum_c,1.3133867083965616
-ADSL2r,Adenylosuccinate lyase,25aics_c <=> aicar_c + fum_c,2.4591226351004107
-ADSS,Adenylosuccinate synthase,asp__L_c + gtp_c + imp_c --> dcamp_c + gdp_c + 2.0 h_c + pi_c,1.3133867083965616
+ADSL1r,Adenylsuccinate lyase,dcamp_c <=> amp_c + fum_c,1.3133867085611977
+ADSL2r,Adenylosuccinate lyase,25aics_c <=> aicar_c + fum_c,2.4591226352650466
+ADSS,Adenylosuccinate synthase,asp__L_c + gtp_c + imp_c --> dcamp_c + gdp_c + 2.0 h_c + pi_c,1.3133867085611977
 ADtr,"Acetamide transport, extracellular ",ad_e --> ad_c,0.0
 AEPPYRTA,2 aminoethylphosphonate pyruvate transaminase,2ameph_c + pyr_c --> Pald_c + ala__L_c + h_c,0.0
 AEPabcpp,AEP transport via ABC system periplasm ,2ameph_p + atp_c + h2o_c --> 2ameph_c + adp_c + h_c + pi_c,0.0
@@ -320,7 +320,7 @@ AGPAT180,1-octadecanoyl-sn-glycerol 3-phosphate O-acyltransferase (n-C18:0),1ode
 AGPAT181,1-octadec-7-enoyl-sn-glycerol 3-phosphate O-acyltransferase (n-C18:1),1odec11eg3p_c + octeACP_c --> ACP_c + pa181_c,0.0
 AGPATr_BS,1 acylglycerol 3 phosphate O acyltransferase,0.01 1ag3p_BS_c + 0.07 fa11coa_c + 0.17 fa12coa_c + 0.01 fa1coa_c + 0.2 fa3coa_c + 0.34 fa4coa_c + 0.05 fa6coa_c + 0.1 pmtcoa_c + 0.03 strcoa_c + 0.03 tdcoa_c <=> 0.01 12dag3p_BS_c + coa_c,0.2548638632112649
 AGPR,N-acetyl-g-glutamyl-phosphate reductase,acg5sa_c + nadp_c + pi_c <=> acg5p_c + h_c + nadph_c,0.0
-AH6PI,Arabino-3-hexulose-6-P Isomerase,ah6p__D_c <-- f6p_c,-5.229872369176513e-07
+AH6PI,Arabino-3-hexulose-6-P Isomerase,ah6p__D_c <-- f6p_c,-5.233615268626181e-07
 AHCYSNS,S-adenosylhomocysteine nucleosidase,ahcys_c + h2o_c --> ade_c + rhcys_c,0.0
 AHCi,Adenosylhomocysteinase,ahcys_c + h2o_c <=> adn_c + hcys__L_c,0.0005490171242886631
 AHGDx,(S)-alpha-hydroxyglutarate dehydrogenase,S2hglut_c + nad_c <=> akg_c + h_c + nadh_c,-5.00190888510351
@@ -328,13 +328,13 @@ AHMMPS,4 amino 5 hydroxymethyl 2 methylpyrimidine synthetase,air_c + 2.0 h_c -->
 AHSERL2,O acetylhomoserine  thiol  lyase,achms_c + h2s_c --> ac_c + h_c + hcys__L_c,0.310713025639787
 AI2abcpp,Autoinducer-2 ABC transporter,atp_c + h2o_c + mththf_p --> adp_c + h_c + mththf_c + pi_c,0.0
 AI2tpp,Quorum signal AI-2 exporter,mththf_c --> mththf_p,0.0
-AICART,Phosphoribosylaminoimidazolecarboxamide formyltransferase,10fthf_c + aicar_c <=> fprica_c + thf_c,2.649903807819113
+AICART,Phosphoribosylaminoimidazolecarboxamide formyltransferase,10fthf_c + aicar_c <=> fprica_c + thf_c,2.649903807983749
 AIRC2,Phosphoribosylaminoimidazole carboxylase,air_c + atp_c + hco3_c --> 5caiz_c + adp_c + h_c + pi_c,0.0
 AIRC3,Phosphoribosylaminoimidazole carboxylase (mutase rxn),5aizc_c <=> 5caiz_c,0.0
-AIRCr,Phosphoribosylaminoimidazole carboxylase,air_c + co2_c <=> 5aizc_c + h_c,2.4591226351004107
+AIRCr,Phosphoribosylaminoimidazole carboxylase,air_c + co2_c <=> 5aizc_c + h_c,2.4591226352650466
 AKGDH,2-Oxogluterate dehydrogenase,akg_c + coa_c + nad_c --> co2_c + nadh_c + succoa_c,7.66959362382538
-AKGDa,Oxoglutarate dehydrogenase (lipoamide),akg_c + h_c + lpam_c <=> co2_c + sdhlam_c,39.90655089456695
-AKGDb,Oxoglutarate dehydrogenase (dihydrolipoamide S-succinyltransferase),coa_c + sdhlam_c --> dhlam_c + succoa_c,39.90655089456695
+AKGDa,Oxoglutarate dehydrogenase (lipoamide),akg_c + h_c + lpam_c <=> co2_c + sdhlam_c,39.90655089476221
+AKGDb,Oxoglutarate dehydrogenase (dihydrolipoamide S-succinyltransferase),coa_c + sdhlam_c --> dhlam_c + succoa_c,39.90655089476221
 AKGt2r,2 oxoglutarate reversible transport via symport,akg_e + h_e --> akg_c + h_c,0.0
 AKGt2rpp,2-oxoglutarate reversible transport via symport (periplasm),akg_p + h_p --> akg_c + h_c,0.0
 AKGtex,Alpha-ketoglutarate transport via diffusion (extracellular to periplasm),akg_e <=> akg_p,0.0
@@ -355,7 +355,7 @@ ALALEUt,Dipeptide transport via ABC system ala-leu ,ala_leu_e + atp_c + h2o_c --
 ALALEUtex,L Alaninylleucine transport via diffusion  extracellular to periplasm ,alaleu_e <=> alaleu_p,0.0
 ALAR,Alanine racemase,ala__L_c <=> ala__D_c,3.76969941900528
 ALAS,,gly_c + h_c + succoa_c <=> 5aop_c + co2_c + coa_c,0.0
-ALATA_L2,Alanine transaminase,ala__L_c + pydx5p_c --> pyam5p_c + pyr_c,45.61178502950868
+ALATA_L2,Alanine transaminase,ala__L_c + pydx5p_c --> pyam5p_c + pyr_c,45.611785029452726
 ALATHRabcpp,L Alaninylthreonine  Ala thr  transport via ABC system  periplasm ,alathr_p + atp_c + h2o_c --> adp_c + alathr_c + h_c + pi_c,0.0
 ALATHRtex,L Alaninylthreonine transport via diffusion  extracellular to periplasm ,alathr_e <=> alathr_p,0.0
 ALATHRtr,Dipeptide transport via ABC system ala-thr ,ala_L_thr__L_e + atp_c + h2o_c --> adp_c + ala_L_thr__L_c + h_c + pi_c,0.0
@@ -366,9 +366,9 @@ ALAabcpp,L-alanine transport via ABC system (periplasm),ala__L_p + atp_c + h2o_c
 ALAt2pp,L-alanine transport in via proton symport (periplasm),ala__L_p + h_p --> ala__L_c + h_c,0.0
 ALAt2r,L alanine reversible transport via proton symport,ala__L_e + h_e --> ala__L_c + h_c,0.0
 ALAtex,L-alanine transport via diffusion (extracellular to periplasm),ala__L_e <=> ala__L_p,0.0
-ALCD1,Alcohol dehydrogenase (methanol),meoh_c + nad_c <=> fald_c + h_c + nadh_c,-5.229872369176513e-07
-ALCD19,Alcohol dehydrogenase (glycerol),glyald_c + h_c + nadh_c <=> glyc_c + nad_c,35.774864383577416
-ALCD19y,Alcohol dehydrogenase  glycerol  NADP ,glyald_c + h_c + nadph_c <=> glyc_c + nadp_c,-35.774864383577416
+ALCD1,Alcohol dehydrogenase (methanol),meoh_c + nad_c <=> fald_c + h_c + nadh_c,-5.233615268626181e-07
+ALCD19,Alcohol dehydrogenase (glycerol),glyald_c + h_c + nadh_c <=> glyc_c + nad_c,35.77486438333047
+ALCD19y,Alcohol dehydrogenase  glycerol  NADP ,glyald_c + h_c + nadph_c <=> glyc_c + nadp_c,-35.77486438333047
 ALCD22_L,Alcohol dehydrogenase (L-lactaldehyde),lald__L_c + nad_c <=> h_c + mthgxl_c + nadh_c,0.0
 ALCD2ir,Alcohol dehydrogenase  reverse rxn  acetaldehyde   ethanol ,acald_c + h_c + nadh_c <=> etoh_c + nad_c,20.07432765888208
 ALCD2x,Alcohol dehydrogenase (ethanol),etoh_c + nad_c <=> acald_c + h_c + nadh_c,-20.07432765888208
@@ -491,8 +491,8 @@ ARGSL,Argininosuccinate lyase,argsuc_c <=> arg__L_c + fum_c,0.5956622311214851
 ARGSS,Argininosuccinate synthase,asp__L_c + atp_c + citr__L_c --> amp_c + argsuc_c + h_c + ppi_c,0.5956622311214851
 ARGabc,L-arginine transport via ABC system,arg__L_e + atp_c + h2o_c --> adp_c + arg__L_c + h_c + pi_c,0.0
 ARGabcpp,L-arginine transport via ABC system (periplasm),arg__L_p + atp_c + h2o_c --> adp_c + arg__L_c + h_c + pi_c,0.0
-ARGt2r,L arganine reversible transport via proton symport,arg__L_e + h_e --> arg__L_c + h_c,13.215913033941176
-ARGt5r,ARGtiDF,arg__L_e <=> arg__L_c,-13.215913033941176
+ARGt2r,L arganine reversible transport via proton symport,arg__L_e + h_e --> arg__L_c + h_c,13.215913033948752
+ARGt5r,ARGtiDF,arg__L_e <=> arg__L_c,-13.215913033948752
 ARUH,L Arginine pyruvate transaminase,arg__L_c + pyr_c <=> 5g2oxpt_c + ala__L_c,0.0
 ASAD,Aspartate-semialdehyde dehydrogenase,aspsa_c + nadp_c + pi_c <=> 4pasp_c + h_c + nadph_c,-3.193830293047147
 ASCBPL,L-ascorbate 6-phosphate lactonase,ascb6p_c + h2o_c --> 3dhgulnp_c + h_c,0.0
@@ -521,9 +521,9 @@ ASPCT,Aspartate carbamoyltransferase,asp__L_c + cbp_c --> cbasp_c + h_c + pi_c,1
 ASPK,Aspartate kinase,asp__L_c + atp_c <=> 4pasp_c + adp_c,3.193830293047147
 ASPO1,L-aspartate oxidase,asp__L_c + h2o_c + o2_c --> h2o2_c + nh4_c + oaa_c,2.73437685718992
 ASPO5,L-aspartate oxidase,asp__L_c + fum_c --> h_c + iasp_c + succ_c,0.0
-ASPO6,L-aspartate oxidase,asp__L_c + o2_c --> h2o2_c + h_c + iasp_c,0.0125198509714244
+ASPO6,L-aspartate oxidase,asp__L_c + o2_c --> h2o2_c + h_c + iasp_c,0.012519850746577112
 ASPT,L-aspartase,asp__L_c --> fum_c + nh4_c,0.0
-ASPTA,Aspartate transaminase,akg_c + asp__L_c <=> glu__L_c + oaa_c,-13.10064237428752
+ASPTA,Aspartate transaminase,akg_c + asp__L_c <=> glu__L_c + oaa_c,-13.100642374391986
 ASPabc,L-aspartate transport via ABC system,asp__L_e + atp_c + h2o_c --> adp_c + asp__L_c + h_c + pi_c,0.0
 ASPabcpp,L-aspartate transport via ABC system (periplasm),asp__L_p + atp_c + h2o_c --> adp_c + asp__L_c + h_c + pi_c,0.0
 ASPt2_2pp,Aspartate transport via proton symport (2 H) (periplasm),asp__L_p + 2.0 h_p --> asp__L_c + 2.0 h_c,0.0
@@ -535,7 +535,7 @@ ASR2,Arsenate reductase (thioredoxin),aso4_c + 2.0 h_c + trdrd_c --> aso3_c + h2
 ATAH_1,,alltt_c + h2o_c <=> urdglyc_c + urea_c,0.0
 ATPHs,ATP amine hydrolysis (spontaneous),atp_c + h2o_c + h_c --> itp_c + nh4_c,0.0
 ATPPRT,ATP phosphoribosyltransferase,atp_c + prpp_c --> ppi_c + prbatp_c,0.19078117271870249
-ATPS4rpp,ATP synthase (four protons for one ATP) (periplasm),adp_c + 4.0 h_p + pi_c <=> atp_c + h2o_c + 3.0 h_c,-0.6502481550628545
+ATPS4rpp,ATP synthase (four protons for one ATP) (periplasm),adp_c + 4.0 h_p + pi_c <=> atp_c + h2o_c + 3.0 h_c,-0.6502481550634579
 AT_MBD2,2-methylpropanoyl-CoA enzyme N6-dihydrolipoyllysine ,dhlam_c + ibcoa_c <=> 2mpdhl_c + coa_c + h_c,0.0
 BALAt2pp,Beta-alanine transport in via proton symport (periplasm),ala_B_p + h_p --> ala_B_c + h_c,0.0
 BALAt2r,Beta Alanine transport in via proton symport,ala_B_e + h_e --> ala_B_c + h_c,0.0
@@ -593,7 +593,7 @@ CAATPS,CAATPS,atp_c + 2.0 ca2_c + h2o_c --> adp_c + 2.0 ca2_e + h_e + pi_c,0.0
 CARBSARAH,N carbamoylsarcosine amidohydrolase,Ncarbsar_c + h2o_c + 2.0 h_c --> co2_c + nh4_c + sarcs_c,0.0
 CARNabcpp,Carnosine transport via ABC system  periplasm ,atp_c + carn_p + h2o_c --> adp_c + carn_c + h_c + pi_c,0.0
 CARNtex,L Carnosine transport via diffusion  extracellular to periplasm ,carn_e <=> carn_p,0.0
-CAT,Catalase,2.0 h2o2_c --> 2.0 h2o_c + o2_c,9.560816106024761
+CAT,Catalase,2.0 h2o2_c --> 2.0 h2o_c + o2_c,9.560816105941157
 CATDOX,"Catechol 1,2-dioxygenase;",catechol_c + o2_c --> ccmuac_c + 2.0 h_c,0.0
 CATpp,Catalase  periplasm ,2.0 h2o2_p --> 2.0 h2o_p + o2_p,0.0
 CAt4,Calcium transport inout via proton antiporter,ca2_c + h_e --> ca2_e + h_c,0.0
@@ -647,9 +647,9 @@ CMt2ppi,Chloramphenicol transport via diffusion  periplasm to cytosol ,cm_p --> 
 CMtex,Chloramphenicol transport via diffusion (extracellular to periplasm),cm_e <=> cm_p,0.0
 CMtexabc,Chloramphenicol extrusion via ABC system,atp_c + cm_c + h2o_c --> adp_c + cm_e + h_c + pi_c,0.0
 CMtpp,Chloramphenicol transport via TolC system,cm_p + h_p --> cm_e + h_c,0.0
-CO2t,CO2 transporter via diffusion,co2_e <=> co2_c,-511.2980658277413
-CO2tex,CO2 transport via diffusion (extracellular to periplasm),co2_e <=> co2_p,-255.64903291387074
-CO2tpp,CO2 transporter via diffusion (periplasm),co2_p <=> co2_c,-255.64903291387074
+CO2t,CO2 transporter via diffusion,co2_e <=> co2_c,-511.2980658276549
+CO2tex,CO2 transport via diffusion (extracellular to periplasm),co2_e <=> co2_p,-255.64903291382748
+CO2tpp,CO2 transporter via diffusion (periplasm),co2_p <=> co2_c,-255.64903291382748
 COBALT2abcpp,Cobalt (Co+2) ABC transporter (periplasm),atp_c + cobalt2_c + h2o_c --> adp_c + cobalt2_p + h_c + pi_c,0.0
 COBALT2t3pp,Cobalt (Co+2) transport out via proton antiport (periplasm),cobalt2_c + h_p --> cobalt2_p + h_c,0.0
 COBALT2tpp,Cobalt transport in via permease (no H+),cobalt2_p --> cobalt2_c,0.0
@@ -675,7 +675,7 @@ CRO4t3pp,Chromate transport out via proton antiport (cytoplasm to periplasm),cro
 CRTNIH,Creatinine iminohydrolase,crtn_c + h2o_c + h_c --> mthd_c + nh4_c,0.0
 CRTNtex,Creatinine transport via diffusion  extracellular to periplasm ,crtn_e <=> crtn_p,0.0
 CRTNtpp,Cretinine transport via proton symport  reversible  periplasm ,crtn_p + h_p --> crtn_c + h_c,0.0
-CS,Citrate synthase,accoa_c + h2o_c + oaa_c --> cit_c + coa_c + h_c,255.63631528896846
+CS,Citrate synthase,accoa_c + h2o_c + oaa_c --> cit_c + coa_c + h_c,255.63631528919322
 CSND,Cytosine deaminase,csn_c + h2o_c + h_c --> nh4_c + ura_c,0.0
 CSNt2,Cytosine transport in via proton symport,csn_e + h_e --> csn_c + h_c,0.0
 CTBTabcpp,Crotonobetaine transport via ABC system (periplasm),atp_c + ctbt_p + h2o_c --> adp_c + ctbt_c + h_c + pi_c,0.0
@@ -691,7 +691,7 @@ CUabcpp,Copper transport via ABC system (periplasm),atp_c + cu2_p + h2o_c --> ad
 CYANST,Cyanide sulfurtransferase,cyan_c + tsul_c --> h_c + so3_c + tcynt_c,0.0
 CYANt2pp,Cyanate transport via proton symport  periplasm ,cyan_p + h_p --> cyan_c + h_c,0.0
 CYANtex,Cyanide transport via diffusion (extracellular to periplasm),cyan_e <=> cyan_p,0.0
-CYO1b,CYO1b,2.0 focytc_c + 0.5 o2_c --> 2.0 ficytc_c + h2o_c,93.2088082348905
+CYO1b,CYO1b,2.0 focytc_c + 0.5 o2_c --> 2.0 ficytc_c + h2o_c,93.2088082346847
 CYP1,MNXR19061,chol4en3one_c + nadh_c + o2_c --> h2o_c + h_c + hchol_c + nad_c,0.0
 CYP2,CYP2,hchol_c + nad_c --> h_c + nadh_c + ochol_c,0.0
 CYP3,CYP3,h_c + nadh_c + o2_c + ochol_c --> cchol_c + h2o_c + nad_c,0.0
@@ -822,7 +822,7 @@ DKDID,"D-2,3-Diketo 4-deoxy-epi-inositol dehydratase",dkdi_c + h2o_c --> d5kg_c 
 DKGLCNR1,"2,5-diketo-D-gluconate reductase",25dkglcn_c + h_c + nadph_c --> 2dhguln_c + nadp_c,0.0
 DLYSAD,D Amino acid dehydrogenase,fad_c + h2o_c + lys__D_c --> 6a2ohxnt_c + fadh2_c + nh4_c,0.0
 DLYSPYRAT,D Lysinepyruvate aminotransferase,lys__D_c + pyr_c <=> 6a2ohxnt_c + ala__D_c,0.0
-DMALRED,(S)-Malate:(acceptor) oxidoreductase,fad_c + mal__L_c --> fadh2_c + oaa_c,61.94821324447349
+DMALRED,(S)-Malate:(acceptor) oxidoreductase,fad_c + mal__L_c --> fadh2_c + oaa_c,61.94821324447346
 DMATT,Dimethylallyltranstransferase,dmpp_c + ipdp_c --> grdp_c + ppi_c,0.0005490171242886631
 DMGDH2,Dimethylglycine dehydrogenase,dmgly_c + h2o_c + nad_c <=> fald_c + h_c + nadh_c + sarcs_c,0.0
 DMPPS,1-hydroxy-2-methyl-2-(E)-butenyl 4-diphosphate reductase (dmpp),h2mb4p_c + h_c + nadh_c --> dmpp_c + h2o_c + nad_c,0.0
@@ -903,10 +903,10 @@ ECOAH6,3-hydroxyacyl-CoA dehydratase (3-hydroxytetradecanoyl-CoA),3htdcoa_c <=> 
 ECOAH7,3-hydroxyacyl-CoA dehydratase (3-hydroxyhexadecanoyl-CoA),3hhdcoa_c <=> h2o_c + hdd2coa_c,13.908534487771773
 ECOAH8,3-hydroxyacyl-CoA dehydratase (3-hydroxyoctadecanoyl-CoA),3hodcoa_c <=> h2o_c + od2coa_c,0.015291831792682615
 ECOAH9ir,2 Methylprop 2 enoyl CoA  2 Methylbut 2 enoyl CoA ,2mb2coa_c + h2o_c --> 3hmbcoa_c,0.0
-EDA,2-dehydro-3-deoxy-phosphogluconate aldolase,2ddg6p_c --> g3p_c + pyr_c,69.44301606295731
-EDD,6-phosphogluconate dehydratase,6pgc_c --> 2ddg6p_c + h2o_c,69.44301606295731
+EDA,2-dehydro-3-deoxy-phosphogluconate aldolase,2ddg6p_c --> g3p_c + pyr_c,69.44301606287323
+EDD,6-phosphogluconate dehydratase,6pgc_c --> 2ddg6p_c + h2o_c,69.44301606287323
 EHGLAT,L erythro 4 Hydroxyglutamate2 oxoglutarate aminotransferase,akg_c + e4hglu_c --> 4h2oglt_c + glu__L_c,0.0
-ENO,Enolase,2pg_c <=> h2o_c + pep_c,198.54532766817945
+ENO,Enolase,2pg_c <=> h2o_c + pep_c,198.54532766821805
 ENTCS,Enterochelin synthase,3.0 23dhba_c + 3.0 seramp_c --> 6.0 amp_c + enter_c + 10.0 h_c,0.0
 ENTERES,Enterochelin Esterase,enter_c + 3.0 h2o_c --> 3.0 23dhbzs_c + 2.0 h_c,0.0
 ENTERES2,Enterochelin Esterase (Fe containing),feenter_c + 3.0 h2o_c --> 3.0 23dhbzs_c + fe3_c + 2.0 h_c,0.0
@@ -1119,7 +1119,7 @@ FTCD,Formimidoyltransferase cyclodeaminase reversible,5forthf_c + 2.0 h_c --> me
 FTHFCL,5 formethyltetrahydrofolate cyclo ligase,5fthf_c + atp_c --> adp_c + methf_c + pi_c,0.0
 FTHFD,Formyltetrahydrofolate deformylase,10fthf_c + h2o_c --> for_c + h_c + thf_c,0.0
 FUCpts,,fuc_e + pep_c --> fc1p_c + pyr_c,0.0
-FUM,Fumarase,fum_c + h2o_c <=> mal__L_c,257.06460845004773
+FUM,Fumarase,fum_c + h2o_c <=> mal__L_c,257.06460845037697
 FUMAC,Fumarylacetoacetase,4fumacac_c + h2o_c --> acac_c + fum_c + h_c,0.0
 FUMt1pp,Fumarate transport via diffusion in (periplasm),fum_p <=> fum_c,0.0
 FUMt2_2,Fumarate transport via proton symport (2 H),fum_e + 2.0 h_e --> fum_c + 2.0 h_c,0.0
@@ -1135,8 +1135,8 @@ G3PAT161,Glycerol-3-phosphate acyltransferase (C16:1),glyc3p_c + hdeACP_c --> 1h
 G3PAT180,Glycerol-3-phosphate acyltransferase (C18:0),glyc3p_c + ocdcaACP_c --> 1odecg3p_c + ACP_c,0.0
 G3PAT181,Glycerol-3-phosphate acyltransferase (C18:1),glyc3p_c + octeACP_c --> 1odec11eg3p_c + ACP_c,0.0
 G3PCT,Glycerol-3-phosphate cytidylyltransferase,ctp_c + glyc3p_c + h_c --> cdpglyc_c + ppi_c,7.821264834878954
-G3PD1ir,Glycerol 3 phosphate dehydrogenase  NAD ,dhap_c + h_c + nadh_c <=> glyc3p_c + nad_c,17.92614984752117
-G3PD5,Glycerol-3-phosphate dehydrogenase (ubiquinone-8),glyc3p_c + q8_c --> dhap_c + q8h2_c,9.850021149430951
+G3PD1ir,Glycerol 3 phosphate dehydrogenase  NAD ,dhap_c + h_c + nadh_c <=> glyc3p_c + nad_c,17.926149847850443
+G3PD5,Glycerol-3-phosphate dehydrogenase (ubiquinone-8),glyc3p_c + q8_c --> dhap_c + q8h2_c,9.850021149760222
 G3PEabcpp,Sn-glycerol-3-phosphoethanolamine transport via ABC system (periplasm),atp_c + g3pe_p + h2o_c --> adp_c + g3pe_c + h_c + pi_c,0.0
 G3PEtex,Glycero-3-phosphoethanolamine transport via diffusion (extracellular to periplasm),g3pe_e <=> g3pe_p,0.0
 G3PGabcpp,Sn-glycerol-3-phosphoglycerol transport via ABC system (periplasm),atp_c + g3pg_p + h2o_c --> adp_c + g3pg_c + h_c + pi_c,0.0
@@ -1144,9 +1144,9 @@ G3POA_BS,Glycerol 3 phosphate O acyltransferase,0.07 fa11coa_c + 0.17 fa12coa_c 
 G3PT,Glycerol-3-phosphatase,glyc3p_c + h2o_c --> glyc_c + pi_c,0.0
 G5SD,Glutamate-5-semialdehyde dehydrogenase,glu5p_c + h_c + nadph_c --> glu5sa_c + nadp_c + pi_c,0.0
 G5SD2,Glutamate 5 semialdehyde dehydrogenase,glu5p_c + h_c + nadh_c --> glu5sa_c + nad_c + pi_c,1.0408189922149598
-G6PBDH,Beta-D-Glucose-6-phosphate NADP+ 1-oxoreductase,g6p_B_c + nadp_c --> 6pgl_c + h_c + nadph_c,17.425134665945013
+G6PBDH,Beta-D-Glucose-6-phosphate NADP+ 1-oxoreductase,g6p_B_c + nadp_c --> 6pgl_c + h_c + nadph_c,17.425134666274285
 G6PDA,Glucosamine-6-phosphate deaminase,gam6p_c + h2o_c --> f6p_c + nh4_c,0.0
-G6PDH2r,Glucose 6-phosphate dehydrogenase,g6p_c + nadp_c <=> 6pgl_c + h_c + nadph_c,33.81093305523551
+G6PDH2r,Glucose 6-phosphate dehydrogenase,g6p_c + nadp_c <=> 6pgl_c + h_c + nadph_c,33.810933054822144
 G6PI2_2,,g6p_c <=> g6p_A_c,0.0
 G6PP,Glucose-6-phosphate phosphatase,g6p_c + h2o_c --> glc__D_c + pi_c,0.0
 GAD2ktpp,Gluconate 2 dehydrogenase  periplasm ,glcn_p + q8_c <=> 2dhglcn_p + q8h2_c,0.0
@@ -1178,10 +1178,10 @@ GALpts,Galactose transport via PTS,gal_e + pep_c <=> dgal6p_c + pyr_c,0.0
 GALt2,D galactose transport in via proton symport,gal_e + h_e --> gal_c + h_c,0.0
 GALt2_3,,gal_bD_e + h_e --> gal_bD_c + h_c,0.0
 GAMpts,D-glucosamine transport via PEP:Pyr PTS,gam_e + pep_c --> gam6p_c + pyr_c,0.0
-GAPD,Glyceraldehyde-3-phosphate dehydrogenase,g3p_c + nad_c + pi_c <=> 13dpg_c + h_c + nadh_c,208.38219157152025
+GAPD,Glyceraldehyde-3-phosphate dehydrogenase,g3p_c + nad_c + pi_c <=> 13dpg_c + h_c + nadh_c,208.38219157180583
 GAPDi_nadp,Glyceraldehyde-3-phosphate dehydrogenase (NAD(P)+) (phosphorylating),13dpg_c + h_c + nadph_c --> g3p_c + nadp_c + pi_c,0.0
 GAPP,Glyceraldehyde-3-phosphate phosphatase,g3p_c + h2o_c --> glyald_c + pi_c,0.0
-GARFT,Phosphoribosylglycinamide formyltransferase,10fthf_c + gar_c <=> fgam_c + h_c + thf_c,2.4603451886967806
+GARFT,Phosphoribosylglycinamide formyltransferase,10fthf_c + gar_c <=> fgam_c + h_c + thf_c,2.4603451888614165
 GART,GAR transformylase-T,atp_c + for_c + gar_c --> adp_c + fgam_c + h_c + pi_c,0.0
 GAt1,Gallate outer membrane porin transport,ga_e <=> ga_p,0.0
 GAt2pp,GAproton symport transport,ga_p + h_p --> ga_c + h_c,0.0
@@ -1194,7 +1194,7 @@ GCVHADPr,GcvH-L complex ADP ribosylation,gcvHL_nhLA_c + nad_c --> gcvHL_ADPr_c +
 GCVHRADPr,GcvH-L complex reverse ADP ribosylation,gcvHL_ADPr_c + h2o_c --> adprib_c + gcvHL_nhLA_c + h_c,0.0
 GDBTALDH,4 Guanidinobutanoate,gdbtal_c + h2o_c + nad_c --> 4gudbutn_c + 2.0 h_c + nadh_c,0.0
 GDH1,Glutamate dehydrogenase (NAD),glu__L_c + h2o_c + nad_c <=> akg_c + 2.0 h_c + nadh_c + nh3_c,-9.070128111654359
-GDOCBIK,,adocbi_c + gtp_c <=> adocbip_c + gdp_c + h_c,-0.8338161485869285
+GDOCBIK,,adocbi_c + gtp_c <=> adocbip_c + gdp_c + h_c,-0.8338161486692467
 GDPDPKE,,atp_c + gtp_c + 6.0 h_c --> amp_c + pppgpp_c,0.0
 GDPMANNDH,GDP mannose 6 dehydrogenase,gdpmann_c + h2o_c + 2.0 nad_c --> gdpmanur_c + 3.0 h_c + 2.0 nadh_c,0.0
 GDPTPDP,Guanosine 3'-diphosphate 5'-triphosphate 3'-diphosphatase,gdptp_c + h2o_c --> gtp_c + ppi_c,0.0
@@ -1215,13 +1215,13 @@ GGLUCT2,GGLUCT2,gluala_c --> 5oxpro_c + ala__L_c,0.0
 GGSPMDO,Gamma glutamyl spermidine oxidase,ggspmd_c + h2o_c + o2_c --> 13dampp_c + ggbutal_c + h2o2_c,0.0
 GGSPMDS,Gamma glutamyl spermidine synthase,atp_c + glu__L_c + spmd_c --> adp_c + ggspmd_c + h_c + pi_c,0.0
 GGTT,Geranylgeranyltranstransferase,ggdp_c + ipdp_c --> pendp_c + ppi_c,9.150285404811052e-05
-GHMT2r,"Glycine hydroxymethyltransferase, reversible",ser__L_c + thf_c <=> gly_c + h2o_c + mlthf_c,9.099024874649915
+GHMT2r,"Glycine hydroxymethyltransferase, reversible",ser__L_c + thf_c <=> gly_c + h2o_c + mlthf_c,9.09902487489687
 GK1,Guanylate kinase (GMP:ATP),atp_c + gmp_c <=> adp_c + gdp_c,1.336517099422559
 GLBRAN3,1 4 alpha glucan branching enzyme  glyg4n   bglyg4n ,glyg4n_c --> bglyg4n_c,0.0
 GLCADpts,,glc__aD_e + pep_c --> g6p_A_c + pyr_c,0.0
-GLCBPP,ATP D-glucose 6-phosphotransferase ,atp_c + glc_D_B_c --> adp_c + g6p_B_c + h_c,17.425134665945013
+GLCBPP,ATP D-glucose 6-phosphotransferase ,atp_c + glc_D_B_c --> adp_c + g6p_B_c + h_c,17.425134666274285
 GLCDpp,Glucose dehydrogenase (ubiquinone-8 as acceptor) (periplasm),glc__D_p + h2o_p + q8_c --> glcn_p + h_p + q8h2_c,18.2069483417768
-GLCE,Alpha-D-Glucose 1-epimerase ,glc__D_c <=> glc_D_B_c,17.425134665945013
+GLCE,Alpha-D-Glucose 1-epimerase ,glc__D_c <=> glc_D_B_c,17.425134666274285
 GLCMAN4,Hydrolysis of glucomannan,glcman4_c + 3.0 h2o_c --> glc__D_c + 3.0 man_c,0.0
 GLCMAN4abc,Glucomannan transport via ABC system,atp_c + glcman4_e + h2o_c --> adp_c + glcman4_c + h_c + pi_c,0.0
 GLCMAN6,Hydrolysis of glucomannan,glcman6_c + 5.0 h2o_c --> 2.0 glc__D_c + 4.0 man_c,0.0
@@ -1241,7 +1241,7 @@ GLCURt2r,"D-glucuronate transport via proton symport, reversible",glcur_e + h_e 
 GLCURt2rpp,"D-glucuronate transport via proton symport, reversible (periplasm)",glcur_p + h_p --> glcur_c + h_c,0.0
 GLCURtex,D-glucuronat transport via diffusion (extracellular to periplasm),glcur_e <=> glcur_p,0.0
 GLCabc,D-glucose transport via ABC system,atp_c + glc__D_e + h2o_c --> adp_c + glc__D_c + h_c + pi_c,48.28509377086584
-GLCabcpp,D-glucose transport via ABC system (periplasm),atp_c + glc__D_p + h2o_c --> adp_c + glc__D_c + h_c + pi_c,6.202367017528362
+GLCabcpp,D-glucose transport via ABC system (periplasm),atp_c + glc__D_p + h2o_c --> adp_c + glc__D_c + h_c + pi_c,6.202367017528361
 GLCpts,D-glucose transport via PEP:Pyr PTS,glc__D_e + pep_c --> g6p_c + pyr_c,65.89181304643026
 GLCptspp,D-glucose transport via PEP:Pyr PTS (periplasm),glc__D_p + pep_c --> g6p_c + pyr_c,24.275931122369037
 GLCt2pp,D-glucose transport in via proton symport (periplasm),glc__D_p + h_p --> glc__D_c + h_c,2.60099262025383
@@ -1249,7 +1249,7 @@ GLCtex,Glucose transport via diffusion (extracellular to periplasm),glc__D_e <=>
 GLDBRAN3,Glycogen debranching enzyme  bglyg4n   glyg4n ,bglyg4n_c --> glyg4n_c,0.0
 GLGC,Glucose-1-phosphate adenylyltransferase,atp_c + g1p_c + h_c --> adpglc_c + ppi_c,0.0
 GLMS_syn,L-glutamate ferredoxin oxidoreductase,akg_c + 2.0 fdxrd_c + gln__L_c + 2.0 h_c --> 2.0 fdxo_2_2_c + 2.0 glu__L_c,0.0
-GLNS,Glutamine synthetase,atp_c + glu__L_c + nh4_c --> adp_c + gln__L_c + h_c + pi_c,4.200905080388466
+GLNS,Glutamine synthetase,atp_c + glu__L_c + nh4_c --> adp_c + gln__L_c + h_c + pi_c,4.200905080717738
 GLNabc,L-glutamine transport via ABC system,atp_c + gln__L_e + h2o_c --> adp_c + gln__L_c + h_c + pi_c,0.0
 GLNabcpp,L-glutamine transport via ABC system (periplasm),atp_c + gln__L_p + h2o_c --> adp_c + gln__L_c + h_c + pi_c,0.0
 GLNtex,L-glutamine transport via diffusion (extracellular to periplasm),gln__L_e <=> gln__L_p,0.0
@@ -1263,12 +1263,12 @@ GLUCAN2abc,Glucan transport via ATP transporter,atp_c + glucan6_e + h2o_c --> ad
 GLUCANabc,Glucan transport via ATP transporter,atp_c + glucan4_e + h2o_c --> adp_c + glucan4_c + h_c + pi_c,0.0
 GLUCYS,Gamma-glutamylcysteine synthetase,atp_c + cys__L_c + glu__L_c --> adp_c + glucys_c + h_c + pi_c,0.0
 GLUDC,Glutamate Decarboxylase,glu__L_c + h_c --> 4abut_c + co2_c,1.578380137077107
-GLUDxi,Glutamate dehydrogenase  NAD ,glu__L_c + h2o_c + nad_c <=> akg_c + h_c + nadh_c + nh4_c,-51.225028468130596
-GLUDy,Glutamate dehydrogenase (NADP),glu__L_c + h2o_c + nadp_c <=> akg_c + h_c + nadph_c + nh4_c,20.324700299012193
+GLUDxi,Glutamate dehydrogenase  NAD ,glu__L_c + h2o_c + nad_c <=> akg_c + h_c + nadh_c + nh4_c,-51.225028467965956
+GLUDy,Glutamate dehydrogenase (NADP),glu__L_c + h2o_c + nadp_c <=> akg_c + h_c + nadph_c + nh4_c,20.32470029877561
 GLUDy_1,Glutamate dehydrogenase (NADP),glu__L_c + h2o_c + nadp_c <=> akg_c + 2.0 h_c + nadph_c + nh3_c,5.5354458328478895
 GLUN,Glutaminase,gln__L_c + h2o_c --> glu__L_c + nh4_c,0.0
 GLUNpp,Glutaminase,gln__L_p + h2o_p --> glu__L_p + nh4_p,0.0
-GLUPRT,Glutamine phosphoribosyldiphosphate amidotransferase,gln__L_c + h2o_c + prpp_c --> glu__L_c + ppi_c + pram_c,2.4603451886967806
+GLUPRT,Glutamine phosphoribosyldiphosphate amidotransferase,gln__L_c + h2o_c + prpp_c --> glu__L_c + ppi_c + pram_c,2.4603451888614165
 GLUR,Glutamate racemase,glu__D_c <=> glu__L_c,-0.8361694335674126
 GLUSfx,Glutamate synthase (ferredoxin),akg_c + 2.0 fdxrd_c + gln__L_c + 2.0 h_c --> 2.0 fdxox_c + 2.0 glu__L_c,0.0
 GLUSx,Glutamate synthase  NADH2 ,akg_c + gln__L_c + h_c + nadh_c --> 2.0 glu__L_c + nad_c,0.0
@@ -1307,7 +1307,7 @@ GLYCL,Glycine Cleavage System,gly_c + nad_c + thf_c --> co2_c + mlthf_c + nadh_c
 GLYCLTDx,Glycolate dehydrogenase (NAD),glx_c + h_c + nadh_c --> glyclt_c + nad_c,118.9787393469955
 GLYCLTt4pp,Glycolate transport via sodium symport (periplasm),glyclt_p + na1_p --> glyclt_c + na1_c,0.0
 GLYCLTtex,Glycolate transport via diffusion (extracellular to periplasm),glyclt_e <=> glyclt_p,0.0
-GLYCL_2,"Glycine cleavage system, cytosol",co2_c + mlthf_c + nadh_c + nh4_c --> gly_c + nad_c + thf_c,3.528124577859966
+GLYCL_2,"Glycine cleavage system, cytosol",co2_c + mlthf_c + nadh_c + nh4_c --> gly_c + nad_c + thf_c,3.528124577777648
 GLYCS_I,,gthrd_c + mthgxl_c --> lgt_s_c,0.0
 GLYCS_II,,h2o_c + lgt_s_c --> gthrd_c + h_c + lac__L_c,0.0
 GLYCTO1,Glycolate oxidase,glyclt_c + o2_c --> glx_c + h2o2_c,118.98362956138082
@@ -1332,7 +1332,7 @@ GLYLEUtr,Gly-Leu ABC transporters ,atp_c + gly_leu_e + h2o_c --> adp_c + gly_leu
 GLYMETabcpp,L Glycinylmethionine  Gly Met  transport via ABC system  periplasm ,atp_c + glymet_p + h2o_c --> adp_c + glymet_c + h_c + pi_c,0.0
 GLYMETtex,L Glycinylmethionine transport via diffusion  extracellular to periplasm ,glymet_e <=> glymet_p,0.0
 GLYMETtr,Dipeptide transport via ABC system gly-met ,atp_c + gly_met_e + h2o_c --> adp_c + gly_met_c + h_c + pi_c,0.0
-GLYO1,Glycine oxidase,gly_c + h2o_c + o2_c --> glx_c + h2o2_c + nh4_c,5.62192750203705
+GLYO1,Glycine oxidase,gly_c + h2o_c + o2_c --> glx_c + h2o2_c + nh4_c,5.621927501872413
 GLYOX,Hydroxyacylglutathione hydrolase,h2o_c + lgt__S_c --> gthrd_c + h_c + lac__D_c,0.0
 GLYPHEAP,Gly-Phe aminopeptidase ,gly_phe_c + h2o_c <=> gly_c + h_c + phe__L_c,0.0
 GLYPHEHYc,Hydrolysis of glycylphenylalanine,glyphe_c + h2o_c --> gly_c + phe__L_c,0.0
@@ -1354,7 +1354,7 @@ GND,Phosphogluconate dehydrogenase,6pgc_c + nadp_c --> co2_c + nadph_c + ru5p__D
 GNK,Gluconokinase,atp_c + glcn_c --> 6pgc_c + adp_c + h_c,18.2069483417768
 GNNUC,Ribosylpyrimidine nucleosidase,gsn_c + h2o_c --> gua_c + rib__D_c,0.0
 GNP,Phosphogluconate phosphatase,6pgc_c + h2o_c --> glcn_c + pi_c,0.0
-GOX,Glycine oxidase,gly_c + h2o_c + o2_c --> glx_c + h2o2_c + h_c + nh3_c,4.578304890488919
+GOX,Glycine oxidase,gly_c + h2o_c + o2_c --> glx_c + h2o2_c + h_c + nh3_c,4.5783048906535555
 GPDDA2,Glycerophosphodiester phosphodiesterase (Glycerophosphoethanolamine),g3pe_c + h2o_c --> etha_c + glyc3p_c + h_c,0.0
 GPDDA4,Glycerophosphodiester phosphodiesterase (Glycerophosphoglycerol),g3pg_c + h2o_c --> glyc3p_c + glyc_c + h_c,0.0
 GRTT,Geranyltranstransferase,grdp_c + ipdp_c --> frdp_c + ppi_c,0.0005490171242886631
@@ -1363,8 +1363,8 @@ GSEALD,GSEALD,glu__L_c + 2.0 h_c + nadph_c <-- glu1sa_c + h2o_c + nadp_c,0.0
 GSNt2,Guanosine transport in via proton symport,gsn_e + h_e --> gsn_c + h_c,0.0
 GSNt3pp,Guanosine transport out via proton antiport (periplasm),gsn_c + h_p --> gsn_p + h_c,0.0
 GSNtex,Guanosine transport via diffusion (extracellular to periplasm),gsn_e <=> gsn_p,0.0
-GTHOr,Glutathione oxidoreductase,gthox_c + h_c + nadph_c <=> 2.0 gthrd_c + nadp_c,84.76306257767881
-GTHPi,Glutathione peridoxase,2.0 gthrd_c + h2o2_c --> gthox_c + 2.0 h2o_c,126.56012268796093
+GTHOr,Glutathione oxidoreductase,gthox_c + h_c + nadph_c <=> 2.0 gthrd_c + nadp_c,84.76306257759026
+GTHPi,Glutathione peridoxase,2.0 gthrd_c + h2o2_c --> gthox_c + 2.0 h2o_c,126.56012268791048
 GTHRDHpp,Glutathione hydralase (periplasmic),gthrd_p + h2o_p --> cgly_p + glu__L_p,0.0
 GTHRDabc2pp,Glutathione export via ABC system (cytoplasm to periplasm),atp_c + gthrd_c + h2o_c --> adp_c + gthrd_p + h_c + pi_c,0.0
 GTHRDabcpp,Reduced glutathione via ABC system (periplasm),atp_c + gthrd_p + h2o_c --> adp_c + gthrd_c + h_c + pi_c,0.0
@@ -1380,9 +1380,9 @@ GTPHs,GTP amine hydrolysis (spontaneous),gtp_c + h2o_c + h_c --> nh4_c + xtp_c,0
 GUACYC,Guanylate cyclase,gtp_c --> 35cgmp_c + ppi_c,0.0
 GUAD,Guanine deaminase,gua_c + h2o_c + h_c --> nh4_c + xan_c,0.0
 GUAPRT,Guanine phosphoribosyltransferase,gua_c + prpp_c --> gmp_c + ppi_c,0.0
-GUAt,Guanine transport,gua_e <=> gua_c,-13.215913033941176
+GUAt,Guanine transport,gua_e <=> gua_c,-13.215913033948752
 GUAt2pp,Guanine transport in via proton symport (periplasm),gua_p + h_p --> gua_c + h_c,0.0
-GUAt2r,Guanine reversible transport via proton symport,gua_e + h_e --> gua_c + h_c,13.215913033941176
+GUAt2r,Guanine reversible transport via proton symport,gua_e + h_e --> gua_c + h_c,13.215913033948752
 GUAtex,Guanine transport via diffusion (extracellular to periplasm),gua_e <=> gua_p,0.0
 GUDBUTNAH,4-Guanidinobutanoate amidinohydrolase,4gudbutn_c + h2o_c --> 4abut_c + urea_c,0.0
 GUI1,Glucuronate isomerase (D-glucuronate),glcur_c <=> fruur_c,0.0
@@ -1393,9 +1393,9 @@ H2CO3D,Carboxylic acid dissociation,co2_c + h2o_c <=> h2co3_c,1.567350173908136
 H2CO3D2,Carboxylic acid dissociation,h_c + hco3_c <=> h2co3_c,-1.567350173908136
 H2CPD,,4mop_c + 2.0 h_c + nadh_c --> h2isocap_c + nad_c,0.0
 H2CT,,coa_c + h2isocap_c --> h2isocapcoa_c + h2o_c,0.0
-H2Ot,H2O transport via diffusion,h2o_e <=> h2o_c,-612.5134714808739
-H2Otex,H2O transport via diffusion (extracellular to periplasm),h2o_e <=> h2o_p,-297.15326156954785
-H2Otpp,H2O transport via diffusion (periplasm),h2o_p <=> h2o_c,-315.36020991132636
+H2Ot,H2O transport via diffusion,h2o_e <=> h2o_c,-612.5134714804491
+H2Otex,H2O transport via diffusion (extracellular to periplasm),h2o_e <=> h2o_p,-297.1532615693361
+H2Otpp,H2O transport via diffusion (periplasm),h2o_p <=> h2o_c,-315.3602099111129
 H2St1,H2s transport (diffusion),h2s_c <=> h2s_e,0.0
 HACD1,3-hydroxyacyl-CoA dehydrogenase (acetoacetyl-CoA),aacoa_c + h_c + nadh_c <=> 3hbcoa_c + nad_c,5.350233795203293
 HACD10i,3 hydroxyacyl CoA dehydrogenase   3 oxoheptaryl CoA ,3hhpcoa_c + nad_c --> 3ohpcoa_c + h_c + nadh_c,0.0
@@ -1457,8 +1457,8 @@ HCYSMT,Homocysteine S-methyltransferase,amet_c + hcys__L_c --> ahcys_c + h_c + m
 HDAD,MNXR76953,49dsha_c + h2o_c --> hhd_c + hip_c,0.0
 HEMEOS,Heme O synthase,frdp_c + h2o_c + pheme_c --> hemeO_c + ppi_c,0.0
 HETZK,Hydroxyethylthiazole kinase,4mhetz_c + atp_c --> 4mpetz_c + adp_c + h_c,0.0
-HEX1,Hexokinase (D-glucose:ATP),atp_c + glc__D_c --> adp_c + g6p_c + h_c,18.46447094277956
-HEX1_1,Hexokinase (D-glucose:ATP),atp_c + glc__D_c --> adp_c + g6p_c + h_c,18.464470942733538
+HEX1,Hexokinase (D-glucose:ATP),atp_c + glc__D_c --> adp_c + g6p_c + h_c,18.464470942614923
+HEX1_1,Hexokinase (D-glucose:ATP),atp_c + glc__D_c --> adp_c + g6p_c + h_c,18.4644709425689
 HEX4,Hexokinase (D-mannose:ATP),atp_c + man_c --> adp_c + h_c + man6p_c,0.0
 HEX7,Hexokinase (D-fructose:ATP),atp_c + fru_c --> adp_c + f6p_c + h_c,2.73437685718992
 HEXSabc,Hexanesulfonate transport via ABC system,atp_c + h2o_c + hexs_e --> adp_c + h_c + hexs_c + pi_c,0.0
@@ -1531,7 +1531,7 @@ HSDy,Homoserine dehydrogenase (NADPH),hom__L_c + nadp_c <=> aspsa_c + h_c + nadp
 HSERTA,Homoserine O trans acetylase,accoa_c + hom__L_c --> achms_c + coa_c,0.310713025639787
 HSK,Homoserine kinase,atp_c + hom__L_c --> adp_c + h_c + phom_c,1.3558950163591115
 HSTPT,Histidinol-phosphate transaminase,glu__L_c + imacp_c --> akg_c + hisp_c,0.19078117271870249
-HVCD,3-hydroxyacyl-CoA dehydrogenase (3-hydroxyacyl-CoA dehydrogenase (3-oxovaleryl-CoA)),3optcoa_c + h_c + nadh_c <=> 3hptcoa_c + nad_c,17.887432191788708
+HVCD,3-hydroxyacyl-CoA dehydrogenase (3-hydroxyacyl-CoA dehydrogenase (3-oxovaleryl-CoA)),3optcoa_c + h_c + nadh_c <=> 3hptcoa_c + nad_c,17.887432191665233
 HXAND,Hypoxanthine dehydrogenase,h2o_c + hxan_c + nad_c --> h_c + nadh_c + xan_c,0.0
 HXANt2pp,Hypoxanthine transport in via proton symport (periplasm),h_p + hxan_p --> h_c + hxan_c,0.0
 HXANt2r,Hypoxanthine reversible transport via proton symport,h_e + hxan_e --> h_c + hxan_c,0.0
@@ -1545,7 +1545,7 @@ HYXNtex,Hypoxanthine transport via diffusion (extracellular to periplasm),hxan_e
 ICAPt,,isocap_c --> isocap_e,0.0
 ICCT,,h2o_c + isocapcoa_c --> coa_c + h_c + isocap_c,0.0
 ICDHx,Isocitrate dehydrogenase (NAD),icit_c + nad_c <=> akg_c + co2_c + nadh_c,1.7339950801692203
-ICDHyr,Isocitrate dehydrogenase (NADP),icit_c + nadp_c <=> akg_c + co2_c + nadph_c,253.90232020879924
+ICDHyr,Isocitrate dehydrogenase (NADP),icit_c + nadp_c <=> akg_c + co2_c + nadph_c,253.902320209024
 ICHORS,Isochorismate synthase,chor_c <=> ichor_c,0.0005490171242886631
 ICHORT,Isochorismatase,h2o_c + ichor_c --> 23ddhb_c + pyr_c,0.0
 ICITt4pp,Citrate transport via sodium symport  periplasm ,icit_p + na1_p --> icit_c + na1_c,0.0
@@ -1566,7 +1566,7 @@ ILEabc,L-isoleucine transport via ABC system,atp_c + h2o_c + ile__L_e --> adp_c 
 ILEabcpp,L-isoleucine transport via ABC system (periplasm),atp_c + h2o_c + ile__L_p --> adp_c + h_c + ile__L_c + pi_c,0.0
 ILEt2r,L isoleucine reversible transport via proton symport,h_e + ile__L_e --> h_c + ile__L_c,0.0
 ILEtex,L-isoleucine transport via diffusion (extracellular to periplasm),ile__L_e <=> ile__L_p,0.0
-IMPC,IMP cyclohydrolase,h2o_c + imp_c <=> fprica_c,-2.649903807819113
+IMPC,IMP cyclohydrolase,h2o_c + imp_c <=> fprica_c,-2.649903807983749
 IMPD,IMP dehydrogenase,h2o_c + imp_c + nad_c --> h_c + nadh_c + xmp_c,1.336517099422559
 IND3ACtex,Indole 3 acetate transport  exterior ,ind3ac_p <=> ind3ac_e,0.0
 IND3ACtpp,Indole 3 acetic acid export  periplasm ,h_p + ind3ac_c --> h_c + ind3ac_p,0.0
@@ -1624,18 +1624,18 @@ KAT29,Acetyl CoA C acyltransferase  cis cis hexadec 7 10 dienoyl CoA ,3olnlccoa_
 KAT30,Acetyl CoA C acyltransferase  cis cis tetradec 5 8 dienoyl CoA ,3ohd710coa_c + coa_c --> accoa_c + td_5_8_coa_c,0.0
 KAT31,Acetyl CoA C acyltransferase  cis cis dodedec 3 6 dienoyl CoA ,3ohd58coa_c + coa_c --> accoa_c + dd_3_6_coa_c,0.0
 KAT32,Acetyl CoA C acyltransferase  4 cis decenoyl CoA ,3odd6coa_c + coa_c --> accoa_c + dec4coa_c,0.0
-KAT33,3 Oxopentanoyl CoA thiolase,3oxptcoa_c + coa_c --> accoa_c + ppcoa_c,17.887432191788708
+KAT33,3 Oxopentanoyl CoA thiolase,3oxptcoa_c + coa_c --> accoa_c + ppcoa_c,17.887432191665233
 KG6PDC,3-keto-L-gulonate 6-phosphate decarboxylase,3dhgulnp_c + h_c --> co2_c + xu5p__L_c,0.0
-KGD2,MNXR84838,co2_c + 2.0 fdxrd_c + h_c + succoa_c <-- akg_c + coa_c + 2.0 fdxox_c,-200.38392939220924
+KGD2,MNXR84838,co2_c + 2.0 fdxrd_c + h_c + succoa_c <-- akg_c + coa_c + 2.0 fdxox_c,-200.38392939201404
 KSH,R09860,andrs14dn317dn_c + h_c + nadh_c + o2_c --> 9ohadd_c + h2o_c + nad_c,0.0
 KSTD,MNXR85993,andrstndn_c + nad_c --> andrs14dn317dn_c + h_c + nadh_c,0.0
 Kabc,Potassium ABC transporter,atp_c + h2o_c + k_e --> adp_c + h_c + k_c + pi_c,0.0
 Kabcpp,Potassium ABC transporter (periplasm),atp_c + h2o_c + k_p --> adp_c + h_c + k_c + pi_c,0.0
-Kt1,Potassium transport via uniport (facilitated diffusion),k_e <=> k_c,15.464161618542983
+Kt1,Potassium transport via uniport (facilitated diffusion),k_e <=> k_c,15.46416161855262
 Kt2pp,Potassium transport in via proton symport (periplasm),h_p + k_p --> h_c + k_c,0.0
 Kt2r,Potassium reversible transport  via proton symport,h_e + k_e --> h_c + k_c,4.801832529699371
 Kt3pp,Potassium transport out via proton antiport (periplasm),h_p + k_c --> h_c + k_p,0.0
-Kt3r,Potassium transport out via proton antiport,h_e + k_c --> h_c + k_e,10.967664449339377
+Kt3r,Potassium transport out via proton antiport,h_e + k_c --> h_c + k_e,10.967664449344888
 L2OA,,h_c + isocaprecoa_c + nadh_c --> isocapcoa_c + nad_c,0.0
 LAAL1,L amino acid ligase  L glycine L glycine ,atp_c + 2.0 gly_c --> adp_c + glygly_c + h_c + pi_c,0.0
 LACZ,B-galactosidase,h2o_c + lcts_c --> gal_c + glc__D_c,0.0
@@ -1655,12 +1655,12 @@ LCTSt3ipp,Lactose transport via proton aniport (periplasm),h_p + lcts_c --> h_c 
 LCYSTabc,Cysteate transport via ABC system,Lcyst_e + atp_c + h2o_c --> Lcyst_c + adp_c + h_c + pi_c,0.0
 LDGUNPD,Linear diguanylate phosphodiesterase,5pg35pg_c + h2o_c --> 2.0 gmp_c + h_c,0.0
 LDH_D,D-lactate dehydrogenase,lac__D_c + nad_c <=> h_c + nadh_c + pyr_c,-4.00152710808281
-LDH_D2,D-lactate dehydrogenase,lac__D_c + q8_c --> pyr_c + q8h2_c,2.4676083833183142
-LDH_L,L-lactate dehydrogenase,lac__L_c + nad_c <=> h_c + nadh_c + pyr_c,-91.67488951012541
+LDH_D2,D-lactate dehydrogenase,lac__D_c + q8_c --> pyr_c + q8h2_c,2.4676083833177294
+LDH_L,L-lactate dehydrogenase,lac__L_c + nad_c <=> h_c + nadh_c + pyr_c,-91.67488950991961
 LEULEULAPc,Hydrolysis of Leucylleucine in the small intestine for cellular uptake,h2o_c + leuleu_c <=> 2.0 leu__L_c,0.0
 LEULEUabcpp,L leucylleucine  leuleu  transport via ABC system  periplasm ,atp_c + h2o_c + leuleu_p --> adp_c + h_c + leuleu_c + pi_c,0.0
 LEULEUtex,Leucylleucine transport via diffusion  extracellular to periplasm ,leuleu_e <=> leuleu_p,0.0
-LEUTA,Leucine transaminase,akg_c + leu__L_c <=> 4mop_c + glu__L_c,25.158876903895113
+LEUTA,Leucine transaminase,akg_c + leu__L_c <=> 4mop_c + glu__L_c,25.158876903730476
 LEUTAi,Leucine transaminase (irreversible),4mop_c + glu__L_c --> akg_c + leu__L_c,0.0
 LEUabc,L-leucine transport via ABC system,atp_c + h2o_c + leu__L_e --> adp_c + h_c + leu__L_c + pi_c,0.0
 LEUabcpp,L-leucine transport via ABC system (periplasm),atp_c + h2o_c + leu__L_p --> adp_c + h_c + leu__L_c + pi_c,0.0
@@ -1672,7 +1672,7 @@ LIPO1S24_BS,Lipoteichoic acid synthesis  n24   linked  glucose substituted,2400.
 LIPO2S24_BS,Lipoteichoic acid synthesis  n24   linked  N acetylglucosamine substituted,2400.0 cdpglyc_c + d12dg_BS_c + 2400.0 uacgam_c --> 2400.0 cmp_c + 4800.0 h_c + lipo2_24_BS_c + 2400.0 udp_c,0.0006371596580281622
 LIPO3S24_BS,Lipoteichoic acid synthesis  n24   unliked  D alanine substituted,2400.0 ala__D_c + 2400.0 atp_c + 2400.0 cdpglyc_c + d12dg_BS_c + 2400.0 h2o_c --> 2400.0 amp_c + 2400.0 cmp_c + 4800.0 h_c + lipo3_24_BS_c + 2400.0 ppi_c,0.0006371596580281622
 LIPO4S24_BS,Lipoteichoic acid synthesis  n24   linked  unsubstituted,2400.0 cdpglyc_c + d12dg_BS_c --> 2400.0 cmp_c + 2400.0 h_c + lipo4_24_BS_c,0.0006371596580281622
-LLEUDr,L leucine dehydrogenase,h2o_c + leu__L_c + nad_c <=> 4mop_c + h_c + nadh_c + nh4_c,-26.066151564306388
+LLEUDr,L leucine dehydrogenase,h2o_c + leu__L_c + nad_c <=> 4mop_c + h_c + nadh_c + nh4_c,-26.06615156414175
 LMN2,Laminaribiase,h2o_c + lmn2_c --> 2.0 glc__D_c,0.0
 LMN2abc,Laminoribiose transport via ABC-transporter,atp_c + h2o_c + lmn2_e --> adp_c + h_c + lmn2_c + pi_c,0.0
 LNLCtexi,Linoleic acid  n C182  transport periplasm,lnlc_e --> lnlc_p,0.0
@@ -1706,7 +1706,7 @@ LYSabcpp,L-lysine transport via ABC system (periplasm),atp_c + h2o_c + lys__L_p 
 LYSt3pp,L-lysine transport out via proton antiport (cytoplasm to periplasm),h_p + lys__L_c --> h_c + lys__L_p,0.0
 LYSt3r,L lysine transport out via proton antiport reversible,h_e + lys__L_c --> h_c + lys__L_e,11.737812850376242
 LYSt5r,LYStiDF,lys__L_e <=> lys__L_c,11.737812850376242
-L_LACD,L LACD,2.0 ficytc_c + lac__L_c --> 2.0 focytc_c + pyr_c,93.2088082348905
+L_LACD,L LACD,2.0 ficytc_c + lac__L_c --> 2.0 focytc_c + pyr_c,93.2088082346847
 L_LACD2,L-Lactate dehydrogenase (ubiquinone),lac__L_c + q8_c --> pyr_c + q8h2_c,0.0
 L_LACD3,L-Lactate dehydrogenase (menaquinone),lac__L_c + mqn8_c --> mql8_c + pyr_c,0.0
 L_LACD3_1,Lactate-quinone oxidoreductase,lac__L_c + mqn7_c --> mql7_c + pyr_c,0.0
@@ -1776,7 +1776,7 @@ MDDEP1pp,"Murein D,D-endopeptidase (murein4px4p) (periplasm)",h2o_p + murein4px4
 MDDEP3pp,"Murein D,D-endopeptidase (murein5px4p) (periplasm)",h2o_p + murein5px4p_p --> murein5p4p_p,0.0
 MDDEP4pp,"Murein D,D-endopeptidase (murein4px4px4p) (periplasm)",h2o_p + murein4px4px4p_p --> murein4px4p4p_p,0.0
 MDH,Malate dehydrogenase,mal__L_c + nad_c <=> h_c + nadh_c + oaa_c,53.42038689290553
-MDH2,Malate dehydrogenase (ubiquinone 8 as acceptor),mal__L_c + q8_c --> oaa_c + q8h2_c,122.88951036885526
+MDH2,Malate dehydrogenase (ubiquinone 8 as acceptor),mal__L_c + q8_c --> oaa_c + q8h2_c,122.88951036918453
 MDH3,Malate dehydrogenase (menaquinone 8 as acceptor),mal__L_c + mqn8_c --> mql8_c + oaa_c,27.744470299831786
 MDH3_1,Malate dehydrogenase (menaquinone 7 as acceptor),mal__L_c + mqn7_c --> mql7_c + oaa_c,0.0
 MDNTHAep,N  2 methyl 3 5 dinitrophenyl  4 methyl 3 5 dinitroaniline extrusion pump,2m35mdntha_c + h_p --> 2m35mdntha_e + h_c,0.0
@@ -1788,8 +1788,8 @@ MEHLER,Mehler reaction,h_c + nadph_c + 0.5 o2_c --> h2o_c + nadp_c,9.13682023012
 MELIB_Et,Melibiose transport (transport mechanism unknown - evidence from biolog data),melib_e <=> melib_c,0.0
 MELIBt2pp,Melibiose transport in via symport (periplasm),h_p + melib_p --> h_c + melib_c,0.0
 MELIBt3ipp,Melibiose transport in via antiport (periplasm),h_p + melib_c --> h_c + melib_p,0.0
-MEOHtex,Methanol transport via diffusion (extracellular to periplasm),meoh_e <=> meoh_p,-5.229872369176512e-07
-MEOHtrpp,Methanol reversible transport via diffusion (periplasm),meoh_p <=> meoh_c,-5.229872369176512e-07
+MEOHtex,Methanol transport via diffusion (extracellular to periplasm),meoh_e <=> meoh_p,-5.233615268626181e-07
+MEOHtrpp,Methanol reversible transport via diffusion (periplasm),meoh_p <=> meoh_c,-5.233615268626181e-07
 MEPCT,2-C-methyl-D-erythritol 4-phosphate cytidylyltransferase,2me4p_c + ctp_c + h_c --> 4c2me_c + ppi_c,0.0043921369943093055
 METAT,Methionine adenosyltransferase,atp_c + h2o_c + met__L_c --> amet_c + pi_c + ppi_c,0.0017715707206436746
 METDabc,D-methionine transport via ABC system,atp_c + h2o_c + met__D_e --> adp_c + h_c + met__D_c + pi_c,0.0
@@ -1856,8 +1856,8 @@ MSO3abc,Methanesulfonate transport via ABC system,atp_c + h2o_c + mso3_e --> adp
 MTAM_1,,5fthf_c + h_c <=> h2o_c + methf_c,0.0
 MTAN,Methylthioadenosine nucleosidase,5mta_c + h2o_c --> 5mtr_c + ade_c,0.0
 MTAP,5  methylthioadenosine phosphorylase,5mta_c + pi_c --> 5mdr1p_c + ade_c,0.0
-MTHFC,Methenyltetrahydrofolate cyclohydrolase,h2o_c + methf_c <=> 10fthf_c + h_c,5.11147155011223
-MTHFD,Methylenetetrahydrofolate dehydrogenase (NADP),mlthf_c + nadp_c <=> methf_c + nadph_c,5.11147155011223
+MTHFC,Methenyltetrahydrofolate cyclohydrolase,h2o_c + methf_c <=> 10fthf_c + h_c,5.111471550441503
+MTHFD,Methylenetetrahydrofolate dehydrogenase (NADP),mlthf_c + nadp_c <=> methf_c + nadph_c,5.111471550441503
 MTHFD2i,Methylenetetrahydrofolate dehydrogenase  NAD ,mlthf_c + nad_c --> methf_c + nadh_c,0.0
 MTHFR2,"5,10-methylenetetrahydrofolate reductase (NADH)",2.0 h_c + mlthf_c + nadh_c --> 5mthf_c + nad_c,0.3112620427640756
 MTHFR3,5 10 methylenetetrahydrofolatereductase  NADPH ,2.0 h_c + mlthf_c + nadph_c --> 5mthf_c + nadp_c,0.0
@@ -1869,8 +1869,8 @@ MUCCY_kt,3 carboxy cis cis muconate cycloisomerase,CCbuttc_c + h_c --> 4cml_c,0.
 MUCLI,Mucolactone isomerase,mucl_c <=> 5odhf2a_c,0.0
 MXYLt5,M xylene  transport out via proton antiport  cytosolexternal ,h_p + m_xyl_c --> h_c + m_xyl_e,0.0
 MXYLt6,M xylene transport out via proton antiport  periplasmexternal ,h_p + m_xyl_p --> h_c + m_xyl_e,0.0
-MYCTR,MYCTR,2.0 msh_c + nadp_c <=> h_c + mssg_c + nadph_c,-42.38153128886547
-MYCTR2,MYCTR2,gthox_c + 2.0 msh_c --> 2.0 gthrd_c + mssg_c,42.38153128886547
+MYCTR,MYCTR,2.0 msh_c + nadp_c <=> h_c + mssg_c + nadph_c,-42.381531288903574
+MYCTR2,MYCTR2,gthox_c + 2.0 msh_c --> 2.0 gthrd_c + mssg_c,42.381531288903574
 M_XYLtpp,Passive diffusion,m_xyl_p <=> m_xyl_c,0.0
 M_Xylt1,M xylene  outer membrane porin transport,m_xyl_e <=> m_xyl_p,0.0
 Mn2t,,2.0 h_c + mn2_e <-- 2.0 h_e + mn2_c,0.0
@@ -1880,32 +1880,32 @@ NABTNO,N4 AcetylaminobutanalNAD oxidoreductase,h2o_c + n4abutn_c + nad_c --> 4aa
 NACHY,Nicotinic acid 6 Hydroxylase,nac_c + 0.5 o2_c --> 6hnac_c,0.0
 NADDP,NAD diphosphatase,h2o_c + nad_c --> amp_c + 2.0 h_c + nmn_c,0.0
 NADH10,NADH dehydrogenase (menaquinone-8 & 0 protons),h_c + mqn8_c + nadh_c --> mql8_c + nad_c,0.0
-NADH5,NADH dehydrogenase (ubiquinone-8 ),h_c + nadh_c + q8_c --> nad_c + q8h2_c,27.776170996942547
+NADH5,NADH dehydrogenase (ubiquinone-8 ),h_c + nadh_c + q8_c --> nad_c + q8h2_c,27.77617099760109
 NADH9,NADH dehydrogenase (demethylmenaquinone-8 & 0 protons),2dmmq8_c + h_c + nadh_c --> 2dmmql8_c + nad_c,0.0
 NADHHR,NADH hydratase,h2o_c + nadh_c --> nadhx__R_c,0.0
 NADHPO,NADH peroxidase,h2o2_c + h_c + nadh_c --> 2.0 h2o_c + nad_c,65.8918130464302
 NADHXD,NADHX dehydratase,adp_c + nadhx__S_c --> amp_c + h_c + nadh_c + pi_c,0.0
 NADHXE,NADHX epimerase,nadhx__S_c <=> nadhx__R_c,0.0
-NADK,NAD kinase,atp_c + nad_c --> adp_c + h_c + nadp_c,0.0024564271556948482
+NADK,NAD kinase,atp_c + nad_c --> adp_c + h_c + nadp_c,0.0024564269087406576
 NADPHHR,NADPH hydratase,h2o_c + nadph_c --> nadphx__R_c,0.0
 NADPHQR2,NADPH Quinone Reductase (Ubiquinone-8),h_c + nadph_c + q8_c --> nadp_c + q8h2_c,0.0
 NADPHQR3,NADPH Quinone Reductase (Menaquinone-8),h_c + mqn8_c + nadph_c --> mql8_c + nadp_c,0.0
 NADPHXD,NADPHX dehydratase,adp_c + nadphx__S_c --> amp_c + h_c + nadph_c + pi_c,0.0
 NADPHXE,NADPHX epimerase,nadphx__R_c <=> nadphx__S_c,0.0
-NADS1,NAD synthase (nh3),atp_c + dnad_c + nh4_c --> amp_c + h_c + nad_c + ppi_c,0.0125198509714244
+NADS1,NAD synthase (nh3),atp_c + dnad_c + nh4_c --> amp_c + h_c + nad_c + ppi_c,0.012519850746577112
 NADTRHD,NAD transhydrogenase,nad_c + nadph_c --> nadh_c + nadp_c,0.0
-NAKtr,NAKtr,k_c + na1_e --> k_e + na1_c,8.225748337004532
+NAKtr,NAKtr,k_c + na1_e --> k_e + na1_c,8.225748337008662
 NAPRT,NAPRTase (rev),h_c + nac_c + prpp_c <=> nicrnt_c + ppi_c,0.0
 NARK,"Nitrite transport, extracellular",no2_c <=> no2_e,0.0
 NAabc,,atp_c + h2o_c + na1_e --> adp_c + h_c + na1_c + pi_c,0.0
 NAabcO,Sodium transport out via ABC system,atp_c + h2o_c + na1_c --> adp_c + h_c + na1_e + pi_c,0.0
-NAt,Sodium transport (uniport),na1_e --> na1_c,23.689909955547517
-NAt3_1,Sodium proton antiporter  HNA is 11 ,h_e + na1_c --> h_c + na1_e,2.741916112334845
-NAt3_2,Sodium proton antiporter (H:NA is 2),2.0 h_e + na1_c --> 2.0 h_c + na1_e,29.173742180217204
+NAt,Sodium transport (uniport),na1_e --> na1_c,23.689909955561284
+NAt3_1,Sodium proton antiporter  HNA is 11 ,h_e + na1_c --> h_c + na1_e,2.741916112336222
+NAt3_2,Sodium proton antiporter (H:NA is 2),2.0 h_e + na1_c --> 2.0 h_c + na1_e,29.173742180233724
 NAt3_2pp,Sodium proton antiporter (H:NA is 2) (periplasm),2.0 h_p + na1_c --> 2.0 h_c + na1_p,0.0
 NAt3pp,Sodium transport out via proton antiport (cytoplasm to periplasm),h_p + na1_c --> h_c + na1_p,0.0
 NBAHH_ir,Nalpha-(beta-alanyl)-L-histidine hydrolase IR,carn_c + h2o_c --> ala_B_c + his__L_c,0.0
-NDPK1,Nucleoside-diphosphate kinase (ATP:GDP),atp_c + gdp_c <=> adp_c + gtp_c,1.667632296830356
+NDPK1,Nucleoside-diphosphate kinase (ATP:GDP),atp_c + gdp_c <=> adp_c + gtp_c,1.6676322969126742
 NDPK2,Nucleoside-diphosphate kinase (ATP:UDP),atp_c + udp_c <=> adp_c + utp_c,7.558297879785034
 NDPK3,Nucleoside-diphosphate kinase (ATP:CDP),atp_c + cdp_c <=> adp_c + ctp_c,7.677201609471432
 NDPK4,Nucleoside-diphosphate kinase (ATP:dTDP),atp_c + dtdp_c <=> adp_c + dttp_c,0.14378022688984426
@@ -1914,11 +1914,11 @@ NDPK6,Nucleoside-diphosphate kinase (ATP:dUDP),atp_c + dudp_c <=> adp_c + dutp_c
 NDPK7,Nucleoside-diphosphate kinase (ATP:dCDP),atp_c + dcdp_c <=> adp_c + dctp_c,0.1484553624018315
 NDPK8,Nucleoside-diphosphate kinase (ATP:dADP),atp_c + dadp_c <=> adp_c + datp_c,0.14378022688984426
 NFMLDF,N Formyl maleate deformylase,h2o_c + nfmalm_c --> for_c + h_c + malm_c,0.0
-NH3c,Ammomnium proton dissociation,h_c + nh3_c <=> nh4_c,1.04362261168245
+NH3c,Ammomnium proton dissociation,h_c + nh3_c <=> nh4_c,1.0436226118470862
 NH4OHDs,NH4OH dissociation,h_c + nh4oh_c <=> h2o_c + nh4_c,0.0
-NH4t,Ammonia reversible transport,nh4_e <=> nh4_c,28.005669213380358
-NH4tex,Ammonia transport via diffusion (extracellular to periplasm),nh4_e <=> nh4_p,14.002834606690179
-NH4tpp,Ammonia reversible transport (periplasm),nh4_p <=> nh4_c,14.002834606690179
+NH4t,Ammonia reversible transport,nh4_e <=> nh4_c,28.005669213330968
+NH4tex,Ammonia transport via diffusion (extracellular to periplasm),nh4_e <=> nh4_p,14.002834606665484
+NH4tpp,Ammonia reversible transport (periplasm),nh4_p <=> nh4_c,14.002834606665484
 NHFRBO,NADH:flavorubredoxin oxidoreductase,h_c + nadh_c + 2.0 no_c --> h2o_c + n2o_c + nad_c,0.0
 NI2abcpp,Nickle (Ni+2) ABC transporter (periplasm),atp_c + h2o_c + ni2_c --> adp_c + h_c + ni2_p + pi_c,0.0
 NI2t3pp,Nickle (Ni+2) transport out via proton antiport (periplasm),h_p + ni2_c --> h_c + ni2_p,0.0
@@ -1934,8 +1934,8 @@ NMNHYD,Nicotinamide ribonucleotide phosphohydrolase,h2o_c + nmn_c --> pi_c + rna
 NMO,Nitronate Monooxygenase,etha_c + fmnh2_c + o2_c --> acald_c + fmn_c + 6.0 h_c + no2_c,0.0
 NMTHDA,N methylhydantoinase  ATP hydrolysing ,atp_c + 2.0 h2o_c + mthd_c --> Ncarbsar_c + adp_c + 2.0 h_c + pi_c,0.0
 NNAM,Nicotinamidase,h2o_c + ncam_c --> nac_c + nh4_c,0.0
-NNATr,Nicotinate-nucleotide adenylyltransferase,atp_c + h_c + nicrnt_c <=> dnad_c + ppi_c,0.0125198509714244
-NNDPR,Nicotinate-nucleotide diphosphorylase (carboxylating),2.0 h_c + prpp_c + quln_c --> co2_c + nicrnt_c + ppi_c,0.0125198509714244
+NNATr,Nicotinate-nucleotide adenylyltransferase,atp_c + h_c + nicrnt_c <=> dnad_c + ppi_c,0.012519850746577112
+NNDPR,Nicotinate-nucleotide diphosphorylase (carboxylating),2.0 h_c + prpp_c + quln_c --> co2_c + nicrnt_c + ppi_c,0.012519850746577112
 NO3abc,,atp_c + h2o_c + no3_e --> adp_c + h_c + no3_c + pi_c,0.0
 NO3abcpp,Nitrate transport via ABC system (periplasm),atp_c + h2o_c + no3_p --> adp_c + h_c + no3_c + pi_c,0.0
 NO3t,"Nitrate transport, extracellular",no3_e <=> no3_c,0.0
@@ -1983,8 +1983,8 @@ NTRIR2x,Nitrite Reductase (NADH),5.0 h_c + 3.0 nadh_c + no2_c --> 2.0 h2o_c + 3.
 NTRIR2y,Nitrite Reductase (NADPH),5.0 h_c + 3.0 nadph_c + no2_c --> 2.0 h2o_c + 3.0 nadp_c + nh4_c,0.0
 NTRIRx,Nitrite reductase (NADH),4.0 h_c + 3.0 nadh_c + no2_c --> h2o_c + 3.0 nad_c + nh4oh_c,0.0
 NTRIRy,Nitrite reductase (NADPH),4.0 h_c + 3.0 nadph_c + no2_c --> h2o_c + 3.0 nadp_c + nh4oh_c,0.0
-O2tex,Oxygen transport via diffusion (extracellular to periplasm),o2_e <=> o2_p,766.9508703664583
-O2tpp,O2 transport via diffusion (periplasm),o2_p <=> o2_c,766.9508703664583
+O2tex,Oxygen transport via diffusion (extracellular to periplasm),o2_e <=> o2_p,766.9508703661447
+O2tpp,O2 transport via diffusion (periplasm),o2_p <=> o2_c,766.9508703661447
 O45AM,,orn__D_c --> dap24_c + h_c,0.0
 OAADC,Oxaloacetate decarboxylase,h_c + oaa_c --> co2_c + pyr_c,0.0
 OAAt2_2pp,Oxaloacetate transport via proton symport 2 H  periplasm ,2.0 h_p + oaa_p --> 2.0 h_c + oaa_c,0.0
@@ -1993,7 +1993,7 @@ OARGDC,Oxoarginine decarboxylase,5g2oxpt_c + h_c --> co2_c + gdbtal_c,0.0
 OBDHc,"2-Oxobutanoate dehydrogenase, cytosolic",2obut_c + coa_c + nad_c --> co2_c + nadh_c + ppcoa_c,0.0
 OCAALD,4 oxalcitromalate aldolase,oca_c --> oaa_c + pyr_c,0.0
 OCBT,Ornithine carbamoyltransferase,cbp_c + orn_c <=> citr__L_c + h_c + pi_c,0.5956622311214851
-OCOAT1,3-oxoacid CoA-transferase (Succinyl-CoA: acetoacetate),acac_c + succoa_c <=> aacoa_c + succ_c,-7.7136421832151205
+OCOAT1,3-oxoacid CoA-transferase (Succinyl-CoA: acetoacetate),acac_c + succoa_c <=> aacoa_c + succ_c,-7.713642183079102
 OCOAT4,3 oxoacid CoA transferase  Succinyl CoA dehydrocarnitine ,dhcrn_c + succoa_c --> dhcrncoa_c + succ_c,0.0
 OCTAtex,Octanoate transport via diffusion (extracellular to periplasm),octa_e <=> octa_p,0.0
 OCTDPS,Octaprenyl pyrophosphate synthase,frdp_c + 5.0 ipdp_c --> octdp_c + 5.0 ppi_c,0.0004575142702405526
@@ -2057,20 +2057,20 @@ PAP_BS,Phosphatidic acid phosphatase,0.01 12dag3p_BS_c + h2o_c --> 0.01 12dgr_BS
 PC,Pyruvate carboxylase,atp_c + hco3_c + pyr_c --> adp_c + h_c + oaa_c + pi_c,0.0
 PCADYOX,Protocatechuate 3 4 dioxygenase,34dhbz_c + o2_c --> CCbuttc_c + 2.0 h_c,0.0012225535963548099
 PCNO,Propanoyl-CoA:NADP+ 2-oxidoreductase,nadp_c + ppcoa_c <=> h_c + nadph_c + prpncoa_c,3.73475863421062
-PDBL_3,,dhap_c + gln__L_c + ru5p__D_c --> glu__L_c + 3.0 h2o_c + h_c + pi_c + pydx5p_c,10.373353939134638
+PDBL_3,,dhap_c + gln__L_c + ru5p__D_c --> glu__L_c + 3.0 h2o_c + h_c + pi_c + pydx5p_c,10.373353939216956
 PDBL_4,,dhap_c + gln__L_c + r5p_c --> glu__L_c + 3.0 h2o_c + h_c + pi_c + pydx5p_c,7.9067549616395745
 PDC,,2ahethmpp_c <=> acald_c + thmpp_c,0.0
 PDE1,"3',5'-cyclic-nucleotide phosphodiesterase",camp_c + h2o_c --> amp_c + h_c,0.0
 PDE4,"3',5'-cyclic-nucleotide phosphodiesterase",35cgmp_c + h2o_c --> gmp_c + h_c,0.0
-PDH,Pyruvate dehydrogenase,coa_c + nad_c + pyr_c --> accoa_c + co2_c + nadh_c,193.57889511671914
-PDHa,Pyruvate dehydrogenase (lipoamide),h_c + lpam_c + pyr_c --> adhlam_c + co2_c,47.40043328169653
-PDHbr,Pyruvate dehydrogenase (dihydrolipoamide) reversible,adhlam_c + coa_c <=> accoa_c + dhlam_c,53.13595546994856
-PDHcr,Pyruvate dehydrogenase (dihydrolipoamide dehydrogenase) reversible,dhlam_c + nad_c --> h_c + lpam_c + nadh_c,93.04250636451549
+PDH,Pyruvate dehydrogenase,coa_c + nad_c + pyr_c --> accoa_c + co2_c + nadh_c,193.57889511680114
+PDHa,Pyruvate dehydrogenase (lipoamide),h_c + lpam_c + pyr_c --> adhlam_c + co2_c,47.40043328156726
+PDHbr,Pyruvate dehydrogenase (dihydrolipoamide) reversible,adhlam_c + coa_c <=> accoa_c + dhlam_c,53.135955469819294
+PDHcr,Pyruvate dehydrogenase (dihydrolipoamide dehydrogenase) reversible,dhlam_c + nad_c --> h_c + lpam_c + nadh_c,93.04250636458148
 PDIMAS,PDIMAS,2.0 h_c + phthiocerol_c + 2.0 tamocta_c --> 2.0 h2o_c + pdima_c,0.0
 PDIMAT,Pdima translocase,pdima_c --> pdima_e,0.0
 PDX5POi,Pyridoxine 5'-phosphate oxidase,o2_c + pdx5p_c --> h2o2_c + pydx5p_c,7.13605667608101
 PDX5PS,Pyridoxine 5'-phosphate synthase,dxyl5p_c + nad_c + phthr_c --> co2_c + 2.0 h2o_c + h_c + nadh_c + pdx5p_c + pi_c,7.13605667608101
-PDYXPT_c,Pyridoxamine-pyruvic transaminase,pydam_c + pyr_c <=> ala__L_c + pydx_c,-52.782397109028736
+PDYXPT_c,Pyridoxamine-pyruvic transaminase,pydam_c + pyr_c <=> ala__L_c + pydx_c,-52.782397108909116
 PE120abcpp,"Phosphatidylethanolamine transport via ABC system (n-C12:0, periplasm)",atp_c + h2o_c + pe120_c --> adp_c + h_c + pe120_p + pi_c,0.0
 PE141abcpp,"Phosphatidylethanolamine transport via ABC system (n-C14:1, periplasm)",atp_c + h2o_c + pe141_c --> adp_c + h_c + pe141_p + pi_c,0.0
 PE160abcpp,"Phosphatidylethanolamine transport via ABC system (n-C16:0, periplasm)",atp_c + h2o_c + pe160_c --> adp_c + h_c + pe160_p + pi_c,0.0
@@ -2096,13 +2096,13 @@ PG161abcpp,"Phosphatidylglycerol transport via ABC system (n-C16:1, periplasm)",
 PG180abcpp,"Phosphatidylglycerol transport via ABC system (n-C18:0, periplasm)",atp_c + h2o_c + pg180_c --> adp_c + h_c + pg180_p + pi_c,0.0
 PG181abcpp,"Phosphatidylglycerol transport via ABC system (n-C18:1, periplasm)",atp_c + h2o_c + pg181_c --> adp_c + h_c + pg181_p + pi_c,0.0
 PGAMT,Phosphoglucosamine mutase,gam1p_c <=> gam6p_c,-3.2772790294161305
-PGCD,Phosphoglycerate dehydrogenase,3pg_c + nad_c --> 3php_c + h_c + nadh_c,9.836863903341161
-PGI,Glucose-6-phosphate isomerase,g6p_c <=> f6p_c,90.67866472078595
-PGK,Phosphoglycerate kinase,3pg_c + atp_c <=> 13dpg_c + adp_c,-208.38219157152042
-PGL,6-phosphogluconolactonase,6pgl_c + h2o_c --> 6pgc_c + h_c,51.23606772118052
+PGCD,Phosphoglycerate dehydrogenase,3pg_c + nad_c --> 3php_c + h_c + nadh_c,9.836863903588116
+PGI,Glucose-6-phosphate isomerase,g6p_c <=> f6p_c,90.67866472086826
+PGK,Phosphoglycerate kinase,3pg_c + atp_c <=> 13dpg_c + adp_c,-208.38219157180595
+PGL,6-phosphogluconolactonase,6pgl_c + h2o_c --> 6pgc_c + h_c,51.23606772109643
 PGLCNDH,Phosphogluconate 2 dehydrogenase,6p2dhglcn_c + nadph_c <=> 6pgc_c + 2.0 h_c + nadp_c,0.0
 PGLYCP,Phosphoglycolate phosphatase,2pglyc_c + h2o_c --> glyclt_c + pi_c,0.0
-PGM,Phosphoglycerate mutase,2pg_c <=> 3pg_c,-198.54532766817945
+PGM,Phosphoglycerate mutase,2pg_c <=> 3pg_c,-198.54532766821805
 PGMT,Phosphoglucomutase,g1p_c <=> g6p_c,-2.6070882782929843
 PGP120abcpp,"Phosphatidylglycerophosphate transport via ABC system (n-C12:0, periplasm)",atp_c + h2o_c + pgp120_c --> adp_c + h_c + pgp120_p + pi_c,0.0
 PGP140abcpp,"Phosphatidylglycerophosphate transport via ABC system (n-C14:0, periplasm)",atp_c + h2o_c + pgp140_c --> adp_c + h_c + pgp140_p + pi_c,0.0
@@ -2186,7 +2186,7 @@ PNTOt4pp,Pantothenate sodium symporter (periplasm),na1_p + pnto__R_p --> na1_c +
 PNTOtex,Pantothenate transport via diffusion (extracellular to periplasm),pnto__R_e <=> pnto__R_p,0.0
 POAACR,Peroxyaminoacrylate reductase,nadh_c + poaac_c --> 3amac_c + h2o_c + nad_c,0.0
 POX,Pyruvate oxidase,h2o_c + pyr_c + q8_c --> ac_c + co2_c + q8h2_c,0.0
-PPA,Inorganic diphosphatase,h2o_c + ppi_c --> h_c + 2.0 pi_c,14.392972905548131
+PPA,Inorganic diphosphatase,h2o_c + ppi_c --> h_c + 2.0 pi_c,14.392972905038224
 PPA2,Inorganic triphosphatase,h2o_c + pppi_c --> h_c + pi_c + ppi_c,0.0
 PPAKr,Propionate kinase,adp_c + ppap_c <=> atp_c + ppa_c,0.0
 PPATabc,,atp_c + h2o_c + ppat_e --> adp_c + h_c + pi_c + ppat_c,0.0
@@ -2212,18 +2212,18 @@ PPPGO4,"Protoporphyrinogen oxidase (anaerobic, FAD)",3.0 fad_c + pppg9_c --> 3.0
 PPS,Phosphoenolpyruvate synthase,atp_c + h2o_c + pyr_c --> amp_c + 2.0 h_c + pep_c + pi_c,0.0
 PPTGS_BS,Peptidoglycan subunit synthesis,uaagmda_c --> h_c + peptido_BS_c + udcpdp_c,0.8361694335674126
 PPTT,Trans pentaprenyltranstransferase,ipdp_c + pendp_c --> hexdp_c + ppi_c,9.150285404811052e-05
-PRAGSr,Phosphoribosylglycinamide synthase,atp_c + gly_c + pram_c <=> adp_c + gar_c + h_c + pi_c,2.460345188696749
-PRAIS,Phosphoribosylaminoimidazole synthase,atp_c + fpram_c --> adp_c + air_c + h_c + pi_c,2.4603451886967656
+PRAGSr,Phosphoribosylglycinamide synthase,atp_c + gly_c + pram_c <=> adp_c + gar_c + h_c + pi_c,2.4603451888614245
+PRAIS,Phosphoribosylaminoimidazole synthase,atp_c + fpram_c --> adp_c + air_c + h_c + pi_c,2.4603451888614014
 PRAIi,Phosphoribosylanthranilate isomerase (irreversible),pran_c --> 2cpr5p_c,0.11446953333102447
 PRAMPC,Phosphoribosyl-AMP cyclohydrolase,h2o_c + prbamp_c --> prfp_c,0.19078117271870249
-PRASCSi,Phosphoribosylaminoimidazolesuccinocarboxamide synthase,5aizc_c + asp__L_c + atp_c --> 25aics_c + adp_c + h_c + pi_c,2.4591226351004107
+PRASCSi,Phosphoribosylaminoimidazolesuccinocarboxamide synthase,5aizc_c + asp__L_c + atp_c --> 25aics_c + adp_c + h_c + pi_c,2.4591226352650466
 PRATPP,Phosphoribosyl-ATP pyrophosphatase,h2o_c + prbatp_c --> h_c + ppi_c + prbamp_c,0.19078117271870249
 PRCOA1,MNXR76960,hcholc3coa_c --> andrstndn_c + 4.0 h_c + ppcoa_c,0.0
 PREPHACPH,PREPHACPH,h2o_c + prephthACP_c --> ACP_c + h_c + prephth_c,0.0
 PREPTHS,PREPTHS,arachACP_c + 13.0 h_c + 2.0 malcoa_c + 2.0 mmcoa__S_c + 10.0 nadph_c --> 2.0 co2_c + 4.0 coa_c + 5.0 h2o_c + 10.0 nadp_c + prephthACP_c,0.0
 PREPTTA,PREPTTA,ACP_c + prephthcoa_c <=> coa_c + prephthACP_c,0.0
-PRFGS,Phosphoribosylformylglycinamidine synthase,atp_c + fgam_c + gln__L_c + h2o_c --> adp_c + fpram_c + glu__L_c + 2.0 h_c + pi_c,1.2301725943483903
-PRFGS_1,Phosphoribosylformylglycinamidine synthase,atp_c + fgam_c + gln__L_c + h2o_c --> adp_c + fpram_c + glu__L_c + 2.0 h_c + pi_c,1.2301725943483903
+PRFGS,Phosphoribosylformylglycinamidine synthase,atp_c + fgam_c + gln__L_c + h2o_c --> adp_c + fpram_c + glu__L_c + 2.0 h_c + pi_c,1.2301725944307083
+PRFGS_1,Phosphoribosylformylglycinamidine synthase,atp_c + fgam_c + gln__L_c + h2o_c --> adp_c + fpram_c + glu__L_c + 2.0 h_c + pi_c,1.2301725944307083
 PRMICI,1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino)imidazole-4-carboxamide isomerase,prfp_c <=> prlp_c,0.19078117271870249
 PROD2,Proline dehydrogenase,fad_c + pro__L_c --> 1pyr5c_c + fadh2_c + h_c,0.0
 PROGLYabcpp,L-Prolinylglycine (Pro-Gly) transport via ABC system (periplasm),atp_c + h2o_c + progly_p --> adp_c + h_c + pi_c + progly_c,0.0
@@ -2235,15 +2235,15 @@ PROabcpp,L-proline transport via ABC system (periplasm),atp_c + h2o_c + pro__L_p
 PROt2r,L proline reversible transport via proton symport,h_e + pro__L_e --> h_c + pro__L_c,0.0
 PROt2rpp,L-proline reversible transport via proton symport (periplasm),h_p + pro__L_p --> h_c + pro__L_c,0.0
 PROtex,L-proline transport via diffusion (extracellular to periplasm),pro__L_e <=> pro__L_p,0.0
-PRPPS,Phosphoribosylpyrophosphate synthetase,atp_c + r5p_c <=> amp_c + h_c + prpp_c,4.595826544683707
+PRPPS,Phosphoribosylpyrophosphate synthetase,atp_c + r5p_c <=> amp_c + h_c + prpp_c,4.595826544623495
 PSCVT,3-phosphoshikimate 1-carboxyvinyltransferase,pep_c + skm5p_c <=> 3psme_c + pi_c,0.7706858796307767
 PSD120,Phosphatidylserine decarboxylase (n-C12:0),h_c + ps120_c --> co2_c + pe120_c,0.0
 PSD141,Phosphatidylserine decarboxylase (n-C14:1),h_c + ps141_c --> co2_c + pe141_c,0.0
 PSD160,Phosphatidylserine decarboxylase (n-C16:0),h_c + ps160_c --> co2_c + pe160_c,0.0
 PSD180,Phosphatidylserine decarboxylase (n-C18:0),h_c + ps180_c --> co2_c + pe180_c,0.0
 PSD181,Phosphatidylserine decarboxylase (n-C18:1),h_c + ps181_c --> co2_c + pe181_c,0.0
-PSERT,Phosphoserine transaminase,3php_c + glu__L_c --> akg_c + pser__L_c,9.836863903341161
-PSP_L,Phosphoserine phosphatase (L-serine),h2o_c + pser__L_c --> pi_c + ser__L_c,9.836863903341161
+PSERT,Phosphoserine transaminase,3php_c + glu__L_c --> akg_c + pser__L_c,9.836863903588116
+PSP_L,Phosphoserine phosphatase (L-serine),h2o_c + pser__L_c --> pi_c + ser__L_c,9.836863903588116
 PSSA120,Phosphatidylserine syntase (n-C12:0),cdpdddecg_c + ser__L_c --> cmp_c + h_c + ps120_c,0.0
 PSSA141,Phosphatidylserine syntase (n-C14:1),cdpdtdec7eg_c + ser__L_c --> cmp_c + h_c + ps141_c,0.0
 PSSA160,Phosphatidylserine syntase (n-C16:0),cdpdhdecg_c + ser__L_c --> cmp_c + h_c + ps160_c,0.0
@@ -2270,14 +2270,14 @@ PUNP6,Purine-nucleoside phosphorylase (Deoxyinosine),din_c + pi_c <=> 2dr1p_c + 
 PUNP7,Purine-nucleoside phosphorylase (Xanthosine),pi_c + xtsn_c <=> r1p_c + xan_c,0.0
 PXYLt5,P xylene  transport out via proton antiport  cytosolexternal ,h_p + p_xyl_c --> h_c + p_xyl_e,0.0
 PXYLt6,P xylene transport out via proton antiport  periplasmexternal ,h_p + p_xyl_p --> h_c + p_xyl_e,0.0
-PYAM5PO,Pyridoxamine 5'-phosphate oxidase,h2o_c + o2_c + pyam5p_c --> h2o2_c + nh4_c + pydx5p_c,45.61178502950868
-PYDXNO,Pyridoxine oxidase,o2_c + pydxn_c --> h2o2_c + pydx_c,100.88118457982674
+PYAM5PO,Pyridoxamine 5'-phosphate oxidase,h2o_c + o2_c + pyam5p_c --> h2o2_c + nh4_c + pydx5p_c,45.611785029452726
+PYDXNO,Pyridoxine oxidase,o2_c + pydxn_c --> h2o2_c + pydx_c,100.88118457987272
 PYDXNtr,Pyridoxine transport via diffusion,pydxn_e <=> pydxn_c,0.0
-PYDXO,Pyridoxal oxidase,2.0 h2o_c + nh4_c + 0.5 o2_c + pydx_c <-- 2.0 h2o2_c + pydam_c,-52.782397109028736
-PYDXOR,Pyridoxine:NADP+ 4-oxidoreductase,h_c + nadph_c + pydx_c --> nadp_c + pydxn_c,100.88118457982674
+PYDXO,Pyridoxal oxidase,2.0 h2o_c + nh4_c + 0.5 o2_c + pydx_c <-- 2.0 h2o2_c + pydam_c,-52.782397108909116
+PYDXOR,Pyridoxine:NADP+ 4-oxidoreductase,h_c + nadph_c + pydx_c --> nadp_c + pydxn_c,100.88118457987272
 PYDXPP,Pyridoxal 5-phosphate phosphatase,h2o_c + pydx5p_c --> pi_c + pydx_c,0.0
-PYDXS,Pyridoxal 5-phosphate synthase,g3p_c + gln__L_c + ru5p__D_c <=> glu__L_c + 3.0 h2o_c + h_c + pi_c + pydx5p_c,-25.414943023258868
-PYK,Pyruvate kinase,adp_c + h_c + pep_c --> atp_c + pyr_c,106.00004230655122
+PYDXS,Pyridoxal 5-phosphate synthase,g3p_c + gln__L_c + ru5p__D_c <=> glu__L_c + 3.0 h2o_c + h_c + pi_c + pydx5p_c,-25.414943023341184
+PYK,Pyruvate kinase,adp_c + h_c + pep_c --> atp_c + pyr_c,106.00004230658982
 PYOVD2tex,Pyoverdine export system,atp_c + h2o_c + pyovd_kt_p --> adp_c + h_c + pi_c + pyovd_kt_e,0.0
 PYOVDM1,Pyoverdine maduration I,fbac_kt_p --> pvdiq_p,0.0
 PYOVDM2,Pyoverdine maduration 2,pvdiq_p --> pyovd_kt_p,0.0
@@ -2289,13 +2289,13 @@ PYRt4pp,Pyruvate transport via sodium symport,na1_p + pyr_p --> na1_c + pyr_c,0.
 PYRtex,Pyruvate transport via diffusion (extracellular to periplasm),pyr_e <=> pyr_p,0.0
 P_XYLtpp,P methyltoluene passive diffusion,p_xyl_p --> p_xyl_c,0.0
 P_Xylt1,P xylene  outer membrane porin transport,p_xyl_e <=> p_xyl_p,0.0
-QMO2,Quinol monooxygenase (Ubiquinol-8),2.0 o2_c + q8h2_c --> 2.0 h_c + 2.0 o2s_c + q8_c,122.76796346493285
+QMO2,Quinol monooxygenase (Ubiquinol-8),2.0 o2_c + q8h2_c --> 2.0 h_c + 2.0 o2s_c + q8_c,122.7679634644026
 QUIDHy,Quinate dehydrogenase  NADP ,nadp_c + quin_c <=> 3dhq_c + h_c + nadph_c,0.0
 QUIN2tpp,Quinate transport (periplasm),quin_p <=> quin_c,0.0
 QUINDH,Quinate dehydrogenase,nad_c + quin_c --> 3dhq_c + h_c + nadh_c,0.0
 QUINDHyi,Quinate dehydrogenase (NADP),nadp_c + quin_c --> 3dhq_c + h_c + nadph_c,0.0
 QUINtpp,Quinateproton symport transport,h_p + quin_p --> h_c + quin_c,0.0
-QULNS,Quinolinate synthase,dhap_c + iasp_c --> 2.0 h2o_c + pi_c + quln_c,0.0125198509714244
+QULNS,Quinolinate synthase,dhap_c + iasp_c --> 2.0 h2o_c + pi_c + quln_c,0.012519850746577112
 R5PP,Ribose 5-phosphate phosphatase,h2o_c + r5p_c --> pi_c + rib__D_c,0.0
 RAFFINt2,Raffinose transport in via proton symport,h_e + raffin_e --> h_c + raffin_c,0.0
 RAFGH,Raffinose galactohydrolase,h2o_c + raffin_c --> gal_c + sucr_c,0.0
@@ -2393,10 +2393,10 @@ RNTR1,Ribonucleoside triphosphate reductase  ATP ,atp_c + trdrd_c --> datp_c + h
 RNTR2,Ribonucleoside triphosphate reductase  GTP ,gtp_c + trdrd_c --> dgtp_c + h2o_c + trdox_c,0.0
 RNTR3,Ribonucleoside triphosphate reductase  CTP ,ctp_c + trdrd_c --> dctp_c + h2o_c + trdox_c,0.0
 RNTR4,Ribonucleoside triphosphate reductase  UTP ,trdrd_c + utp_c --> dutp_c + h2o_c + trdox_c,0.0
-RPE,Ribulose 5-phosphate 3-epimerase,ru5p__D_c <=> xu5p__D_c,12.570100415222852
-RPI,Ribose-5-phosphate isomerase,r5p_c <=> ru5p__D_c,-2.466598977509742
+RPE,Ribulose 5-phosphate 3-epimerase,ru5p__D_c <=> xu5p__D_c,12.57010041551225
+RPI,Ribose-5-phosphate isomerase,r5p_c <=> ru5p__D_c,-2.4665989775714805
 RU5PP,Ribulose-5-Phosphate Phosphatase,h2o_c + ru5p__D_c --> pi_c + rbl__D_c,0.0
-RU5PS,Ribulose-5-P Synthetase,fald_c + ru5p__D_c <-- ah6p__D_c,-5.229872369176513e-07
+RU5PS,Ribulose-5-P Synthetase,fald_c + ru5p__D_c <-- ah6p__D_c,-5.233615268626181e-07
 SADT,Sulfate adenylyltransferase,atp_c + h_c + so4_c --> aps_c + ppi_c,0.4995231006412894
 SALADC2,Sulfinoalanine decarboxylase,Lcyst_c + h_c --> co2_c + taur_c,0.0
 SALCHS4FER1,Salmochelin S4 Fe III reduction Fe III unloading ,fadh2_c + 2.0 salchs4fe_c --> fad_c + 2.0 fe2_c + 4.0 h_c + 2.0 salchs4_c,0.0
@@ -2441,7 +2441,7 @@ SHKK,Shikimate kinase,atp_c + skm_c --> adp_c + h_c + skm5p_c,0.7706858796307767
 SHSL1,O-succinylhomoserine lyase (L-cysteine),cys__L_c + suchms_c --> cyst__L_c + h_c + succ_c,0.0
 SHSL2r,O-succinylhomoserine lyase (H2S),h2s_c + suchms_c <=> h_c + hcys__L_c + succ_c,0.0
 SHSL4r,O succinylhomoserine lyase  elimination   reversible,h2o_c + suchms_c --> 2obut_c + h_c + nh4_c + succ_c,0.0
-SIRA2,MNXR84814,6.0 fdxox_c + 3.0 h2o_c + h2s_c <-- 6.0 fdxrd_c + 8.0 h_c + so3_c,-66.28187284348328
+SIRA2,MNXR84814,6.0 fdxox_c + 3.0 h2o_c + h2s_c <-- 6.0 fdxrd_c + 8.0 h_c + so3_c,-66.28187284341821
 SKMt2,SKMt2,h_e + skm_e --> h_c + skm_c,0.0
 SKMt2pp,Shikimate transport in via proton symport (periplasm),h_p + skm_p --> h_c + skm_c,0.0
 SKMtex,Shikimate transport via diffusion (extracellular to periplasm),skm_e <=> skm_p,0.0
@@ -2463,7 +2463,7 @@ SPMDabcpp,Spermidine transport via ABC system (periplasm),atp_c + h2o_c + spmd_p
 SPMDt3i,Spermidine transport in via proton antiport,h_c + spmd_e <-- h_e + spmd_c,0.0
 SPMDtex,Spermidine transport via diffusion (extracellular to periplasm),spmd_e <=> spmd_p,0.0
 SPMS,Spermidine synthase,ametam_c + ptrc_c --> 5mta_c + h_c + spmd_c,0.0
-SPODM,Superoxide dismutase,2.0 h_c + 2.0 o2s_c --> h2o2_c + o2_c,122.76796346493285
+SPODM,Superoxide dismutase,2.0 h_c + 2.0 o2s_c --> h2o2_c + o2_c,122.7679634644026
 SSAH,,2.0 h_c + nadh_c + sucsal_c <=> h4but_c + nad_c,0.0
 SSALx,Succinate-semialdehyde dehydrogenase (NAD),h2o_c + nad_c + sucsal_c --> 2.0 h_c + nadh_c + succ_c,0.0
 SSALy,Succinate-semialdehyde dehydrogenase (NADP),h2o_c + nadp_c + sucsal_c --> 2.0 h_c + nadph_c + succ_c,0.0
@@ -2477,8 +2477,8 @@ SUCBZT2,Succinyl:4-hydroxybenzoate CoA transferase,4hbz_c + succoa_c <=> 4hbzcoa
 SUCCt1pp,Succinate transport via diffusion in (periplasm),succ_p <=> succ_c,0.0
 SUCCt2_2pp,Succinate transport via proton symport (2 H) (periplasm),2.0 h_p + succ_p --> 2.0 h_c + succ_c,0.0
 SUCCt2r,Succinate transport via proton symport,h_e + succ_e --> h_c + succ_c,0.0
-SUCD1,Succinate dehydrogenase,fad_c + succ_c <=> fadh2_c + fum_c,252.6964368754293
-SUCOAS,Succinyl-CoA synthetase (ADP-forming),atp_c + coa_c + succ_c <=> adp_c + pi_c + succoa_c,-258.8816342539998
+SUCD1,Succinate dehydrogenase,fad_c + succ_c <=> fadh2_c + fum_c,252.69643687542933
+SUCOAS,Succinyl-CoA synthetase (ADP-forming),atp_c + coa_c + succ_c <=> adp_c + pi_c + succoa_c,-258.8816342538638
 SUCR,Sucrose hydrolyzing enzyme,h2o_c + sucr_c --> fru_c + glc__D_c,0.0
 SUCRabcpp_syn,Sucrose ABC transporter (periplasm),atp_c + h2o_c + sucr_p --> adp_c + h_c + pi_c + sucr_c,0.0
 SUCRtex,Sucrose transport transport via diffusion (extracellular to periplasm),sucr_e <=> sucr_p,0.0
@@ -2488,7 +2488,7 @@ SULAabc,Sulfoacetate transport via ABC system,atp_c + h2o_c + sula_e --> adp_c +
 SULFACabcpp,Sulfoacetate transport via ABC system (periplasm),atp_c + h2o_c + sulfac_p --> adp_c + h_c + pi_c + sulfac_c,0.0
 SULFACtex,Sulfoaceate transport via diffusion (extracellular to periplasm),sulfac_e <=> sulfac_p,0.0
 SULR,Sulfite reductase (NADPH2),5.0 h_c + 3.0 nadph_c + so3_c --> 3.0 h2o_c + h2s_c + 3.0 nadp_c,0.0
-SULR_1,Sulfite reductase  NADPH2 ,3.0 h2o_c + h2s_c + 3.0 nadp_c <=> 5.0 h_c + 3.0 nadph_c + so3_c,65.78234974284199
+SULR_1,Sulfite reductase  NADPH2 ,3.0 h2o_c + h2s_c + 3.0 nadp_c <=> 5.0 h_c + 3.0 nadph_c + so3_c,65.78234974277693
 SULabc,Sulfate transport via ABC system,atp_c + h2o_c + so4_e --> adp_c + h_c + pi_c + so4_c,0.0
 SULabcpp,Sulfate transport via ABC system (periplasm),atp_c + h2o_c + so4_p --> adp_c + h_c + pi_c + so4_c,0.0
 St,Sulfur diffusion,s_e <=> s_c,0.0
@@ -2497,7 +2497,7 @@ TAGLIPA160ex,Triacylglycerol lipase  extracellular hexadecanoate ,h2o_e + tag160
 TAGLIPA180ex,Triacylglycerol lipase  extracellular octadecanoate ,h2o_e + tag180_e --> 12dgr180_e + h_e + ocdca_e,0.0
 TAGLIPA181d9ex,Triacylglycerol lipase  extracellular nC181d9 ,h2o_e + tag181d9_e --> dag181d9_e + h_e + ocdcea_e,0.0
 TAGLIPA182d9d12,Triacylglycerol lipase  extracellular nC181d9d12 ,h2o_e + tag182d9d12_e --> dag182d9d12_e + h_e + lnlc_e,0.0
-TALA,Transaldolase,g3p_c + s7p_c <=> e4p_c + f6p_c,-10.035982528818877
+TALA,Transaldolase,g3p_c + s7p_c <=> e4p_c + f6p_c,-10.035982528674179
 TARTDC,Tartrate decarboxylase,h_c + tartr__L_c --> co2_c + glyc__R_c,0.0
 TARTR_D_Et,D-tartrate transport (transport mechanism unknown - evidence from biolog data),tartr__D_e <=> tartr__D_c,0.0
 TARTRt7,Tartrate/succinate antiporter,succ_c + tartr__L_e <=> succ_e + tartr__L_c,0.0
@@ -2515,7 +2515,7 @@ TETtex,Tetrathionate transport via diffusion extracellular to periplasm ,tet_e <
 TGBPA,Tagatose-bisphosphate aldolase,tagdp__D_c <=> dhap_c + g3p_c,0.0
 THDPS,Tetrahydrodipicolinate succinylase,h2o_c + succoa_c + thdp_c --> coa_c + sl2a6o_c,1.5272222510482487
 THFOR2,"5,6,7,8-Tetrahydrofolate:NADP+ oxidoreductase",fol_c + 2.0 h_c + 2.0 nadph_c --> 2.0 nadp_c + thf_c,0.0
-THIORDXi,Hydrogen peroxide reductase (thioredoxin),h2o2_c + trdrd_c --> 2.0 h2o_c + trdox_c,105.41183108256458
+THIORDXi,Hydrogen peroxide reductase (thioredoxin),h2o2_c + trdrd_c --> 2.0 h2o_c + trdox_c,105.41183108249511
 THMtrbc,Thiamine transprot (passive - red blood cell),thm_e <=> thm_c,0.0
 THRD,L-threonine dehydrogenase,nad_c + thr__L_c --> 2aobut_c + h_c + nadh_c,0.0
 THRD_L,L-threonine deaminase,thr__L_c --> 2obut_c + nh4_c,0.8450239566127142
@@ -2530,8 +2530,8 @@ THYMt4pp,Thymine transport out via proton antiport  periplasm ,h_p + thym_p --> 
 THYMtex,Thymine transport via diffusion (extracellular to periplasm),thym_e <=> thym_p,0.0
 THZPSN,Thiazole phosphate synthesis,atp_c + cys__L_c + dxyl5p_c + tyr__L_c --> 4hba_c + 4mpetz_c + ala__L_c + amp_c + co2_c + h2o_c + h_c + ppi_c,0.0012225535963548099
 THZSN_1,Thiazole synthesis from xylulose,cys__L_c + dxyl_c + fdxo_2_2_c + tyr__L_c --> 4hba_c + 4mhetz_c + co2_c + fdxrd_c + h2o_c + 2.0 h_c + nh4_c + pyr_c,0.0
-TKT1,Transketolase,r5p_c + xu5p__D_c <=> g3p_c + s7p_c,-10.035982528818877
-TKT2,Transketolase,e4p_c + xu5p__D_c <=> f6p_c + g3p_c,2.3316789297555323
+TKT1,Transketolase,r5p_c + xu5p__D_c <=> g3p_c + s7p_c,-10.035982528674179
+TKT2,Transketolase,e4p_c + xu5p__D_c <=> f6p_c + g3p_c,2.3316789299002316
 TMDPK,Thiamine diphosphokinase,atp_c + thm_c --> amp_c + h_c + thmpp_c,0.0
 TMDPP,Thymidine phosphorylase,pi_c + thymd_c <=> 2dr1p_c + thym_c,0.0
 TMDS,Thymidylate synthase,dump_c + mlthf_c --> dhf_c + dtmp_c,0.04670418870029344
@@ -2553,8 +2553,8 @@ TOLt5,Toluene  transport out via proton antiport  cytosolexternal ,h_p + tol_c -
 TOLt6,Toluene transport out via proton antiport  periplasmexternal ,h_p + tol_p --> h_c + tol_e,0.0
 TOLt7,Toluene  transport out via proton antiport  cytosolperiplasm ,h_p + tol_c --> h_c + tol_p,0.0
 TPHAP,,h2o_c + p1p3b5adtp_c --> adp_c + amp_c + 5.0 h_c,0.0
-TPI,Triose-phosphate isomerase,dhap_c <=> g3p_c,35.788296962387605
-TRDR,Thioredoxin reductase (NADPH),h_c + nadph_c + trdox_c --> nadp_c + trdrd_c,105.91135418320586
+TPI,Triose-phosphate isomerase,dhap_c <=> g3p_c,35.78829696255224
+TRDR,Thioredoxin reductase (NADPH),h_c + nadph_c + trdox_c --> nadp_c + trdrd_c,105.9113541831364
 TRE6PP,Trehalose-phosphatase,h2o_c + tre6p_c --> pi_c + tre_c,0.0
 TRE6PS,"Alpha,alpha-trehalose-phosphate synthase (UDP-forming)",g6p_c + udpg_c --> h_c + tre6p_c + udp_c,0.0
 TREP,,pi_c + tre_c --> g1p_c + glc__D_c,0.0
@@ -2611,8 +2611,8 @@ UPP3S,Uroporphyrinogen-III synthase,hmbil_c --> h2o_c + uppg3_c,0.0
 UPPDC1,Uroporphyrinogen decarboxylase (uroporphyrinogen III),4.0 h_c + uppg3_c --> 4.0 co2_c + cpppg3_c,0.0
 UPPRT,Uracil phosphoribosyltransferase,prpp_c + ura_c --> ppi_c + ump_c,0.0
 URACPAH,Peroxyureidoacrylate hydrolase,h2o_c + uracp_c --> cbm_c + h_c + poaac_c,0.0
-URAt,Uracil transport via facilated diffusion,ura_e <=> ura_c,-13.215913033941176
-URAt2,Uracil transport in via proton symport,h_e + ura_e --> h_c + ura_c,13.215913033941176
+URAt,Uracil transport via facilated diffusion,ura_e <=> ura_c,-13.215913033948752
+URAt2,Uracil transport in via proton symport,h_e + ura_e --> h_c + ura_c,13.215913033948752
 URAt2pp,Uracil transport in via proton symport (periplasm),h_p + ura_p --> h_c + ura_c,0.0
 URAtex,Uracil transport via diffusion (extracellular to periplasm),ura_e <=> ura_p,0.0
 URCN,Urocanase,h2o_c + urcan_c --> 4izp_c,0.0
@@ -2625,8 +2625,8 @@ URIH,Uridine hydrolase,h2o_c + uri_c --> rib__D_c + ura_c,0.0
 URO_c,Urate oxidase,h2o_c + o2_c + urate_c --> 5hiu_c + h2o2_c + h_c,0.0
 VACOAI,Vinylacetyl-CoA Delta-isomerase,vaccoa_c <=> b2coa_c,0.0633318018363235
 VACOAI_2,,4.0 h_c + vaccoa_c <=> ctncoa_c,-0.0633318018363235
-VALDHr,Valine dehydrogenase,h2o_c + nad_c + val__L_c <=> 3mob_c + h_c + nadh_c + nh4_c,-78.05523801284176
-VALTA,Valine transaminase,akg_c + val__L_c <=> 3mob_c + glu__L_c,-26.830209544639008
+VALDHr,Valine dehydrogenase,h2o_c + nad_c + val__L_c <=> 3mob_c + h_c + nadh_c + nh4_c,-78.0552380125948
+VALTA,Valine transaminase,akg_c + val__L_c <=> 3mob_c + glu__L_c,-26.830209544710392
 VALabc,L-valine transport via ABC system,atp_c + h2o_c + val__L_e --> adp_c + h_c + pi_c + val__L_c,0.0
 VALabcpp,L-valine transport via ABC system (periplasm),atp_c + h2o_c + val__L_p --> adp_c + h_c + pi_c + val__L_c,0.0
 VALt2r,L valine reversible transport via proton symport,h_e + val__L_e --> h_c + val__L_c,0.0
@@ -2634,14 +2634,14 @@ VALtex,L-valine transport via diffusion (extracellular to periplasm),val__L_e <=
 VANKpp,Vanillateproton symport transport,h_p + vanlt_p --> h_c + vanlt_c,0.0
 VANLNtex,Vanillin transport via diffusion  extracellular to periplasm ,vanln_e <=> vanln_p,0.0
 VANLTtex,Vanillate transport via diffusion  extracellular to periplasm ,vanlt_e <=> vanlt_p,0.0
-VCACT,Acetyl-CoA C-acyltransferase (3-oxovaleryl-CoA),accoa_c + ppcoa_c <=> 3optcoa_c + coa_c,17.887432191788708
+VCACT,Acetyl-CoA C-acyltransferase (3-oxovaleryl-CoA),accoa_c + ppcoa_c <=> 3optcoa_c + coa_c,17.88743219166523
 VCOAD,Acyl-CoA dehydrogenase (pentanoyl-CoA),fad_c + ptcoa_c <=> fadh2_c + pt2coa_c,0.0
 VECOAH,3-hydroxyacyl-CoA dehydratase (3-hydroxypentanoyl-CoA),3hptcoa_c <=> h2o_c + pt2coa_c,0.0
 VNDH,VanillinNAD oxidoreductase,h2o_c + nad_c + vanln_c --> 2.0 h_c + nadh_c + vanlt_c,0.0
 VNDH_2,4-hydroxybenzaldehyde dehydrogenase,4hbald_c + h2o_c + nad_c <=> 4hbz_c + 2.0 h_c + nadh_c,0.0012225535963548099
 VNLNpp,Vanillinproton symport transport,h_p + vanln_p --> h_c + vanln_c,0.0
 VNTDM,Vanillateoxygen oxidoreductase  demethylating ,h_c + nadh_c + o2_c + vanlt_c --> 34dhbz_c + fald_c + h2o_c + nad_c,0.0
-VPAMTr,Valine-pyruvate aminotransferase,3mob_c + ala__L_c <=> pyr_c + val__L_c,-104.03328985498766
+VPAMTr,Valine-pyruvate aminotransferase,3mob_c + ala__L_c <=> pyr_c + val__L_c,-104.0332898548121
 X5PL3E,L-xylulose 5-phosphate 3-epimerase,xu5p__L_c --> ru5p__L_c,0.0
 XAND,Xanthine dehydrogenase,h2o_c + nad_c + xan_c --> h_c + nadh_c + urate_c,0.0
 XANt2,Xanthine transport in via proton symport,h_e + xan_e --> h_c + xan_c,0.0
@@ -2718,7 +2718,7 @@ EX_R_3hppta_e,R_EX_R_3hppta_e,R_3hppta_e --> ,0.0
 EX_abg4_e,R_EX_abg4_e,abg4_e --> ,0.0
 EX_abt_e,R_EX_abt_e,abt_e --> ,0.0
 EX_ac_e,R_EX_ac_e,ac_e --> ,0.0
-EX_acac_e,R_EX_acac_e,acac_e --> ,7.7136421832151205
+EX_acac_e,R_EX_acac_e,acac_e --> ,7.713642183079102
 EX_acald_e,R_EX_acald_e,acald_e --> ,0.0
 EX_acgam_e,R_EX_acgam_e,acgam_e --> ,0.0
 EX_acmana_e,R_EX_acmana_e,acmana_e --> ,0.0
@@ -2773,7 +2773,7 @@ EX_chsterol_e,R_EX_chsterol_e,chsterol_e --> ,0.0
 EX_cit_e,R_EX_cit_e,cit_e --> ,0.0
 EX_cl_e,R_EX_cl_e,cl_e <=> ,-0.028599830196212383
 EX_cmcbtt_e,R_EX_cmcbtt_e,cmcbtt_e --> ,0.0
-EX_co2_e,R_EX_co2_e,co2_e --> ,766.947098741612
+EX_co2_e,R_EX_co2_e,co2_e --> ,766.9470987414824
 EX_co_e,R_EX_co_e,co_e --> ,1.5339187247650803
 EX_cobalt2_e,R_EX_cobalt2_e,cobalt2_e <=> ,-0.0005490171242890562
 EX_creat_e,R_EX_creat_e,creat_e --> ,0.0
@@ -2855,9 +2855,9 @@ EX_glyser_e,R_EX_glyser_e,glyser_e --> ,0.0
 EX_gsn_e,R_EX_gsn_e,gsn_e --> ,0.0
 EX_gthrd_e,R_EX_gthrd_e,gthrd_e --> ,0.0
 EX_gua_e,R_EX_gua_e,gua_e --> ,0.0
-EX_h2o_e,R_EX_h2o_e,h2o_e <=> ,909.6667330504216
+EX_h2o_e,R_EX_h2o_e,h2o_e <=> ,909.6667330497853
 EX_h2s_e,R_EX_h2s_e,h2s_e --> ,0.0
-EX_h_e,R_EX_h_e,h_e <=> ,37.9624838703391
+EX_h_e,R_EX_h_e,h_e <=> ,37.96248387027642
 EX_hco3_e,R_EX_hco3_e,hco3_e --> ,0.0
 EX_hdca_e,R_EX_hdca_e,hdca_e --> ,0.0
 EX_hexs_e,R_EX_hexs_e,hexs_e --> ,0.0
@@ -2900,7 +2900,7 @@ EX_malttr_e,R_EX_malttr_e,malttr_e --> ,0.0
 EX_man_e,R_EX_man_e,man_e --> ,0.0
 EX_manttr_e,R_EX_manttr_e,manttr_e --> ,0.0
 EX_melib_e,R_EX_melib_e,melib_e --> ,0.0
-EX_meoh_e,R_EX_meoh_e,meoh_e --> ,5.229872369176512e-07
+EX_meoh_e,R_EX_meoh_e,meoh_e --> ,5.233615268626181e-07
 EX_met_L_ala__L_e,R_EX_met_L_ala__L_e,met_L_ala__L_e --> ,0.0
 EX_met__D_e,R_EX_met__D_e,met__D_e --> ,0.0
 EX_met__L_e,R_EX_met__L_e,met__L_e --> ,0.0
@@ -2914,11 +2914,11 @@ EX_mnl_e,R_EX_mnl_e,mnl_e --> ,0.0
 EX_mobd_e,R_EX_mobd_e,mobd_e <=> ,0.0
 EX_mso3_e,R_EX_mso3_e,mso3_e --> ,0.0
 EX_n2o_e,R_EX_n2o_e,n2o_e --> ,0.0
-EX_nh4_e,R_EX_nh4_e,nh4_e <=> ,-42.00850382007054
+EX_nh4_e,R_EX_nh4_e,nh4_e <=> ,-42.008503819996456
 EX_no2_e,R_EX_no2_e,no2_e --> ,0.0
 EX_no3_e,R_EX_no3_e,no3_e --> ,0.0
 EX_no_e,R_EX_no_e,no_e --> ,0.0
-EX_o2_e,R_EX_o2_e,o2_e <=> ,-766.9508703664583
+EX_o2_e,R_EX_o2_e,o2_e <=> ,-766.9508703661447
 EX_oaa_e,R_EX_oaa_e,oaa_e --> ,0.0
 EX_ocdca_e,R_EX_ocdca_e,ocdca_e --> ,0.0
 EX_ocdcea_e,R_EX_ocdcea_e,ocdcea_e --> ,0.0

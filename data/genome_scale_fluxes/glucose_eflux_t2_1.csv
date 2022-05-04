@@ -172,14 +172,14 @@ ACMANApts,N-acetyl-D-mannosamine transport via PTS,acmana_e + pep_c --> acmanap_
 ACNAMt2pp,N-acetylneuraminate proton symport (periplasm),acnam_p + h_p --> acnam_c + h_c,0.0
 ACNAMtex,N-acetylneuraminate transport via diffusion (extracellular to periplasm),acnam_e <=> acnam_p,0.0
 ACNML,N-Acetylneuraminate lyase,acnam_c --> acmana_c + pyr_c,0.0
-ACOAD1,Acyl-CoA dehydrogenase (butanoyl-CoA),b2coa_c + h_c + nadh_c --> btcoa_c + nad_c,13.965102486473642
+ACOAD1,Acyl-CoA dehydrogenase (butanoyl-CoA),b2coa_c + h_c + nadh_c --> btcoa_c + nad_c,13.965102486473645
 ACOAD10f,Acyl CoA dehydrogenase  heptanoyl CoA ,fad_c + 2.0 h_c + hptcoa_c <=> fadh2_c + hp2coa_c,0.0
 ACOAD14f,Acyl CoA dehydrogenase  Phenyloctanoyl CoA ,fad_c + 2.0 h_c + poctacoa_c <=> fadh2_c + pocta2coa_c,0.0
 ACOAD15f,Acyl CoA dehydrogenase  Phenylheptanoyl CoA ,fad_c + 2.0 h_c + phpcoa_c <=> fadh2_c + php2coa_c,0.0
 ACOAD16f,Acyl CoA dehydrogenase  Phenylhexanoyl CoA ,fad_c + 2.0 h_c + phxacoa_c <=> fadh2_c + phxa2coa_c,0.0
 ACOAD17f,Acyl CoA dehydrogenase  Phenylpentanoyl CoA ,fad_c + 2.0 h_c + pptcoa_c <=> fadh2_c + ppt2coa_c,0.0
 ACOAD18f,Acyl CoA dehydrogenase  Phenylbutyryl CoA ,fad_c + 2.0 h_c + pbcoa_c <=> fadh2_c + pb2coa_c,0.0
-ACOAD1f,Acyl-CoA dehydrogenase (butanoyl-CoA),btcoa_c + fad_c --> b2coa_c + fadh2_c,8.624359588649337
+ACOAD1f,Acyl-CoA dehydrogenase (butanoyl-CoA),btcoa_c + fad_c --> b2coa_c + fadh2_c,8.624359588649343
 ACOAD1fr,Acyl-CoA dehydrogenase (butanoyl-CoA),b2coa_c + fadh2_c --> btcoa_c + fad_c,0.0
 ACOAD2,Acyl-CoA dehydrogenase (hexanoyl-CoA),h_c + hx2coa_c + nadh_c <=> hxcoa_c + nad_c,13.054334933007972
 ACOAD20,Acyl CoA dehydrogenase  2 methylbutnoyl CoA ,2.0 2mbcoa_c + o2_c --> 2.0 2mb2coa_c + 2.0 h2o_c,0.0
@@ -681,7 +681,7 @@ CSNt2,Cytosine transport in via proton symport,csn_e + h_e --> csn_c + h_c,0.0
 CTBTabcpp,Crotonobetaine transport via ABC system (periplasm),atp_c + ctbt_p + h2o_c --> adp_c + ctbt_c + h_c + pi_c,0.0
 CTBTt2rpp,Cronobetaine outward transport (H+ antiport),ctbt_p + h_p <=> ctbt_c + h_c,0.0
 CTECOAI6,3-cis-2-trans-enoyl-CoA isomerase,tdecoa_c <=> td2coa_c,9.752244375528301
-CTECOAI7,3-cis-2-trans-enoyl-CoA isomerase,hdcoa_c <=> hdd2coa_c,105.1056857411282
+CTECOAI7,3-cis-2-trans-enoyl-CoA isomerase,hdcoa_c <=> hdd2coa_c,105.10568574112818
 CTECOAI8,3-cis-2-trans-enoyl-CoA isomerase,odecoa_c <=> od2coa_c,107.27209750683913
 CTI1,Cis trans enoyl CoA isomerase  cis tetradec 2 enoyl CoA ,tde_2Z_coa_c <=> td2coa_c,0.0
 CTPS1,CTP synthase  NH3 ,atp_c + nh4_c + utp_c --> adp_c + ctp_c + 2.0 h_c + pi_c,0.8493494597692897

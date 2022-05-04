@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 #Transform data to dataframe with just index as gene identifiers and one column for values
 #!!!!TODO: Generalize for multiple time points
-#Function to construct df from EFLUX2 functions: Needs to be modified for multiple time points!!!!!
+#Function to construct df from E-Flux2 functions: Needs to be modified for multiple time points!!!!!
 def construct_trans_df(transdata, linename):
     transdataWTPR1 = transdata[transdata['Line Name']==linename]
     transdataWTPR1new = transdataWTPR1.filter(['Count', 'Measurement Type'])
@@ -119,7 +119,7 @@ def pFBA_pred(model, substrate, sub_uptake_rate=100):
         
     return pFBA_solution_all
 
-#Function for EFLUX2 and SPOT Predictions:
+#Function for E-Flux2 and SPOT Predictions:
 def eflux2_pred(model, transcriptdf, linename, substrate, sub_uptake_rate=100):  
     with model:
         medium = model.medium
@@ -133,10 +133,11 @@ def eflux2_pred(model, transcriptdf, linename, substrate, sub_uptake_rate=100):
             medium["EX_glc__D_e"] = 0
             medium['EX_guaiacol_e'] = 0
             medium['EX_vanlt_e'] = 0
+            medium['EX_phenol_e'] = 1000
 #             medium['EX_tag'] = 0
             
             model.reactions.get_by_id('EX_phenol_e').upper_bound = 0 #-sub_uptake_rate
-            model.reactions.get_by_id('EX_phenol_e').lower_bound = -sub_uptake_rate
+#             model.reactions.get_by_id('EX_phenol_e').lower_bound = -sub_uptake_rate
             model.reactions.get_by_id('EX_glc__D_e').upper_bound = 0
             model.reactions.get_by_id('EX_glc__D_e').lower_bound = 0
             model.reactions.get_by_id('EX_guaiacol_e').upper_bound = 0
@@ -178,7 +179,7 @@ def eflux2_pred(model, transcriptdf, linename, substrate, sub_uptake_rate=100):
 #Function for predictions for three replicates and averaging the solutions and calculating the standard deviation:
 def eflux2_pred_for_three_reps(model, transcriptdf, linename1, linename2, linename3, substrate):
     
-    #call prediction functions for individual EFLUX2 predictions for all 3 replicates:
+    #call prediction functions for individual E-Flux2 predictions for all 3 replicates:
     transdata_R1 = construct_trans_df(transcriptdf, linename1)
     transdata_R2 = construct_trans_df(transcriptdf, linename2)
     transdata_R3 = construct_trans_df(transcriptdf, linename3)
@@ -201,7 +202,7 @@ def eflux2_pred_for_three_reps(model, transcriptdf, linename1, linename2, linena
     
     return eflux2sol, eflux2sol_std
 
-#Function for EFLUX2 and SPOT Predictions:
+#Function for E-Flux2 and SPOT Predictions:
 def spot_pred(model, transcriptdf, linename, substrate, sub_uptake_rate=100):    
     with model:
         medium = model.medium
@@ -218,7 +219,7 @@ def spot_pred(model, transcriptdf, linename, substrate, sub_uptake_rate=100):
 #             medium['EX_tag'] = 0
             #medium["EX_phenol_e"] = sub_uptake_rate
             #model.reactions.get_by_id('EX_phenol_e').upper_bound = -sub_uptake_rate
-            #model.reactions.get_by_id('EX_phenol_e').lower_bound = -sub_uptake_rate
+#             model.reactions.get_by_id('EX_phenol_e').lower_bound = -sub_uptake_rate
             model.reactions.get_by_id('EX_glc__D_e').upper_bound = 0
             model.reactions.get_by_id('EX_glc__D_e').lower_bound = 0
             model.reactions.get_by_id('EX_guaiacol_e').upper_bound = 0
@@ -227,7 +228,8 @@ def spot_pred(model, transcriptdf, linename, substrate, sub_uptake_rate=100):
             model.reactions.get_by_id('EX_vanlt_e').lower_bound = 0
 #             model.reactions.get_by_id('EX_tag').upper_bound = 0
 #             model.reactions.get_by_id('EX_tag').lower_bound = 0
-            #medium["EX_phenol_e"] = sub_uptake_rate
+#             medium["EX_phenol_e"] = sub_uptake_rate
+            medium["EX_phenol_e"] = np.inf
         elif substrate=='glucose':
             model.objective = 'Growth_Glucose'
             medium = {key:1000 for (key,value) in model.medium.items()}
@@ -388,10 +390,12 @@ def scale_predictions(observed_fluxes, predictions, stdpredictions, substrate, m
         phenoluptakerow = observed_fluxes[observed_fluxes['Pathway']=='Substrate Uptake']
         sourceuptake = float(phenoluptakerow['Flux'])
         scale_factor = (sourceuptake/(-1*predictions.loc['EX_phenol_e']))
+        print('scale_factor', scale_factor)
     elif substrate == 'glucose':
         glucoseuptakerow = observed_fluxes[observed_fluxes['Pathway']=='Substrate Uptake']
         sourceuptake = float(glucoseuptakerow['Flux'])
         scale_factor = (sourceuptake/(-1*predictions.loc['EX_glc__D_e']))
+        print('scale_factor', scale_factor)
     else:   
         print('Unknown Substrate')
     scalepred_fluxes = predictions*scale_factor.values
@@ -514,9 +518,20 @@ def stats_for_trial(growth_data, substrate_data, molar_mass, display=False, max_
     else:
         return growth_rate, yield_coeff, substrate_consumption_rate
     
-def flux_solution_to_df(model, solution):
+def eflux_solution_to_df(model, solution):
     fluxes = []
     for rxn_id, flux in solution.fluxes.items():
+        fluxes.append({
+            'reaction_id': rxn_id,
+            'reaction_name': model.reactions.get_by_id(rxn_id).name,
+            'reaction_reaction': model.reactions.get_by_id(rxn_id).reaction,
+            'flux': flux
+        })
+    return pd.DataFrame(fluxes)
+
+def spot_solution_to_df(model, solution):
+    fluxes = []
+    for rxn_id, flux in solution.items():
         fluxes.append({
             'reaction_id': rxn_id,
             'reaction_name': model.reactions.get_by_id(rxn_id).name,
