@@ -1,4 +1,4 @@
-name,abbreviation,category,coefficient,molecular_weight
+name,metabolite_id,category,coefficient,molecular_weight
 10-Formyltetrahydrofolate,10fthf_c,carbon carrier,-0.000216,471.43
 L-Alanine,ala__L_c,protein,-0.498716,89.094
 S-Adenosyl-L-methionine,amet_c,carbon carrier,-0.000216,399.446

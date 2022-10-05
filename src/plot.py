@@ -12,55 +12,38 @@ from matplotlib.cbook import get_sample_data
 import matplotlib.image as mpimg
 import matplotlib.cm as cm
 from sklearn.metrics import r2_score
+from sklearn.linear_model import LinearRegression
+from scipy.stats import linregress
 
 from utils import *
 
 #define function to compare growth rates in scatter plot
-def comparison_scatter_plot(observed, predicted, labels, method, output_dir='./'):
+def comparison_scatter_plot(observed, predicted, labels, method, xlim, ylim, output_dir='./'):
     fig, ax = plt.subplots(figsize=(8, 8))
     
-#     lims = [
-#                 np.min([observed, predicted]),  # min of both axes
-#                 np.max([observed, predicted]),  # max of both axes
-#             ]
-    lims = [0, 0.4]
-    ax.set_xlim(lims)
-    
     # Plot Diagonal Dashed Line
-    ax.plot(lims, lims, ls="--", color=".8", zorder=0)
+    ax.plot(xlim, ylim, ls="--", color=".8", zorder=0)
     for i in range(0, len(observed)):
         ax.scatter(observed[i], predicted[i])
         ax.annotate(str(labels[i]),(observed[i],predicted[i]), fontsize=14)
         
     #calculate statistical quantities:
+#     slope, intercept, r, p, se = linregress(observed, predicted)
+#     r2 = r*r
+    mae = np.round(mae_func(observed, predicted),2)
     r2 = r2_score(observed,predicted)
-    #mse = np.round(mse_func(predicted, observed),2)
-    #rmse = np.round(rmse_func(predicted, observed),2)
-    mae_score = np.round(mae_func(observed, predicted),2)
 
     
     plt.xlabel(r'Observed (hr-1)', fontsize=18)#ed growth rate [$mmol/gDW/hr$]',fontsize=14)
     plt.ylabel(r'Predicted (hr-1)', fontsize=18)#ed growth rate [$mmol/gDW/hr$]', fontsize=14)
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
-    plt.title(r''+ r"$\bf{" + str(method) + "}$" +': '+ f"$R^2$={r2:.2F}, MAE={mae_score}", fontsize=18)#Growth rates: Observed vs. Predicted ('+strtitle+'), \n'
-    #plt.title(r''+ r"$\bf{" + str(method) + "}$" +': '+ f"$R^2$={r2:.2F}, MAE={mae_score}, MSE = {mse}, RMSE={rmse}", fontsize=18)#Growth rates: Observed vs. Predicted ('+strtitle+'), \n'
+    plt.title(r''+ r"$\bf{" + str(method) + "}$" +': '+ f"$R^2$={r2:.2F}", fontsize=18)
+    # plt.title(r''+ r"$\bf{" + str(method) + "}$" +': '+ f"$R^2$={r2:.2F}, " + f"MAE={mae:.2F} " , fontsize=18)
+    plt.xlim(xlim)
+    plt.ylim(ylim)
     plt.savefig(str(output_dir)+'growth_rate_scatter_plot_'+str(method)+'.png')
     plt.show()
-
-# def mae_func(observed, predicted):
-#     """Mean Absolute Error.
-#     Multioutput case included."""
-
-#     if observed.ndim == 1:
-#         return np.mean(np.abs([y_o - y_p for y_o, y_p in zip(observed, predicted)]))
-#     else:
-#         return [
-#             np.mean(
-#                 np.abs([y_o - y_p for y_o, y_p in zip(observed[:, i], predicted[:, i])])
-#             )
-#             for i in range(observed.shape[1])
-#         ]
 
 def scatterplotcomp_obs_vs_pred(obspred_fluxes, substrate, method, strain, output_dir='./'):
     fig, ax = plt.subplots(figsize=(8, 8))
@@ -94,8 +77,15 @@ def scatterplotcomp_obs_vs_pred(obspred_fluxes, substrate, method, strain, outpu
     predicted2 = obspred_fluxes.loc[:, str(method)+' '+ str(strain) + ' ' + 'Value']
     observed2 =  obspred_fluxes.loc[:,'Flux']
     
-    r2_scikit_1 = r2_score(observed1,predicted1)
-    r2_scikit_2 = r2_score(observed2,predicted2)
+    slope, intercept, r_filtered, p, se = linregress(observed1, predicted1)
+    r2_scikit_1 = r_filtered*r_filtered
+    
+    slope, intercept, r_unfiltered, p, se = linregress(observed2, predicted2)
+    r2_scikit_2 = r_unfiltered*r_unfiltered
+    
+    
+#     r2_scikit_1 = r2_score(observed1,predicted1)
+#     r2_scikit_2 = r2_score(observed2,predicted2)
     
     mae_score_1 = np.round(mae_func(observed1, predicted1),2)
     mae_score_2 = np.round(mae_func(observed2, predicted2),2)
@@ -155,8 +145,14 @@ def obs_vs_pred_scatter_plot_with_std(obspred_fluxes, substrate, method, strain,
     predicted2 = obspred_fluxes.loc[:, str(method)+' '+ str(strain) + ' ' + 'Value']
     observed2 =  obspred_fluxes.loc[:,'Flux']
     
-    r2_scikit_1 = r2_score(observed1,predicted1)
-    r2_scikit_2 = r2_score(observed2,predicted2)
+    slope, intercept, r_filtered, p, se = linregress(observed1, predicted1)
+    r2_scikit_1 = r_filtered*r_filtered
+    
+    slope, intercept, r_unfiltered, p, se = linregress(observed2, predicted2)
+    r2_scikit_2 = r_unfiltered*r_unfiltered
+    
+#     r2_scikit_1 = r2_score(observed1,predicted1)
+#     r2_scikit_2 = r2_score(observed2,predicted2)
        
     mae_score_1 = np.round(mae_func(observed1, predicted1),2)
     mae_score_2 = np.round(mae_func(observed2, predicted2),2)
@@ -164,7 +160,11 @@ def obs_vs_pred_scatter_plot_with_std(obspred_fluxes, substrate, method, strain,
 
 
 #     if substrate=='phenol':
-    plt.title(r''+ r"$\bf{" + str(method) + "}$"  + ': ' + f"$R^2$={r2_scikit_2:.2F} ({r2_scikit_1:.2F}$^\star$), MAE={mae_score_2} ({mae_score_1}$^\star$)", fontsize=18) #star: without 'ATP -> ATP.ext', 'NADH <-> NADPH'
+#     plt.title(r''+ r"$\bf{" + str(method) + "}$"  + ': ' + f"$R^2$={r2_scikit_2:.2F} ({r2_scikit_1:.2F}$^\star$), MAE={mae_score_2} ({mae_score_1}$^\star$)", fontsize=18) 
+    
+    plt.title(r''+ r"$\bf{" + str(method) + "}$"  + ': ' + f"$R^2$={r2_scikit_2:.2F} ({r2_scikit_1:.2F}$^\star$)", fontsize=18)
+    
+    #star: without 'ATP -> ATP.ext', 'NADH <-> NADPH'
 #     else:
 #         plt.title(r''+ r"$\bf{" + str(method) + "}$" + ': '+ f"$R^2$={r2_scikit_2:.2F}, MAE={mae_score_2}", fontsize=18)#r''+str(sub)+  ' 13C MFA vs. '+ str(method) + ' Fluxes for ' +linename+ '\n' + f"$R^2$={r2_scikit_2:.2F} (all reactions)", fontsize=18)#, MAE={mae_score}, MSE = {mse}, RMSE={rmse}
 #     plt.ylabel(r'Predicted', fontsize=18)#+ str(method) + ' flux (per 100 mmol of '+str(sub)+  ' uptake)')
@@ -208,3 +208,18 @@ def generate_flux_map(data_df, flux_column, substrate='', method='', strain='', 
     plt.savefig(str(output_dir)+str(substrate)+'_'+str(method)+'_'+str(strain)+'_flux_map.png')
 #     plt.savefig(str(output_dir)+'Plot_fluxmap'+str(flux_column)+'s'+'CPM.png')
     plt.show()
+    
+    
+# def mae_func(observed, predicted):
+#     """Mean Absolute Error.
+#     Multioutput case included."""
+
+#     if observed.ndim == 1:
+#         return np.mean(np.abs([y_o - y_p for y_o, y_p in zip(observed, predicted)]))
+#     else:
+#         return [
+#             np.mean(
+#                 np.abs([y_o - y_p for y_o, y_p in zip(observed[:, i], predicted[:, i])])
+#             )
+#             for i in range(observed.shape[1])
+#         ]

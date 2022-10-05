@@ -1,0 +1,13 @@
+Study ID,Study Name,Line ID,Replicate Key,Line Name,Line Description,Protocol,Assay ID,Assay Name,Formal Type,Measurement Type,Compartment,Units,Value,Hours,Biomass Conc
+15279,Rhodococcus opacus PD630 Rhiannon 2018,15280,24113c70-2925-4712-aafc-d272ab4e41e5,WT-R1,Wild Type R.opacus grown on glucose. Replicate 1,OD600,15283,WT-R1,,Optical Density,0,,0.05,0.0,0.0184
+15279,Rhodococcus opacus PD630 Rhiannon 2018,15280,24113c70-2925-4712-aafc-d272ab4e41e5,WT-R1,Wild Type R.opacus grown on glucose. Replicate 1,OD600,15283,WT-R1,,Optical Density,0,,0.19908,5.0,0.07326144
+15279,Rhodococcus opacus PD630 Rhiannon 2018,15280,24113c70-2925-4712-aafc-d272ab4e41e5,WT-R1,Wild Type R.opacus grown on glucose. Replicate 1,OD600,15283,WT-R1,,Optical Density,0,,0.49691,9.0,0.18286288
+15279,Rhodococcus opacus PD630 Rhiannon 2018,15280,24113c70-2925-4712-aafc-d272ab4e41e5,WT-R1,Wild Type R.opacus grown on glucose. Replicate 1,OD600,15283,WT-R1,,Optical Density,0,,0.9638,11.5,0.3546784
+15279,Rhodococcus opacus PD630 Rhiannon 2018,15281,605c9aba-a6ee-4be4-8c02-65f0ef5f1e7d,WT-R2,Wild Type R.opacus grown on glucose. Replicate 2,OD600,15284,WT-R2,,Optical Density,0,,0.05,0.0,0.0184
+15279,Rhodococcus opacus PD630 Rhiannon 2018,15281,605c9aba-a6ee-4be4-8c02-65f0ef5f1e7d,WT-R2,Wild Type R.opacus grown on glucose. Replicate 2,OD600,15284,WT-R2,,Optical Density,0,,0.17854,5.0,0.06570272
+15279,Rhodococcus opacus PD630 Rhiannon 2018,15281,605c9aba-a6ee-4be4-8c02-65f0ef5f1e7d,WT-R2,Wild Type R.opacus grown on glucose. Replicate 2,OD600,15284,WT-R2,,Optical Density,0,,0.52851,9.0,0.19449168
+15279,Rhodococcus opacus PD630 Rhiannon 2018,15281,605c9aba-a6ee-4be4-8c02-65f0ef5f1e7d,WT-R2,Wild Type R.opacus grown on glucose. Replicate 2,OD600,15284,WT-R2,,Optical Density,0,,1.0751899999999999,11.5,0.39566991999999995
+15279,Rhodococcus opacus PD630 Rhiannon 2018,15282,e579a97e-6f0c-4373-a813-2478b28dd152,WT-R3,Wild Type R.opacus grown on glucose. Replicate 3,OD600,15285,WT-R3,,Optical Density,0,,0.05,0.0,0.0184
+15279,Rhodococcus opacus PD630 Rhiannon 2018,15282,e579a97e-6f0c-4373-a813-2478b28dd152,WT-R3,Wild Type R.opacus grown on glucose. Replicate 3,OD600,15285,WT-R3,,Optical Density,0,,0.19908,5.0,0.07326144
+15279,Rhodococcus opacus PD630 Rhiannon 2018,15282,e579a97e-6f0c-4373-a813-2478b28dd152,WT-R3,Wild Type R.opacus grown on glucose. Replicate 3,OD600,15285,WT-R3,,Optical Density,0,,0.50481,9.0,0.18577007999999998
+15279,Rhodococcus opacus PD630 Rhiannon 2018,15282,e579a97e-6f0c-4373-a813-2478b28dd152,WT-R3,Wild Type R.opacus grown on glucose. Replicate 3,OD600,15285,WT-R3,,Optical Density,0,,1.01989,11.5,0.37531951999999996

@@ -19,7 +19,7 @@ def construct_trans_df(transdata, linename):
 
 
 
-def FBA_pred(model, substrate, sub_uptake_rate=100):
+def FBA_pred(model, substrate, sub_uptake_rate=100, verbose=True):
     with model:
         medium = model.medium 
         if substrate=='phenol':
@@ -34,7 +34,7 @@ def FBA_pred(model, substrate, sub_uptake_rate=100):
             medium["EX_glc__D_e"] = 0
             medium['EX_guaiacol_e'] = 0
             medium['EX_vanlt_e'] = 0
-#             medium['EX_tag'] = 0
+            medium['EX_tag'] = 0
             medium["EX_phenol_e"] = sub_uptake_rate
             
             model.reactions.get_by_id('EX_glc__D_e').upper_bound = 0
@@ -53,7 +53,7 @@ def FBA_pred(model, substrate, sub_uptake_rate=100):
             medium["EX_phenol_e"] = 0
             medium['EX_guaiacol_e'] = 0
             medium['EX_vanlt_e'] = 0
-#             medium['EX_tag'] = 0
+            medium['EX_tag'] = 0
             medium["EX_glc__D_e"] = sub_uptake_rate
             
             model.reactions.get_by_id('EX_phenol_e').upper_bound = 0
@@ -62,7 +62,8 @@ def FBA_pred(model, substrate, sub_uptake_rate=100):
             print('Unknown substrate: Please choose among phenol and glucose')
         model.medium = medium
         fbasol = model.optimize()
-        display(model.medium)
+        if verbose:
+            display(model.medium)
     return fbasol
 
 
@@ -432,7 +433,7 @@ def scale_growth_to_sub(solgrowth, soluptake, sub_uptake_2comp):
         solgrowthnew = solgrowth*factor
     return solgrowthnew
 
-#Used in Notebook E:
+#Used in Notebook D:
 def stats_for_condition(od_df, sub_df, trial_1, trial_2, trial_3, molar_mass, substrate='', max_time=0):
     
     if max_time != 0:
@@ -465,7 +466,7 @@ def stats_for_condition(od_df, sub_df, trial_1, trial_2, trial_3, molar_mass, su
     return growth_rate, yield_coeff, substrate_consumption_rate, growth_rate_std, yield_coeff_std, substrate_consumption_rate_std 
 
     
-#Used in Notebook E:
+#Used in Notebook D:
 def stats_for_trial(growth_data, substrate_data, molar_mass, display=False, max_time=0, substrate=''):
     
     biomass_values = growth_data['Biomass Conc']
@@ -517,6 +518,17 @@ def stats_for_trial(growth_data, substrate_data, molar_mass, display=False, max_
         return growth_rate, yield_coeff, substrate_consumption_rate
     else:
         return growth_rate, yield_coeff, substrate_consumption_rate
+    
+def fba_solution_to_df(model, solution):
+    fluxes = []
+    for rxn_id, flux in solution.fluxes.items():
+        fluxes.append({
+            'reaction_id': rxn_id,
+            'reaction_name': model.reactions.get_by_id(rxn_id).name,
+            'reaction_reaction': model.reactions.get_by_id(rxn_id).reaction,
+            'flux': flux
+        })
+    return pd.DataFrame(fluxes)
     
 def eflux_solution_to_df(model, solution):
     fluxes = []
