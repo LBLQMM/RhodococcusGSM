@@ -2,11 +2,8 @@ import pandas as pd
 import numpy as np
 from ensemblemethods import SPOT, EFlux2
 import cobra
-from scipy import stats
-import math
 from scipy import mean
-import matplotlib.pyplot as plt
-#from plot import stats_for_trial
+
 
 #Transform data to dataframe with just index as gene identifiers and one column for values
 #!!!!TODO: Generalize for multiple time points
@@ -370,19 +367,6 @@ def mae_func(observed, predicted):
 def rmse_func(predicted, observed):
     return np.sqrt(((predicted - observed) ** 2).mean())
 
-# def get_flux_value(reaction_id, solution):
-#     if reaction_id.startswith('reverse_'):
-#         reaction_id = reaction_id.split('reverse_')[1]
-#         return -1*solution.fluxes[reaction_id]
-#     else:
-#         return solution.fluxes[reaction_id]
-    
-    
-# def get_std_value(reaction_id, solution):
-#     if reaction_id.startswith('reverse_'):
-#         reaction_id = reaction_id.split('reverse_')[1]
-#     return solution.stds[reaction_id]
-
 def scale_predictions(observed_fluxes, predictions, stdpredictions, substrate, method):
     scalepred_stds = pd.DataFrame(index=stdpredictions.index, columns= ['stds'], dtype=np.float64)
     scalepred_fluxes = pd.DataFrame(index=predictions.index, columns= ['fluxes'], dtype=np.float64)
@@ -432,92 +416,6 @@ def scale_growth_to_sub(solgrowth, soluptake, sub_uptake_2comp):
         factor = abs(sub_uptake_2comp/(-soluptake))
         solgrowthnew = solgrowth*factor
     return solgrowthnew
-
-#Used in Notebook D:
-def stats_for_condition(od_df, sub_df, trial_1, trial_2, trial_3, molar_mass, substrate='', max_time=0):
-    
-    if max_time != 0:
-        od_df = od_df[od_df['Hours'] < max_time]
-        sub_df = sub_df[sub_df['Hours'] < max_time]
-        
-    od_1 = od_df[od_df['Line Name'] == trial_1]
-    sub_1 = sub_df[sub_df['Line Name'] == trial_1]
-
-    od_2 = od_df[od_df['Line Name'] == trial_2]
-    sub_2 = sub_df[sub_df['Line Name'] == trial_2]
-
-    od_3 = od_df[od_df['Line Name'] == trial_3]
-    sub_3 = sub_df[sub_df['Line Name'] == trial_3]
-
-    gr_1, yc_1, scr_1 = stats_for_trial(od_1, sub_1, molar_mass, substrate=substrate)
-    gr_2, yc_2, scr_2 = stats_for_trial(od_2, sub_2, molar_mass, substrate=substrate)
-    gr_3, yc_3, scr_3 = stats_for_trial(od_3, sub_3, molar_mass, substrate=substrate)
-    
-    growth_rate = np.average([gr_1, gr_2, gr_3])
-    yield_coeff = np.average([yc_1, yc_2, yc_3])
-    substrate_consumption_rate = np.average([scr_1, scr_2, scr_3])
-    growth_rate_std = np.std([gr_1, gr_2, gr_3])
-    yield_coeff_std = np.std([yc_1, yc_2, yc_3])
-    substrate_consumption_rate_std = np.std([scr_1, scr_2, scr_3])
-    
-    print(f'growth_rate = {growth_rate:.3f} ± {growth_rate_std:.3f} hr-1')
-    print(f'yield coefficient = {yield_coeff:.3f} ± {yield_coeff_std:.3f} g biomass / mmol substrate')
-    print(f'substrate consumption rate = {substrate_consumption_rate:.3f} ± {substrate_consumption_rate_std:.3f} mmol substrate/gram biomass * hr')
-    return growth_rate, yield_coeff, substrate_consumption_rate, growth_rate_std, yield_coeff_std, substrate_consumption_rate_std 
-
-    
-#Used in Notebook D:
-def stats_for_trial(growth_data, substrate_data, molar_mass, display=False, max_time=0, substrate=''):
-    
-    biomass_values = growth_data['Biomass Conc']
-    biomass_times = growth_data['Hours']
-    biomass_init = list(biomass_values)[0]
-
-    substrate_values = substrate_data['Value']*1000/molar_mass
-    substrate_times = substrate_data['Hours']
-    substrate_init = list(substrate_values)[0]
-    
-    # growth is the slope of log(biomass) vs. time
-    growth_rate, _, _, _, _ = stats.linregress(biomass_times, [math.log(val) for val in biomass_values])
-    
-    # biomass X = X0*e^(μ*t)
-    # This is different from above to ensure that there is a biomass value for every substrate measurement
-    biomass_sim = [biomass_init*math.exp(growth_rate*time) for time in substrate_times]
-    
-    # actual consumption = S0 - S
-    sub_consumed = [substrate_init - sub_value for sub_value in substrate_values]
-    
-    # new biomass X = X0 - X
-    biomass_sim_growth = [sim_value - biomass_init for sim_value in biomass_sim ]
-    
-    # yield is the amount of biomass that can be made from a mmol of substrate
-    yield_coeff, _, _, _, _ = stats.linregress(sub_consumed, biomass_sim_growth)
-
-    # S = S0 - (1/yield)*X
-    substrate_sim = [substrate_init - 1/yield_coeff*val for val in biomass_sim_growth]
-    
-    substrate_consumption_rate = (1/yield_coeff) * growth_rate
-
-    fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(8, 5))
-    axes[0].plot(biomass_times, biomass_values, 'o', color='black')
-    axes[0].plot(substrate_times, biomass_sim, '-', color='black')
-    axes[1].plot(substrate_times, substrate_values, 'o', color='blue')
-    axes[1].plot(substrate_times, substrate_sim, '-', color='blue')
-    axes[0].set_title('Biomass growth')
-    axes[1].set_title(f'{substrate} consumption')
-    axes[0].set_xlabel('Time (hr)')
-    axes[1].set_xlabel('Time (hr)')
-    axes[0].set_ylabel('Biomass (g/L)')
-    axes[1].set_ylabel(f'{substrate} (mmol/L)')
-    fig.tight_layout()
-    
-    if display:
-        print(f'growth_rate = {growth_rate:.3f} hr-1')
-        print(f'yield coefficient = {yield_coeff:.3f} g biomass / mmol substrate')
-        print(f'substrate consumption rate = {substrate_consumption_rate:.3f} mmol substrate/gram biomass * hr')
-        return growth_rate, yield_coeff, substrate_consumption_rate
-    else:
-        return growth_rate, yield_coeff, substrate_consumption_rate
     
 def fba_solution_to_df(model, solution):
     fluxes = []
@@ -551,3 +449,16 @@ def spot_solution_to_df(model, solution):
             'flux': flux
         })
     return pd.DataFrame(fluxes)
+
+# def get_flux_value(reaction_id, solution):
+#     if reaction_id.startswith('reverse_'):
+#         reaction_id = reaction_id.split('reverse_')[1]
+#         return -1*solution.fluxes[reaction_id]
+#     else:
+#         return solution.fluxes[reaction_id]
+    
+    
+# def get_std_value(reaction_id, solution):
+#     if reaction_id.startswith('reverse_'):
+#         reaction_id = reaction_id.split('reverse_')[1]
+#     return solution.stds[reaction_id]
