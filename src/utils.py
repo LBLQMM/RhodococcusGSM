@@ -4,6 +4,93 @@ from ensemblemethods import SPOT, EFlux2
 import cobra
 from scipy import mean
 
+# This function takes in a cobrapy model and a cobrapy solution, and 
+# returns a dataframe with all the fluxes labeled by id, name, and reaction.
+def cobra_solution_to_df(model, solution):
+    fluxes = []
+    for rxn_id, flux in solution.fluxes.items():
+        fluxes.append({
+            'reaction_id': rxn_id,
+            'reaction_name': model.reactions.get_by_id(rxn_id).name,
+            'reaction_reaction': model.reactions.get_by_id(rxn_id).reaction,
+            'flux': flux
+        })
+    return pd.DataFrame(fluxes)
+
+# This function takes in a reaction string and a cobra 
+# solution, and it returns the flux value for that reaction
+def reaction_id_to_flux(reaction_id, solution):
+    if reaction_id.startswith('reverse_'):
+        reaction_id = reaction_id.split('reverse_')[1]
+        return -1*solution.fluxes[reaction_id]
+    else:
+        return solution.fluxes[reaction_id]    
+
+# This function takes in a row from a central flux dataframe and a string 
+# of reaction ids, and it returns a flux value that corrosponds to the reaction ids.
+def reaction_ids_to_flux_value(solution, reaction_ids):
+    total_flux = 0
+    for x in [x.strip('() ') for x in reaction_ids.split(' or ')]:
+        and_split = [y.strip('() ') for y in x.split(' and ')]
+        total_flux += min([reaction_id_to_flux(v, solution) for v in and_split])
+            
+    return total_flux
+    
+# This function takes in a 13C flux dataframe and a cobra solution. It determines the 
+# flux value using a reaction ids string that maps the 13C-MFA reaction to GSM reactions/
+# It uses the reaction_ids_to_flux_value function to calculate the GSM flux.
+def add_column_to_13C_flux_df(central_flux_df, solution, column_name):
+    updated_df = central_flux_df.copy()
+    
+    # create a blank list to hold values to add to the column
+    column_values = []
+    
+    # loop over rows in the central flux dataframe
+    for _, row in central_flux_df.iterrows():
+        # Add the flux value for each row to the column values list
+        reaction_ids = row['Reaction Ids']
+        flux_value = reaction_ids_to_flux_value(solution, reaction_ids)
+        column_values.append(flux_value)
+
+    # add the column to the dataframe
+    updated_df[column_name] = column_values
+    
+    return updated_df
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+def add_pred_fluxes_to_13c_df(observed_fluxes, predictions, stdpredictions, substrate, method, strain):
+    predicted_fluxes = []
+    predicted_stds = []
+    scalepred_fluxes, scalepred_stds = scale_predictions(observed_fluxes, predictions, stdpredictions, substrate, method)
+    for _, row in observed_fluxes.iterrows():
+        reactions = row['Reaction Ids']
+        flux_value_pred = 0
+        std_value_pred = 0
+        for x in [x.strip('() ') for x in reactions.split(' or ')]:
+            and_split = [y.strip('() ') for y in x.split(' and ')]
+            flux_value_pred += min([reaction_id_to_flux(v, scalepred_fluxes) for v in and_split])
+            std_value_pred += min([get_std_value(v,scalepred_stds) for v in and_split])
+        predicted_fluxes.append(flux_value_pred)
+        predicted_stds.append(std_value_pred)
+
+    observed_fluxes[str(method) + ' ' + str(strain) + ' Flux'] = predicted_fluxes
+    observed_fluxes[str(method) + ' ' + str(strain) + ' Flux Std'] = predicted_stds
+    
+    return observed_fluxes
+
+
+
+
+
 
 #Transform data to dataframe with just index as gene identifiers and one column for values
 #!!!!TODO: Generalize for multiple time points
@@ -13,109 +100,6 @@ def construct_trans_df(transdata, linename):
     transdataWTPR1new = transdataWTPR1.filter(['Count', 'Measurement Type'])
     transdataWTPR1new2 = transdataWTPR1new.set_index('Measurement Type')
     return transdataWTPR1new2
-
-
-
-def FBA_pred(model, substrate, sub_uptake_rate=100, verbose=True):
-    with model:
-        medium = model.medium 
-        if substrate=='phenol':
-            model.objective = 'Growth_Phenol'
-            medium = {key:1000 for (key,value) in model.medium.items()}
-            model.reactions.get_by_id('Growth_Glucose').upper_bound = 0
-            model.reactions.get_by_id('Growth_Glucose').lower_bound = 0
-            model.reactions.get_by_id('Growth').upper_bound = 0
-            model.reactions.get_by_id('Growth').lower_bound = 0
-            
-            #remove all non-phenol carbon sources:
-            medium["EX_glc__D_e"] = 0
-            medium['EX_guaiacol_e'] = 0
-            medium['EX_vanlt_e'] = 0
-            medium['EX_tag'] = 0
-            medium["EX_phenol_e"] = sub_uptake_rate
-            
-            model.reactions.get_by_id('EX_glc__D_e').upper_bound = 0
-            model.reactions.get_by_id('EX_glc__D_e').lower_bound = 0
-            
-        elif substrate=='glucose':
-            model.objective = 'Growth_Glucose'
-            medium = {key:1000 for (key,value) in model.medium.items()}
-            model.reactions.get_by_id('Growth_Phenol').upper_bound = 0
-            model.reactions.get_by_id('Growth_Phenol').lower_bound = 0
-            model.reactions.get_by_id('Growth_Glucose').lower_bound = 0
-            model.reactions.get_by_id('Growth').upper_bound = 0
-            model.reactions.get_by_id('Growth').lower_bound = 0
-            
-            #remove all non-glucose carbon sources:
-            medium["EX_phenol_e"] = 0
-            medium['EX_guaiacol_e'] = 0
-            medium['EX_vanlt_e'] = 0
-            medium['EX_tag'] = 0
-            medium["EX_glc__D_e"] = sub_uptake_rate
-            
-            model.reactions.get_by_id('EX_phenol_e').upper_bound = 0
-            model.reactions.get_by_id('EX_phenol_e').lower_bound = 0
-        else:
-            print('Unknown substrate: Please choose among phenol and glucose')
-        model.medium = medium
-        fbasol = model.optimize()
-        if verbose:
-            display(model.medium)
-    return fbasol
-
-
-
-def pFBA_pred(model, substrate, sub_uptake_rate=100):
-    with model:
-        medium = model.medium 
-        if substrate=='phenol':
-            model.objective = 'Growth_Phenol'
-            growth = 'Growth_Phenol'
-            medium = {key:1000 for (key,value) in model.medium.items()}
-            model.reactions.get_by_id('Growth_Glucose').upper_bound = 0
-            model.reactions.get_by_id('Growth_Glucose').lower_bound = 0
-            model.reactions.get_by_id('Growth').upper_bound = 0
-            model.reactions.get_by_id('Growth').lower_bound = 0
-            #remove all non-phenol carbon sources:
-            medium["EX_glc__D_e"] = 0
-            medium['EX_guaiacol_e'] = 0
-            medium['EX_vanlt_e'] = 0
-#             medium['EX_tag'] = 0
-            medium["EX_phenol_e"] = sub_uptake_rate
-            
-            model.reactions.get_by_id('EX_glc__D_e').upper_bound = 0
-            model.reactions.get_by_id('EX_glc__D_e').lower_bound = 0
-
-        elif substrate=='glucose':
-            model.objective = 'Growth_Glucose'
-            growth = 'Growth_Glucose'
-            medium = {key:1000 for (key,value) in model.medium.items()}
-            model.reactions.get_by_id('Growth_Phenol').upper_bound = 0
-            model.reactions.get_by_id('Growth_Phenol').lower_bound = 0
-            model.reactions.get_by_id('Growth_Glucose').lower_bound = 0
-            model.reactions.get_by_id('Growth').upper_bound = 0
-            model.reactions.get_by_id('Growth').lower_bound = 0
-            
-            #remove all non-glucose carbon sources:
-            medium["EX_phenol_e"] = 0
-            medium['EX_guaiacol_e'] = 0
-            medium['EX_vanlt_e'] = 0
-#             medium['EX_tag'] = 0
-            medium["EX_glc__D_e"] = sub_uptake_rate
-
-            model.reactions.get_by_id('EX_phenol_e').upper_bound = 0
-            model.reactions.get_by_id('EX_phenol_e').lower_bound = 0
-        else:
-            print('Unknown substrate: Please choose among phenol and glucose')
-        model.medium = medium
-        try:
-            pFBA_solution_all = cobra.flux_analysis.pfba(model)
-        except:
-            pFBA_solution_all = 0
-            print("warning because of substrate cons rate for "+ index) 
-        display(model.medium)
-        
-    return pFBA_solution_all
 
 #Function for E-Flux2 and SPOT Predictions:
 def eflux2_pred(model, transcriptdf, linename, substrate, sub_uptake_rate=100):  
@@ -283,13 +267,6 @@ def spot_pred_for_three_reps(model, transcriptdf, linename1, linename2, linename
     spotsol_std = spotsol_all.std(axis=1)
     
     return spotsol, spotsol_std
-
-def get_flux_value(reaction_id, solution):
-    if reaction_id.startswith('reverse_'):
-        reaction_id = reaction_id.split('reverse_')[1]
-        return -1*solution.fluxes[reaction_id]
-    else:
-        return solution.fluxes[reaction_id]    
     
 def get_std_value(reaction_id, solution):
     if reaction_id.startswith('reverse_'):
@@ -315,53 +292,6 @@ def scale_predictions(observed_fluxes, predictions, stdpredictions, substrate, m
         else:
             scalepred_stds.loc[ind,'stds'] = (stdpredictions.loc[ind,'stds']/predictions.loc[ind,'fluxes'])*scalepred_fluxes.loc[ind, 'fluxes']
     return scalepred_fluxes, scalepred_stds
-
-def add_pred_fluxes_to_13c_df_without_std(df_13C, sol, method, strain):
-    FBA_fluxes = []
-    for _, row in df_13C.iterrows():
-        reactions = row['Forward Reactions']
-        flux_value = 0
-        for x in [x.strip('() ') for x in reactions.split(' or ')]:
-            and_split = [y.strip('() ') for y in x.split(' and ')]
-            flux_value += min([get_flux_value(v, sol) for v in and_split])
-        FBA_fluxes.append(flux_value)
-
-    df_13C[str(method) + ' ' + str(strain) + ' ' + 'Value'] = FBA_fluxes
-    return df_13C
-
-def add_pred_fluxes_to_13c_df(observed_fluxes, predictions, stdpredictions, substrate, method, strain):
-    predicted_fluxes = []
-    predicted_stds = []
-    scalepred_fluxes, scalepred_stds = scale_predictions(observed_fluxes, predictions, stdpredictions, substrate, method)
-    for _, row in observed_fluxes.iterrows():
-        reactions = row['Forward Reactions']
-        flux_value_pred = 0
-        std_value_pred = 0
-        for x in [x.strip('() ') for x in reactions.split(' or ')]:
-            and_split = [y.strip('() ') for y in x.split(' and ')]
-            flux_value_pred += min([get_flux_value(v, scalepred_fluxes) for v in and_split])
-            std_value_pred += min([get_std_value(v,scalepred_stds) for v in and_split])
-        predicted_fluxes.append(flux_value_pred)
-        predicted_stds.append(std_value_pred)
-
-    observed_fluxes[str(method) + ' ' + str(strain) + ' Value'] = predicted_fluxes
-    observed_fluxes[str(method) + ' ' + str(strain) + ' std Value'] = predicted_stds
-    
-    return observed_fluxes
-
-def mae_func(observed, predicted):
-    """Mean Absolute Error.
-    Multioutput case included."""
-
-    if observed.ndim == 1:
-        return np.mean(np.abs([y_o - y_p for y_o, y_p in zip(observed, predicted)]))
-    else:
-        return [
-            np.mean(
-                np.abs([y_o - y_p for y_o, y_p in zip(observed[:, i], predicted[:, i])])
-            )
-            for i in range(observed.shape[1])
-        ]
     
 #define function to calculate root mean squared error
 def rmse_func(predicted, observed):
@@ -392,12 +322,12 @@ def add_pred_fluxes_to_13c_df(observed_fluxes, predictions, stdpredictions, subs
     predicted_stds = []
     scalepred_fluxes, scalepred_stds = scale_predictions(observed_fluxes, predictions, stdpredictions, substrate, method)
     for _, row in observed_fluxes.iterrows():
-        reactions = row['Forward Reactions']
+        reactions = row['Reaction Ids']
         flux_value_pred = 0
         std_value_pred = 0
         for x in [x.strip('() ') for x in reactions.split(' or ')]:
             and_split = [y.strip('() ') for y in x.split(' and ')]
-            flux_value_pred += min([get_flux_value(v, scalepred_fluxes) for v in and_split])
+            flux_value_pred += min([reaction_id_to_flux(v, scalepred_fluxes) for v in and_split])
             std_value_pred += min([get_std_value(v,scalepred_stds) for v in and_split])
         predicted_fluxes.append(flux_value_pred)
         predicted_stds.append(std_value_pred)
@@ -416,39 +346,58 @@ def scale_growth_to_sub(solgrowth, soluptake, sub_uptake_2comp):
         factor = abs(sub_uptake_2comp/(-soluptake))
         solgrowthnew = solgrowth*factor
     return solgrowthnew
-    
-def fba_solution_to_df(model, solution):
-    fluxes = []
-    for rxn_id, flux in solution.fluxes.items():
-        fluxes.append({
-            'reaction_id': rxn_id,
-            'reaction_name': model.reactions.get_by_id(rxn_id).name,
-            'reaction_reaction': model.reactions.get_by_id(rxn_id).reaction,
-            'flux': flux
-        })
-    return pd.DataFrame(fluxes)
-    
-def eflux_solution_to_df(model, solution):
-    fluxes = []
-    for rxn_id, flux in solution.fluxes.items():
-        fluxes.append({
-            'reaction_id': rxn_id,
-            'reaction_name': model.reactions.get_by_id(rxn_id).name,
-            'reaction_reaction': model.reactions.get_by_id(rxn_id).reaction,
-            'flux': flux
-        })
-    return pd.DataFrame(fluxes)
 
-def spot_solution_to_df(model, solution):
-    fluxes = []
-    for rxn_id, flux in solution.items():
-        fluxes.append({
-            'reaction_id': rxn_id,
-            'reaction_name': model.reactions.get_by_id(rxn_id).name,
-            'reaction_reaction': model.reactions.get_by_id(rxn_id).reaction,
-            'flux': flux
-        })
-    return pd.DataFrame(fluxes)
+# Can probably delete this code soon.
+
+# This function adds fluxes from 
+# def add_pred_fluxes_to_13c_df_without_std(df_13C, sol, method, strain):
+#     # create a blank list to hold 
+#     FBA_fluxes = []
+    
+#     # loop over rows, and 
+#     for _, row in df_13C.iterrows():
+#         reactions = row['Reaction Ids']
+#         flux_value = 0
+#         for x in [x.strip('() ') for x in reactions.split(' or ')]:
+#             and_split = [y.strip('() ') for y in x.split(' and ')]
+#             flux_value += min([reaction_id_to_flux(v, sol) for v in and_split])
+#         FBA_fluxes.append(flux_value)
+
+#     df_13C[str(method) + ' ' + str(strain) + ' Flux'] = FBA_fluxes
+#     return df_13C
+    
+# def fba_solution_to_df(model, solution):
+#     fluxes = []
+#     for rxn_id, flux in solution.fluxes.items():
+#         fluxes.append({
+#             'reaction_id': rxn_id,
+#             'reaction_name': model.reactions.get_by_id(rxn_id).name,
+#             'reaction_reaction': model.reactions.get_by_id(rxn_id).reaction,
+#             'flux': flux
+#         })
+#     return pd.DataFrame(fluxes)
+    
+# def eflux_solution_to_df(model, solution):
+#     fluxes = []
+#     for rxn_id, flux in solution.fluxes.items():
+#         fluxes.append({
+#             'reaction_id': rxn_id,
+#             'reaction_name': model.reactions.get_by_id(rxn_id).name,
+#             'reaction_reaction': model.reactions.get_by_id(rxn_id).reaction,
+#             'flux': flux
+#         })
+#     return pd.DataFrame(fluxes)
+
+# def spot_solution_to_df(model, solution):
+#     fluxes = []
+#     for rxn_id, flux in solution.items():
+#         fluxes.append({
+#             'reaction_id': rxn_id,
+#             'reaction_name': model.reactions.get_by_id(rxn_id).name,
+#             'reaction_reaction': model.reactions.get_by_id(rxn_id).reaction,
+#             'flux': flux
+#         })
+#     return pd.DataFrame(fluxes)
 
 # def get_flux_value(reaction_id, solution):
 #     if reaction_id.startswith('reverse_'):

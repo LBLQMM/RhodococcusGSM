@@ -1,4 +1,4 @@
-Pathway,Reaction Ids,Reaction,Location on map,13C Flux,13C Lower Bound,13C Upper Bound,FBA WT Flux,pFBA WT Flux
+Pathway,Forward Reactions,Reaction,Location on map,Flux,90% Confidence Lower Bound,90% Confidence Upper Bound,FBA WT Value,pFBA WT Value
 Substrate Uptake,reverse_EX_glc__D_e,Gluc.ext + ATP -> G6P,"(50, 460)",100.0,100.0,100.0,100.0,100.0
 EMP Pathway,PGI,G6P <-> F6P,"(-150, 430)",-1.61,-2.09,1.42,93.77206382031233,93.77206382031233
 EMP Pathway,PFK or reverse_FBP,F6P + ATP -> FBP,"(-220, 195)",0.0,0.0,1.91,78.18836187323615,78.18836187327796
