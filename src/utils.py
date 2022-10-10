@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from ensemblemethods import SPOT, EFlux2
+from ensemble_methods import SPOT, EFlux2
 import cobra
 from scipy import mean
 
@@ -56,107 +56,74 @@ def add_column_to_13C_flux_df(central_flux_df, solution, column_name):
     updated_df[column_name] = column_values
     
     return updated_df
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-def add_pred_fluxes_to_13c_df(observed_fluxes, predictions, stdpredictions, substrate, method, strain):
-    predicted_fluxes = []
-    predicted_stds = []
-    scalepred_fluxes, scalepred_stds = scale_predictions(observed_fluxes, predictions, stdpredictions, substrate, method)
-    for _, row in observed_fluxes.iterrows():
-        reactions = row['Reaction Ids']
-        flux_value_pred = 0
-        std_value_pred = 0
-        for x in [x.strip('() ') for x in reactions.split(' or ')]:
-            and_split = [y.strip('() ') for y in x.split(' and ')]
-            flux_value_pred += min([reaction_id_to_flux(v, scalepred_fluxes) for v in and_split])
-            std_value_pred += min([get_std_value(v,scalepred_stds) for v in and_split])
-        predicted_fluxes.append(flux_value_pred)
-        predicted_stds.append(std_value_pred)
-
-    observed_fluxes[str(method) + ' ' + str(strain) + ' Flux'] = predicted_fluxes
-    observed_fluxes[str(method) + ' ' + str(strain) + ' Flux Std'] = predicted_stds
-    
-    return observed_fluxes
-
-
-
-
-
-
-#Transform data to dataframe with just index as gene identifiers and one column for values
-#!!!!TODO: Generalize for multiple time points
-#Function to construct df from E-Flux2 functions: Needs to be modified for multiple time points!!!!!
-def construct_trans_df(transdata, linename):
-    transdataWTPR1 = transdata[transdata['Line Name']==linename]
-    transdataWTPR1new = transdataWTPR1.filter(['Count', 'Measurement Type'])
-    transdataWTPR1new2 = transdataWTPR1new.set_index('Measurement Type')
-    return transdataWTPR1new2
 
 #Function for E-Flux2 and SPOT Predictions:
-def eflux2_pred(model, transcriptdf, linename, substrate, sub_uptake_rate=100):  
+def get_EFlux2_solution(model, transcript_df, substrate, substrate_uptake_rate=100):  
     with model:
+        # set the biomass reaction and media composition based on carbon source
         medium = model.medium
-        if substrate=='phenol':
-            model.objective = 'Growth_Phenol'
-            medium = {key:1000 for (key,value) in model.medium.items()}
+        if substrate == 'phenol':
+            # block glucose biomass reaction and the default CarveMe biomass reactions
             model.reactions.get_by_id('Growth_Glucose').upper_bound = 0
             model.reactions.get_by_id('Growth_Glucose').lower_bound = 0
             model.reactions.get_by_id('Growth').upper_bound = 0
             model.reactions.get_by_id('Growth').lower_bound = 0
+            
+            # make maximizing the phenol biomass reaction the objective function
+            model.objective = 'Growth_Phenol'
+            
+            # first, set all media components to surplus levels
+            medium = {key:1000 for (key,value) in model.medium.items()}
+            
+            # set the phenol uptake rate the specified value
+            medium["EX_phenol_e"] = substrate_uptake_rate
+            
+            # remove all non-phenol carbon sources
             medium["EX_glc__D_e"] = 0
             medium['EX_guaiacol_e'] = 0
             medium['EX_vanlt_e'] = 0
-            medium['EX_phenol_e'] = 1000
-#             medium['EX_tag'] = 0
             
-            model.reactions.get_by_id('EX_phenol_e').upper_bound = 0 #-sub_uptake_rate
-#             model.reactions.get_by_id('EX_phenol_e').lower_bound = -sub_uptake_rate
-            model.reactions.get_by_id('EX_glc__D_e').upper_bound = 0
-            model.reactions.get_by_id('EX_glc__D_e').lower_bound = 0
-            model.reactions.get_by_id('EX_guaiacol_e').upper_bound = 0
-            model.reactions.get_by_id('EX_guaiacol_e').lower_bound = 0
-            model.reactions.get_by_id('EX_vanlt_e').upper_bound = 0
-            model.reactions.get_by_id('EX_vanlt_e').lower_bound = 0
-#             model.reactions.get_by_id('EX_tag').upper_bound = 0
-#             model.reactions.get_by_id('EX_tag').lower_bound = 0
-            #medium["EX_phenol_e"] = sub_uptake_rate
-        elif substrate=='glucose':
-            model.objective = 'Growth_Glucose'
-            medium = {key:1000 for (key,value) in model.medium.items()}
+            # allow for excess phenol
+            medium['EX_phenol_e'] = 1000
+
+        elif substrate == 'glucose':
+            # block phenol biomass reaction and the default CarveMe biomass reactions
             model.reactions.get_by_id('Growth_Phenol').upper_bound = 0
             model.reactions.get_by_id('Growth_Phenol').lower_bound = 0
-            model.reactions.get_by_id('Growth_Glucose').lower_bound = 0
             model.reactions.get_by_id('Growth').upper_bound = 0
             model.reactions.get_by_id('Growth').lower_bound = 0
-            #medium["EX_glc__D_e"] = sub_uptake_rate
+            # model.reactions.get_by_id('Growth_Glucose').lower_bound = 0
+        
+            # make maximizing the glucose biomass reaction the objective function
+            model.objective = 'Growth_Glucose'
+            
+            # first, set all media components to surplus levels
+            medium = {key:1000 for (key,value) in model.medium.items()}
+            
+            #remove all non-glucose carbon sources:
             medium["EX_phenol_e"] = 0
             medium['EX_guaiacol_e'] = 0
             medium['EX_vanlt_e'] = 0
-#             medium['EX_tag'] = 0
-            model.reactions.get_by_id('EX_glc__D_e').upper_bound = 0#-sub_uptake_rate
-            #model.reactions.get_by_id('EX_glc__D_e').lower_bound = -sub_uptake_rate
-            model.reactions.get_by_id('EX_phenol_e').upper_bound = 0
-            model.reactions.get_by_id('EX_phenol_e').lower_bound = 0
-            model.reactions.get_by_id('EX_guaiacol_e').upper_bound = 0
-            model.reactions.get_by_id('EX_guaiacol_e').lower_bound = 0
-            model.reactions.get_by_id('EX_vanlt_e').upper_bound = 0
-            model.reactions.get_by_id('EX_vanlt_e').lower_bound = 0
-#             model.reactions.get_by_id('EX_tag').upper_bound = 0
-#             model.reactions.get_by_id('EX_tag').lower_bound = 0
+            
+            # allow for excess glucose
+            medium['EX_glc__D_e'] = 1000
         else:
             print('Unknown substrate: Please choose among phenol and glucose')
+            
+        # update model medium and solve the E-Flux2 problem
         model.medium = medium
-        eflux2sol = EFlux2(model, transcriptdf)
-    return eflux2sol
+        EFlux2_solution = EFlux2(model, transcript_df)
+        
+    return EFlux2_solution
+
+# ---------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------    
+# ---------------------------------------------------------------------------------    
+# ---------------------------------------------------------------------------------    
+# ---------------------------------------------------------------------------------    
+# ---------------------------------------------------------------------------------    
+# ---------------------------------------------------------------------------------    
+# ---------------------------------------------------------------------------------    
 
 #Function for predictions for three replicates and averaging the solutions and calculating the standard deviation:
 def eflux2_pred_for_three_reps(model, transcriptdf, linename1, linename2, linename3, substrate):
@@ -173,7 +140,7 @@ def eflux2_pred_for_three_reps(model, transcriptdf, linename1, linename2, linena
     print('running third replicate')
     eflux2sol_R3 = eflux2_pred(model, transdata_R3, linename3, substrate)
     
-    #EFLUX2 calculations:
+    #E-Flux2 calculations:
     eflux2sol_R1_df = pd.DataFrame(eflux2sol_R1.fluxes, columns=['fluxes'])
     eflux2sol_R2_df = pd.DataFrame(eflux2sol_R2.fluxes, columns=['fluxes'])
     eflux2sol_R3_df = pd.DataFrame(eflux2sol_R3.fluxes, columns=['fluxes'])
@@ -411,3 +378,101 @@ def scale_growth_to_sub(solgrowth, soluptake, sub_uptake_2comp):
 #     if reaction_id.startswith('reverse_'):
 #         reaction_id = reaction_id.split('reverse_')[1]
 #     return solution.stds[reaction_id]
+
+# def add_pred_fluxes_to_13c_df(observed_fluxes, predictions, stdpredictions, substrate, method, strain):
+#     predicted_fluxes = []
+#     predicted_stds = []
+#     scalepred_fluxes, scalepred_stds = scale_predictions(observed_fluxes, predictions, stdpredictions, substrate, method)
+#     for _, row in observed_fluxes.iterrows():
+#         reactions = row['Reaction Ids']
+#         flux_value_pred = 0
+#         std_value_pred = 0
+#         for x in [x.strip('() ') for x in reactions.split(' or ')]:
+#             and_split = [y.strip('() ') for y in x.split(' and ')]
+#             flux_value_pred += min([reaction_id_to_flux(v, scalepred_fluxes) for v in and_split])
+#             std_value_pred += min([get_std_value(v,scalepred_stds) for v in and_split])
+#         predicted_fluxes.append(flux_value_pred)
+#         predicted_stds.append(std_value_pred)
+
+#     observed_fluxes[str(method) + ' ' + str(strain) + ' Flux'] = predicted_fluxes
+#     observed_fluxes[str(method) + ' ' + str(strain) + ' Flux Std'] = predicted_stds
+    
+#     return observed_fluxes
+
+# def construct_transcript_df(transcript_df, trial):
+#     # isolate a single trial
+#     trial_transcript_df = transcript_df[transcript_df['Line Name'] == trial]
+    
+#     # remove unneeded columns
+#     trial_transcript_df = trial_transcript_df.filter(['Count', 'Measurement Type'])
+    
+#     # set index of dataframe to be gene names
+#     trial_transcript_df = trial_transcript_df.set_index('Measurement Type')
+    
+#     return trial_transcript_df
+
+#Transform data to dataframe with just index as gene identifiers and one column for values
+#!!!!TODO: Generalize for multiple time points
+#Function to construct df from E-Flux2 functions: Needs to be modified for multiple time points!!!!!
+# def construct_trans_df(transdata, linename):
+#     transdataWTPR1 = transdata[transdata['Line Name']==linename]
+#     transdataWTPR1new = transdataWTPR1.filter(['Count', 'Measurement Type'])
+#     transdataWTPR1new2 = transdataWTPR1new.set_index('Measurement Type')
+#     return transdataWTPR1new2
+
+#Function for E-Flux2 and SPOT Predictions:
+# def eflux2_pred(model, transcriptdf, linename, substrate, sub_uptake_rate=100):  
+#     with model:
+#         medium = model.medium
+#         if substrate=='phenol':
+#             model.objective = 'Growth_Phenol'
+#             medium = {key:1000 for (key,value) in model.medium.items()}
+#             model.reactions.get_by_id('Growth_Glucose').upper_bound = 0
+#             model.reactions.get_by_id('Growth_Glucose').lower_bound = 0
+#             model.reactions.get_by_id('Growth').upper_bound = 0
+#             model.reactions.get_by_id('Growth').lower_bound = 0
+#             medium["EX_glc__D_e"] = 0
+#             medium['EX_guaiacol_e'] = 0
+#             medium['EX_vanlt_e'] = 0
+#             medium['EX_phenol_e'] = 1000
+# #             medium['EX_tag'] = 0
+            
+#             model.reactions.get_by_id('EX_phenol_e').upper_bound = 0 #-sub_uptake_rate
+# #             model.reactions.get_by_id('EX_phenol_e').lower_bound = -sub_uptake_rate
+#             model.reactions.get_by_id('EX_glc__D_e').upper_bound = 0
+#             model.reactions.get_by_id('EX_glc__D_e').lower_bound = 0
+#             model.reactions.get_by_id('EX_guaiacol_e').upper_bound = 0
+#             model.reactions.get_by_id('EX_guaiacol_e').lower_bound = 0
+#             model.reactions.get_by_id('EX_vanlt_e').upper_bound = 0
+#             model.reactions.get_by_id('EX_vanlt_e').lower_bound = 0
+# #             model.reactions.get_by_id('EX_tag').upper_bound = 0
+# #             model.reactions.get_by_id('EX_tag').lower_bound = 0
+#             #medium["EX_phenol_e"] = sub_uptake_rate
+#         elif substrate=='glucose':
+#             model.objective = 'Growth_Glucose'
+#             medium = {key:1000 for (key,value) in model.medium.items()}
+#             model.reactions.get_by_id('Growth_Phenol').upper_bound = 0
+#             model.reactions.get_by_id('Growth_Phenol').lower_bound = 0
+#             model.reactions.get_by_id('Growth_Glucose').lower_bound = 0
+#             model.reactions.get_by_id('Growth').upper_bound = 0
+#             model.reactions.get_by_id('Growth').lower_bound = 0
+#             #medium["EX_glc__D_e"] = sub_uptake_rate
+#             medium["EX_phenol_e"] = 0
+#             medium['EX_guaiacol_e'] = 0
+#             medium['EX_vanlt_e'] = 0
+# #             medium['EX_tag'] = 0
+#             model.reactions.get_by_id('EX_glc__D_e').upper_bound = 0#-sub_uptake_rate
+#             #model.reactions.get_by_id('EX_glc__D_e').lower_bound = -sub_uptake_rate
+#             model.reactions.get_by_id('EX_phenol_e').upper_bound = 0
+#             model.reactions.get_by_id('EX_phenol_e').lower_bound = 0
+#             model.reactions.get_by_id('EX_guaiacol_e').upper_bound = 0
+#             model.reactions.get_by_id('EX_guaiacol_e').lower_bound = 0
+#             model.reactions.get_by_id('EX_vanlt_e').upper_bound = 0
+#             model.reactions.get_by_id('EX_vanlt_e').lower_bound = 0
+# #             model.reactions.get_by_id('EX_tag').upper_bound = 0
+# #             model.reactions.get_by_id('EX_tag').lower_bound = 0
+#         else:
+#             print('Unknown substrate: Please choose among phenol and glucose')
+#         model.medium = medium
+#         eflux2sol = EFlux2(model, transcriptdf)
+#     return eflux2sol

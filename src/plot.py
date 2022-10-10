@@ -5,6 +5,8 @@ from scipy.stats import linregress
 from sklearn.metrics import r2_score
 from matplotlib.offsetbox import (OffsetImage, AnnotationBbox, TextArea)
 
+# This function takes in a dataframe of flux values, and makes a scatter plot of
+#  predicted values vs. measured values
 def flux_prediction_scatterplot(fluxes_df, substrate, method, strain, output_dir='./'):
     # define column names
     prediction_column_name = f'{method} {strain} Flux'
@@ -88,8 +90,8 @@ def flux_prediction_scatterplot(fluxes_df, substrate, method, strain, output_dir
     
     # add labels to the plot
     plt.title(r''+ r"$\bf{" + str(method) + "}$"  + ': ' + f"$R^2$={filtered_r2:.2F} ({unfiltered_r2:.2F}$^\star$)", fontsize=18)
-    plt.ylabel(f'Predicted Flux (per 100 mmol of {substrate.capitalize()} Uptake)', fontsize=14)
-    plt.xlabel(f'13C MFA Flux (per 100 mmol of {substrate.capitalize()} Uptake)', fontsize=14)
+    plt.ylabel(f'Predicted Flux (per 100 mmol of {substrate.lower()} uptake)', fontsize=14)
+    plt.xlabel(f'13C MFA Flux (per 100 mmol of {substrate.lower()} uptake)', fontsize=14)
     plt.legend(fontsize=14)
     
     # save and show the plot

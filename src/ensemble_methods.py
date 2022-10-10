@@ -88,14 +88,14 @@ def transcript_value_for_rxn(model, transcriptomics_df, rxn):
         
 """
 def EFlux2(model, Transcriptomics):
+    # copy model and set tolerance
     eflux2_model = model.copy()
+    eflux2_model.tolerance = 1e-9
     
-        # Solve FBA to calculate the maximum biomass
-    # Set the bounds using the transcriptomics data    
+    # set the flux bounds for each reaction using the transcriptomics data    
     for rxn in eflux2_model.reactions:
         if 'EX_' not in str(rxn.id):
             if rxn.gene_reaction_rule:
-
                 if rxn.lower_bound < 0.0:
                     rxn.lower_bound = -transcript_value_for_rxn(model, Transcriptomics, rxn)
                 else:
@@ -111,29 +111,41 @@ def EFlux2(model, Transcriptomics):
                     rxn.lower_bound = -np.Inf
                 if rxn.upper_bound >= 1000:
                     rxn.upper_bound = np.Inf 
-    eflux2_model.tolerance = 1e-9
-    fba_sol = eflux2_model.optimize()
-    print('FBA status', fba_sol.status)
-    print('FBA solution', fba_sol.objective_value)
-    display(eflux2_model.objective)
+    
+    # solve FBA problem with transcriptomic bounds
+    fba_solution = eflux2_model.optimize()
+    print('FBA status', fba_solution.status)
+    print('FBA solution', fba_solution.objective_value)
+    
+    # display(eflux2_model.summary())
+    display(eflux2_model.summary(solution=fba_solution))
 
-    # Constrain the biomass to the optimal value
+    # constrain the biomass to the optimal value
     for r in eflux2_model.reactions:
         if r.objective_coefficient:
-            r.lower_bound = fba_sol.objective_value
+            r.lower_bound = fba_solution.objective_value
+            r.upper_bound = fba_solution.objective_value
 
+    # Inspect media
+#     display(eflux2_model.medium)
+    
     # Minimize the sum of squared flux values
     """Note: Because of quadratic objective still have to use cplex objective formulation.
     Optlang does not support quadratic type of constraints and objectives yet."""
-#         fva_result = cobra.flux_analysis.flux_variability_analysis(eflux2_model, eflux2_model.reactions)
-#         display(pd.DataFrame.from_dict(fva_result).T.round(5))
-    display(eflux2_model.medium)
     eflux2_model.objective = eflux2_model.problem.Objective(add([rxn.flux_expression**2 for rxn in eflux2_model.reactions]), direction='min')
-    eflux2_sol = eflux2_model.optimize()
-    print('EFlux2 status', eflux2_sol.status)
-    print('EFlux2 solution', eflux2_sol.objective_value)
+    
+    # solve the minimization of squared fluxes problem
+    EFlux2_solution = eflux2_model.optimize()
+    
+    #display(eflux2_model.summary())
+    display(eflux2_model.summary(solution=EFlux2_solution))
+
+    
+    print('E-Flux2 status', EFlux2_solution.status)
+    print('E-Flux2 solution', EFlux2_solution.objective_value)
+    print()
         
-    return eflux2_sol
+    return EFlux2_solution
 
 
 
@@ -256,3 +268,52 @@ def SPOT(model, Transcriptomics):
     display(model.medium)
     
     return(sol)
+
+def EFlux2_old(model, Transcriptomics):
+    # copy model and set tolerance
+    eflux2_model = model.copy()
+    eflux2_model.tolerance = 1e-9
+    
+    # set the flux bounds for each reaction using the transcriptomics data    
+    for rxn in eflux2_model.reactions:
+        if 'EX_' not in str(rxn.id):
+            if rxn.gene_reaction_rule:
+
+                if rxn.lower_bound < 0.0:
+                    rxn.lower_bound = -transcript_value_for_rxn(model, Transcriptomics, rxn)
+                else:
+                    pass
+                if rxn.upper_bound > 0.0:
+                    rxn.upper_bound = transcript_value_for_rxn(model, Transcriptomics, rxn)
+                else:
+                    pass
+            else:
+                """When there is no GPR, the arbitrary bounds are removed. 
+                Common arbitrary bound value of 1000 for E.coli, might be different depending on the model, e.g., 99999.0 for iMM904 yeast model in BiGG"""
+                if rxn.lower_bound <= -1000:
+                    rxn.lower_bound = -np.Inf
+                if rxn.upper_bound >= 1000:
+                    rxn.upper_bound = np.Inf 
+    
+    fba_solution = eflux2_model.optimize()
+    print('FBA status', fba_solution.status)
+    print('FBA solution', fba_solution.objective_value)
+    display(eflux2_model.objective)
+
+    # Constrain the biomass to the optimal value
+    for r in eflux2_model.reactions:
+        if r.objective_coefficient:
+            r.lower_bound = fba_solution.objective_value
+
+    # Minimize the sum of squared flux values
+    """Note: Because of quadratic objective still have to use cplex objective formulation.
+    Optlang does not support quadratic type of constraints and objectives yet."""
+#         fva_result = cobra.flux_analysis.flux_variability_analysis(eflux2_model, eflux2_model.reactions)
+#         display(pd.DataFrame.from_dict(fva_result).T.round(5))
+    display(eflux2_model.medium)
+    eflux2_model.objective = eflux2_model.problem.Objective(add([rxn.flux_expression**2 for rxn in eflux2_model.reactions]), direction='min')
+    eflux2_solution = eflux2_model.optimize()
+    print('E-Flux2 status', eflux2_sol.status)
+    print('E-Flux2 solution', eflux2_sol.objective_value)
+        
+    return eflux2_solution
