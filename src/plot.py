@@ -167,16 +167,33 @@ def growth_rate_scatterplot(predicted_growth_parameters_df, method, xlim, ylim, 
     r2 = r2_score(measured_rates, predicted_rates)
     # _, _, r2, _, _ = linregress(measured_rates, predicted_rates)
     
-    # calculate the mean absolute error between measured and predicted rates
-    errors = [abs(measured_rate - predicted_rates) for measured_rates, predicted_rates in zip(measured_rates, predicted_rates)]
-    mae = round(sum(errors) / len(measured_rates), 3)
+    # make a list of absolute errors between measured and predicted rates
+    absolute_errors = [
+        abs(predicted_rate - measured_rate) 
+        for predicted_rate, measured_rate 
+        in zip(predicted_rates, measured_rates)
+    ]
+    
+    # make a list of squared errors between measured and predicted rates
+    squared_errors = [
+        pow(predicted_rate - measured_rate, 2) 
+        for predicted_rate, measured_rate 
+        in zip(predicted_rates, measured_rates)
+    ]
+    
+    # calculate mean absolute error
+    mae = round(sum(absolute_errors) / len(measured_rates), 3)
+    
+    # calculate sum of squared errors
+    ssr = sum(squared_errors) / len(measured_rates)
+    print('ssr:', ssr)
     
     # define plot axes limits
     plt.xlim(xlim)
     plt.ylim(ylim)
 
     # add labels to the plot
-    plt.title(r''+ r"$\bf{" + str(method) + "}$" +': '+ f"$R^2$={r2:.2F}, " + f"MAE={mae:.2F} " , fontsize=18)
+    plt.title(r''+ r"$\bf{" + str(method) + "}$" +': '+ f"$R^2$={r2:.2F}, " + f"SSR={ssr:.4F} " , fontsize=18)
     plt.ylabel('Predicted (hr-1)', fontsize=18)
     plt.xlabel('Measured (hr-1)', fontsize=18)
     
