@@ -87,21 +87,23 @@ def get_trial_growth_parameters(growth_data, substrate_data, molar_mass, max_tim
                                  for biomass_produced in fitted_biomass_produced]
 
     # define a plotting area with two subplots
-    fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(8, 5))
+    fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(9, 5))
     
     # plot biomass data on the left
-    axes[0].set_title('Biomass growth')
-    axes[0].set_xlabel('Time (hr)')
-    axes[0].set_ylabel('Biomass (g/L)')
+    axes[0].set_title('Biomass Growth', fontsize=16)
+    axes[0].set_xlabel('Time (hr)', fontsize=14)
+    axes[0].set_ylabel('Biomass (g/L)', fontsize=14)
+    
     # plot experimental biomass concentration data points
     axes[0].plot(biomass_times, biomass_values, 'o', color='black')
     # plot fitted biomass concentration curve
     axes[0].plot(substrate_times, fitted_biomass_conc, '-', color='black')
     
     # plot substrate consumption data on the right
-    axes[1].set_title(f'{substrate} consumption')
-    axes[1].set_ylabel(f'{substrate} (mmol/L)')
-    axes[1].set_xlabel('Time (hr)')
+    axes[1].set_title(f'{substrate.capitalize()} Consumption', fontsize=16)
+    axes[1].set_ylabel(f'{substrate.capitalize()} (mmol/L)', fontsize=14)
+    axes[1].set_xlabel('Time (hr)', fontsize=14)
+
     # plot experimental substrate concentration data points
     axes[1].plot(substrate_times, substrate_values, 'o', color='blue')
     # plot fitted substrate concentration curve

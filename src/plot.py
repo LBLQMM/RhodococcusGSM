@@ -89,10 +89,14 @@ def flux_prediction_scatterplot(fluxes_df, substrate, method, strain, output_dir
     filtered_r2 = filtered_r * filtered_r
     
     # add labels to the plot
-    plt.title(r''+ r"$\bf{" + str(method) + "}$"  + ': ' + f"$R^2$={filtered_r2:.2F} ({unfiltered_r2:.2F}$^\star$)", fontsize=18)
-    plt.ylabel(f'Predicted Flux (per 100 mmol of {substrate.lower()} uptake)', fontsize=14)
-    plt.xlabel(f'13C MFA Flux (per 100 mmol of {substrate.lower()} uptake)', fontsize=14)
+    plt.title(r''+ r"$\bf{" + str(method) + "}$"  + ': ' + f"$R^2$={filtered_r2:.2F} ({unfiltered_r2:.2F}$^\star$)", fontsize=24)
+    plt.ylabel(f'Predicted Flux', fontsize=22)
+    plt.xlabel(f'13C-MFA Flux', fontsize=22)
     plt.legend(fontsize=14)
+    
+    # add styles to the plot
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     
     # save and show the plot
     plt.savefig(str(output_dir)+str(substrate)+'_'+str(method)+'_'+str(strain)+'_flux_scatter_plot.png')
@@ -161,7 +165,7 @@ def growth_rate_scatterplot(predicted_growth_parameters_df, method, xlim, ylim, 
     # loop over the data points, and add each point to the plot
     for measured_rate, predicted_rate, condition in zip(measured_rates, predicted_rates, conditions):
         ax.scatter(measured_rate, predicted_rate)
-        ax.annotate(condition, (measured_rate, predicted_rate), fontsize=14)
+        ax.annotate(condition, (measured_rate, predicted_rate), fontsize=18)
     
     # calculate r-squared value
     r2 = r2_score(measured_rates, predicted_rates)
@@ -193,9 +197,9 @@ def growth_rate_scatterplot(predicted_growth_parameters_df, method, xlim, ylim, 
     plt.ylim(ylim)
 
     # add labels to the plot
-    plt.title(r''+ r"$\bf{" + str(method) + "}$" +': '+ f"$R^2$={r2:.2F}, " + f"SSR={ssr:.4F} " , fontsize=18)
-    plt.ylabel('Predicted (hr-1)', fontsize=18)
-    plt.xlabel('Measured (hr-1)', fontsize=18)
+    plt.title(r''+ r"$\bf{" + str(method) + "}$" +': '+ f"$R^2$={r2:.2F}, " + f"SSR={ssr:.4F} " , fontsize=24)
+    plt.ylabel('Predicted (hr-1)', fontsize=22)
+    plt.xlabel('Measured (hr-1)', fontsize=22)
     
     # add styles to the plot
     plt.xticks(fontsize=14)

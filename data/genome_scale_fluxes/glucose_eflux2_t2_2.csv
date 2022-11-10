@@ -1144,7 +1144,7 @@ G3POA_BS,Glycerol 3 phosphate O acyltransferase,0.07 fa11coa_c + 0.17 fa12coa_c 
 G3PT,Glycerol-3-phosphatase,glyc3p_c + h2o_c --> glyc_c + pi_c,0.0
 G5SD,Glutamate-5-semialdehyde dehydrogenase,glu5p_c + h_c + nadph_c --> glu5sa_c + nadp_c + pi_c,0.0
 G5SD2,Glutamate 5 semialdehyde dehydrogenase,glu5p_c + h_c + nadh_c --> glu5sa_c + nad_c + pi_c,3.4499978877026445
-G6PBDH,Beta-D-Glucose-6-phosphate NADP+ 1-oxoreductase,g6p_B_c + nadp_c --> 6pgl_c + h_c + nadph_c,42.224219125106664
+G6PBDH,Beta-D-Glucose-6-phosphate NADP+ 1-oxoreductase,g6p_B_c + nadp_c --> 6pgl_c + h_c + nadph_c,42.22421912510667
 G6PDA,Glucosamine-6-phosphate deaminase,gam6p_c + h2o_c --> f6p_c + nh4_c,0.0
 G6PDH2r,Glucose 6-phosphate dehydrogenase,g6p_c + nadp_c <=> 6pgl_c + h_c + nadph_c,144.76979322273095
 G6PI2_2,,g6p_c <=> g6p_A_c,0.0
@@ -1219,9 +1219,9 @@ GHMT2r,"Glycine hydroxymethyltransferase, reversible",ser__L_c + thf_c <=> gly_c
 GK1,Guanylate kinase (GMP:ATP),atp_c + gmp_c <=> adp_c + gdp_c,5.922262884270694
 GLBRAN3,1 4 alpha glucan branching enzyme  glyg4n   bglyg4n ,glyg4n_c --> bglyg4n_c,0.0
 GLCADpts,,glc__aD_e + pep_c --> g6p_A_c + pyr_c,0.0
-GLCBPP,ATP D-glucose 6-phosphotransferase ,atp_c + glc_D_B_c --> adp_c + g6p_B_c + h_c,42.224219125106664
+GLCBPP,ATP D-glucose 6-phosphotransferase ,atp_c + glc_D_B_c --> adp_c + g6p_B_c + h_c,42.22421912510667
 GLCDpp,Glucose dehydrogenase (ubiquinone-8 as acceptor) (periplasm),glc__D_p + h2o_p + q8_c --> glcn_p + h_p + q8h2_c,19.0623901875482
-GLCE,Alpha-D-Glucose 1-epimerase ,glc__D_c <=> glc_D_B_c,42.224219125106664
+GLCE,Alpha-D-Glucose 1-epimerase ,glc__D_c <=> glc_D_B_c,42.22421912510667
 GLCMAN4,Hydrolysis of glucomannan,glcman4_c + 3.0 h2o_c --> glc__D_c + 3.0 man_c,0.0
 GLCMAN4abc,Glucomannan transport via ABC system,atp_c + glcman4_e + h2o_c --> adp_c + glcman4_c + h_c + pi_c,0.0
 GLCMAN6,Hydrolysis of glucomannan,glcman6_c + 5.0 h2o_c --> 2.0 glc__D_c + 4.0 man_c,0.0
@@ -1240,7 +1240,7 @@ GLCURS1,"Alpha-glucuronidase, de-branching xylan",h2o_c + xylan4_c <=> glcur_c +
 GLCURt2r,"D-glucuronate transport via proton symport, reversible",glcur_e + h_e --> glcur_c + h_c,0.0
 GLCURt2rpp,"D-glucuronate transport via proton symport, reversible (periplasm)",glcur_p + h_p --> glcur_c + h_c,0.0
 GLCURtex,D-glucuronat transport via diffusion (extracellular to periplasm),glcur_e <=> glcur_p,0.0
-GLCabc,D-glucose transport via ABC system,atp_c + glc__D_e + h2o_c --> adp_c + glc__D_c + h_c + pi_c,34.94771534383827
+GLCabc,D-glucose transport via ABC system,atp_c + glc__D_e + h2o_c --> adp_c + glc__D_c + h_c + pi_c,34.947715343838276
 GLCabcpp,D-glucose transport via ABC system (periplasm),atp_c + glc__D_p + h2o_c --> adp_c + glc__D_c + h_c + pi_c,5.278027390638343
 GLCpts,D-glucose transport via PEP:Pyr PTS,glc__D_e + pep_c --> g6p_c + pyr_c,102.89591262526001
 GLCptspp,D-glucose transport via PEP:Pyr PTS (periplasm),glc__D_p + pep_c --> g6p_c + pyr_c,45.70874206261561
