@@ -17,7 +17,7 @@ The code was written using python 3.7
 To run the code in this repository use the following commands:
 
 <ol>
-  <li>git clone https://github.com/LBLQMM/OpacusBiodesignGR.git</li>
+  <li>git clone https://github.com/LBLQMM/RhodococcusGSM.git</li>
   <li>cd OpacusBiodesignGR</li>
   <li>python3 -m venv venv</li>
   <li>source venv/bin/activate</li>
