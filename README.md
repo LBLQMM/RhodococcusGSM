@@ -36,7 +36,6 @@ To run the code in this repository use the following commands:
 - Notebook H: Calculates E-Flux2 solutions for phenol
 - Notebook I: Calculates SPOT solutions for phenol
 - Notebook J: Calculates ATP maintance using FBA
-- Under development -- Notebook K: Uses OptForce to predict gene knockouts
 
 ## Instructions for producing initial metabolic reconstruction from [.faa file][1]
 
