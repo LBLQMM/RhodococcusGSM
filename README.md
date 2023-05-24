@@ -57,7 +57,7 @@ The following versions were used to make [r_opacus_bologna_gapfilled.xml][2]:
 </ul>
 
 ## Reference
-This work has not been been peer reviewed.
+A High-Quality Genome-Scale Model for Rhodococcus opacus Metabolism. Garrett W. Roell, Christina Schenk, Winston E. Anthony, Rhiannon R. Carr, Aditya Ponukumati, Joonhoon Kim, Elena Akhmatskaya, Marcus Foston, Gautam Dantas, Tae Seok Moon, Yinjie J. Tang, and Hector García Martín. ACS Synthetic Biology Article ASAP. 10.1021/acssynbio.2c00618
 
 ## License
 
