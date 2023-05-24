@@ -1,6 +1,6 @@
-# A genome scale model for *Rhodococcus opacus*
+# A High-Quality Genome-Scale Model for *Rhodococcus opacus* Metabolism
 
-This repository contains notebooks that construct a genome scale model for *R. opacus* PD630 that includes 1773 genes, 2384 reactions, and 1581 metabolites. The model is then tested using constraint based reconstruction and analysis (COBRA) methods including flux balance analysis (FBA), parsimonious FBA (pFBA), E-Flux2, and SPOT (Simplified Pearson cOrrelation with Transcriptomic data). The model's predictions were tested against 13C-metabolic flux analysis data and measured growth rates.
+This repository contains notebooks that construct a genome scale model for *R. opacus* PD630 that includes 1773 genes, 2384 reactions, and 1581 metabolites. The model is then tested using constraint based reconstruction and analysis (COBRA) methods including flux balance analysis (FBA), parsimonious FBA (pFBA), E-Flux2, and SPOT (Simplified Pearson cOrrelation with Transcriptomic data). The model's predictions were tested against 13C-metabolic flux analysis data and measured growth rates. This work was published in [ACS Synthetic Biology](https://pubs.acs.org/doi/10.1021/acssynbio.2c00618).
 
 - [System Requirements](#system-requirements)
 - [Instructions for use](#instructions-for-use)
